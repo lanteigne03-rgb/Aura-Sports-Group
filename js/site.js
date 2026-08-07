@@ -216,7 +216,7 @@
     if (!window.matchMedia("(pointer: fine)").matches) return;
     if (!("requestAnimationFrame" in window)) return;
 
-    var ease = 0.16;
+    var ease = 0.28;
     var current = window.scrollY;
     var target = current;
     var raf = null;
@@ -234,7 +234,10 @@
       } else {
         raf = requestAnimationFrame(update);
       }
-      window.scrollTo(0, current);
+      // behavior: "instant" bypasses the page's CSS scroll-behavior:smooth,
+      // which would otherwise re-smooth every frame on top of this easing
+      // (causing sluggishness and a snap at the end).
+      window.scrollTo({ top: current, left: 0, behavior: "instant" });
     }
 
     window.addEventListener("wheel", function (e) {
