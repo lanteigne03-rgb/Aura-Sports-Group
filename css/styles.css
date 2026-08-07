@@ -568,6 +568,7 @@ ul {
   font-size: 34px;
   line-height: 1;
   color: var(--white-off);
+  text-transform: uppercase;
 }
 
 .card-pathway .content .explore {
