@@ -117,6 +117,50 @@
       }
     }
 
+    /* Hero scroll indicator — appears after 5s */
+    .scroll-indicator {
+      position: absolute;
+      left: 50%;
+      bottom: 36px;
+      z-index: 2;
+      opacity: 0;
+      transform: translateX(-50%) translateY(8px);
+      animation: scrollIndicatorIn 0.9s cubic-bezier(.16,.84,.44,1) forwards;
+      animation-delay: 5s;
+      pointer-events: none;
+    }
+    .scroll-line {
+      display: block;
+      width: 1px;
+      height: 46px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.14);
+      position: relative;
+    }
+    .scroll-line::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, transparent, var(--gold-400));
+      animation: scrollLineMove 1.9s ease-in-out infinite;
+      animation-delay: 5.4s;
+    }
+    @keyframes scrollIndicatorIn {
+      from { opacity: 0; transform: translateX(-50%) translateY(8px); }
+      to { opacity: 1; transform: translateX(-50%) translateY(0); }
+    }
+    @keyframes scrollLineMove {
+      0% { top: -100%; }
+      100% { top: 100%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .scroll-indicator { animation: none; opacity: 1; transform: translateX(-50%); }
+      .scroll-line::after { animation: none; content: none; }
+    }
+
     .stats-strip {
       display: flex;
       justify-content: space-between;
@@ -175,6 +219,9 @@
         <a class="btn btn--primary" href="contact.html">Start a Conversation</a>
         <a class="btn btn--ghost" href="about.html">Explore Aura</a>
       </div>
+    </div>
+    <div class="scroll-indicator" aria-hidden="true">
+      <span class="scroll-line"></span>
     </div>
   </header>
 
