@@ -325,9 +325,9 @@ ul {
   z-index: -1;
   left: 50%;
   top: 50%;
-  width: 120px;
-  height: 120px;
-  transform: translate(-50%, -50%) scale(0.25);
+  width: 60px;
+  height: 60px;
+  transform: translate(-50%, -50%) scale(0.3);
   background:
     repeating-conic-gradient(
       from 0deg,
@@ -353,7 +353,7 @@ ul {
 .nav-links a.nav-link:hover::before {
   transform: translate(-50%, -50%) scale(1);
   opacity: 0.9;
-  filter: blur(9px);
+  filter: blur(6px);
 }
 
 /* dropdown */
@@ -416,9 +416,9 @@ ul {
   z-index: -1;
   left: 50%;
   top: 50%;
-  width: 140px;
-  height: 140px;
-  transform: translate(-50%, -50%) scale(0.2);
+  width: 70px;
+  height: 70px;
+  transform: translate(-50%, -50%) scale(0.3);
   background:
     repeating-conic-gradient(
       from 0deg,
@@ -442,7 +442,7 @@ ul {
 .nav-cta:hover::before {
   transform: translate(-50%, -50%) scale(1);
   opacity: 0.7;
-  filter: blur(10px);
+  filter: blur(6px);
 }
 
 /* burger */
@@ -465,55 +465,15 @@ ul {
 
 /* ---------- Logo lockup ---------- */
 .logo-lockup {
-  position: relative;
-  z-index: 0;
   display: inline-flex;
   align-items: center;
   line-height: 0;
-}
-
-/* radial "zoom blur" burst behind the mark, matching the nav-link hover glow */
-.logo-lockup::before {
-  content: '';
-  position: absolute;
-  z-index: -1;
-  left: 50%;
-  top: 50%;
-  width: 200px;
-  height: 200px;
-  transform: translate(-50%, -50%) scale(0.2);
-  background:
-    repeating-conic-gradient(
-      from 0deg,
-      rgba(198, 165, 103, 0.85) 0deg 3deg,
-      rgba(198, 165, 103, 0) 3deg 16deg
-    ),
-    radial-gradient(circle, rgba(198, 165, 103, 0.9) 0%, rgba(198, 165, 103, 0.3) 40%, rgba(198, 165, 103, 0) 72%);
-  filter: blur(4px);
-  opacity: 0;
-  pointer-events: none;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s ease, filter 0.5s ease;
-}
-
-.logo-lockup:hover::before,
-.logo-lockup:focus-visible::before {
-  transform: translate(-50%, -50%) scale(1);
-  opacity: 0.85;
-  filter: blur(12px);
 }
 
 .logo-lockup .logo-mark {
   display: block;
   height: 40px;
   width: auto;
-  transition: filter 0.25s ease, transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.logo-lockup:hover .logo-mark,
-.logo-lockup:focus-visible .logo-mark {
-  transform: scale(1.06);
-  filter: drop-shadow(0 0 6px rgba(198, 165, 103, 0.85))
-    drop-shadow(0 0 16px rgba(198, 165, 103, 0.55));
 }
 
 .logo-lockup--footer .logo-mark { height: 64px; }
