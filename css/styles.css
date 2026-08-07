@@ -312,12 +312,16 @@ ul {
   color: var(--white-off);
   text-transform: uppercase;
   padding: 8px 0;
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
 }
 
-.nav-links a.nav-link:hover,
 .nav-links li.active > a.nav-link {
   color: var(--gold-400);
+}
+
+.nav-links a.nav-link:hover {
+  color: var(--gold-400);
+  text-shadow: 0 0 8px rgba(198, 165, 103, 0.75), 0 0 18px rgba(198, 165, 103, 0.45);
 }
 
 /* dropdown */
@@ -351,11 +355,13 @@ ul {
   color: var(--grey-300);
   text-transform: uppercase;
   white-space: nowrap;
+  transition: color 0.2s ease, text-shadow 0.2s ease, background 0.2s ease;
 }
 
 .nav-drop a:hover {
   color: var(--gold-400);
   background: rgba(198, 165, 103, 0.06);
+  text-shadow: 0 0 8px rgba(198, 165, 103, 0.75), 0 0 18px rgba(198, 165, 103, 0.45);
 }
 
 .nav-cta {
@@ -367,12 +373,14 @@ ul {
   letter-spacing: 1.98px;
   color: var(--white-off);
   text-transform: uppercase;
-  transition: background 0.2s ease, box-shadow 0.2s ease;
+  transition: background 0.2s ease, box-shadow 0.2s ease, color 0.2s ease, text-shadow 0.2s ease;
 }
 
 .nav-cta:hover {
+  color: var(--gold-300);
   background: rgba(198, 165, 103, 0.1);
   box-shadow: 0 0 14px rgba(198, 165, 103, 0.25);
+  text-shadow: 0 0 8px rgba(198, 165, 103, 0.6);
 }
 
 /* burger */
@@ -404,6 +412,13 @@ ul {
   display: block;
   height: 40px;
   width: auto;
+  transition: filter 0.25s ease;
+}
+
+.logo-lockup:hover .logo-mark,
+.logo-lockup:focus-visible .logo-mark {
+  filter: drop-shadow(0 0 6px rgba(198, 165, 103, 0.85))
+    drop-shadow(0 0 16px rgba(198, 165, 103, 0.55));
 }
 
 .logo-lockup--footer .logo-mark { height: 64px; }
