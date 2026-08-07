@@ -325,9 +325,13 @@ ul {
 }
 
 /* glow hugs each glyph's own outline (text-shadow is cast per-character)
-   rather than a generic shape behind the whole word */
+   rather than a generic shape behind the whole word; fill uses the same
+   metallic gold gradient as the hero's "Built for the Long Game." text */
 .nav-links a.nav-link:hover {
-  color: var(--gold-400);
+  background: var(--metal-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
   text-shadow:
     0 0 2px rgba(198, 165, 103, 0.9),
     0 0 6px rgba(198, 165, 103, 0.75),
@@ -401,6 +405,15 @@ ul {
     0 0 6px rgba(198, 165, 103, 0.75),
     0 0 12px rgba(198, 165, 103, 0.55),
     0 0 22px rgba(198, 165, 103, 0.35);
+}
+
+/* gradient fill lives on the inner label so the button's own translucent
+   fill/border (set above) isn't clipped away with the text */
+.nav-cta:hover .nav-cta-label {
+  background: var(--metal-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 /* burger */

@@ -47,7 +47,7 @@
     "</div></li>" +
     "<li data-page='news'><a class='nav-link' href='news.html'>News</a></li>" +
     "</ul>" +
-    "<a class='nav-cta' href='contact.html'>Contact Us</a>" +
+    "<a class='nav-cta' href='contact.html'><span class='nav-cta-label'>Contact Us</span></a>" +
     "</nav>";
 
   function ctaModule(headlineHTML) {
