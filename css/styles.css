@@ -485,7 +485,7 @@ ul {
 /* ---------- Barcode motif ---------- */
 .barcode {
   display: inline-flex;
-  gap: 3px;
+  gap: 0;
   align-items: center;
   opacity: 0.6;
 }
@@ -500,32 +500,16 @@ ul {
 .barcode--dim { opacity: 0.35; }
 .barcode--bright { opacity: 0.85; }
 
-/* bar widths pattern: 3 7 2 4 9 2 3 6 2 8 3 2 5 9 3 (+ long: 2 6 3 8 2 4 7 3 2 9) */
-.barcode i:nth-child(1)  { width: 3px; }
-.barcode i:nth-child(2)  { width: 7px; }
-.barcode i:nth-child(3)  { width: 2px; }
-.barcode i:nth-child(4)  { width: 4px; }
-.barcode i:nth-child(5)  { width: 9px; }
-.barcode i:nth-child(6)  { width: 2px; }
-.barcode i:nth-child(7)  { width: 3px; }
-.barcode i:nth-child(8)  { width: 6px; }
-.barcode i:nth-child(9)  { width: 2px; }
-.barcode i:nth-child(10) { width: 8px; }
-.barcode i:nth-child(11) { width: 3px; }
-.barcode i:nth-child(12) { width: 2px; }
-.barcode i:nth-child(13) { width: 5px; }
-.barcode i:nth-child(14) { width: 9px; }
-.barcode i:nth-child(15) { width: 3px; }
-.barcode i:nth-child(16) { width: 2px; }
-.barcode i:nth-child(17) { width: 6px; }
-.barcode i:nth-child(18) { width: 3px; }
-.barcode i:nth-child(19) { width: 8px; }
-.barcode i:nth-child(20) { width: 2px; }
-.barcode i:nth-child(21) { width: 4px; }
-.barcode i:nth-child(22) { width: 7px; }
-.barcode i:nth-child(23) { width: 3px; }
-.barcode i:nth-child(24) { width: 2px; }
-.barcode i:nth-child(25) { width: 9px; }
+/* bar widths + gaps measured from reference: widths 11 9 2 11 4 11 7 10 11, gaps 1 3 3 6 6 9 8 14 */
+.barcode i:nth-child(1) { width: 11px; margin-right: 1px; }
+.barcode i:nth-child(2) { width: 9px;  margin-right: 3px; }
+.barcode i:nth-child(3) { width: 2px;  margin-right: 3px; }
+.barcode i:nth-child(4) { width: 11px; margin-right: 6px; }
+.barcode i:nth-child(5) { width: 4px;  margin-right: 6px; }
+.barcode i:nth-child(6) { width: 11px; margin-right: 9px; }
+.barcode i:nth-child(7) { width: 7px;  margin-right: 8px; }
+.barcode i:nth-child(8) { width: 10px; margin-right: 14px; }
+.barcode i:nth-child(9) { width: 11px; margin-right: 0; }
 
 /* ---------- Section header ---------- */
 .section-header {

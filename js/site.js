@@ -6,12 +6,12 @@
 
   var BARCODE_SHORT =
     "<span class='barcode' aria-hidden='true'>" +
-    new Array(15 + 1).join("<i></i>") +
+    new Array(9 + 1).join("<i></i>") +
     "</span>";
 
   var BARCODE_LONG =
     "<span class='barcode' aria-hidden='true'>" +
-    new Array(25 + 1).join("<i></i>") +
+    new Array(9 + 1).join("<i></i>") +
     "</span>";
 
   function logo(cls) {
