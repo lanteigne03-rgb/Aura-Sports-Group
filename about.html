@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Aura Sports Group</title>
+  <meta name="description" content="Built different. Built for the athlete. Aura Sports Group combines football intelligence, strategic thinking and personal attention.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;500;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .story { background: var(--ink-850); display: flex; gap: 80px; align-items: center; }
+    .story .copy { flex: 1 1 0; min-width: 300px; }
+    .story .media-ph { flex: none; width: 320px; height: 400px; max-width: 100%; }
+    @media (max-width: 900px) { .story { flex-direction: column; align-items: flex-start; } }
+    .network { display: flex; flex-direction: column; gap: 40px; }
+    .principles { padding-top: 0; }
+  </style>
+</head>
+<body class="nav-solid">
+  <div id="nav-placeholder"></div>
+
+  <!-- Hero -->
+  <section class="page-hero" style="background: var(--ink-850); padding-bottom: 65px;">
+    <span class="eyebrow">About Aura</span>
+    <h1>Built Different.<br><span class="gold-text">Built for the Athlete.</span></h1>
+    <div style="display:flex; justify-content:flex-end; margin-top: 28px;">
+      <span class="barcode barcode--dim" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+    </div>
+  </section>
+
+  <!-- Story -->
+  <section class="section story">
+    <div class="copy reveal">
+      <div class="section-header">
+        <span class="eyebrow">The Firm</span>
+        <h2 class="display display--l">Experience That Compounds.</h2>
+        <p class="body-m">Aura is built on decades of experience, reputation and relationships across football — combining football intelligence, strategic thinking and personal attention to maximize opportunity and prepare clients for more than just the next contract.</p>
+      </div>
+    </div>
+    <div class="media-ph reveal" data-label="Firm Image">
+      <img src="assets/img/about-story.jpg" alt="Aura Sports Group">
+    </div>
+  </section>
+
+  <!-- Network -->
+  <section class="section network">
+    <div class="section-header reveal">
+      <span class="eyebrow">The Network</span>
+      <h2 class="display display--l">Relationships Across Every Level of the Game.</h2>
+      <p class="body-m">Long-standing relationships across professional and college football inform every decision.</p>
+    </div>
+    <div class="chip-row reveal">
+      <span class="chip">Head Coaches</span>
+      <span class="chip">General Managers</span>
+      <span class="chip">Personnel Departments</span>
+      <span class="chip">Scouting Departments</span>
+      <span class="chip">Football Operations</span>
+      <span class="chip">Ownership &amp; Executive Leadership</span>
+      <span class="chip">College Programs</span>
+    </div>
+  </section>
+
+  <!-- Principles -->
+  <section class="section principles">
+    <div class="grid-3 reveal">
+      <div class="card-service">
+        <span class="num">01</span>
+        <h3>Intelligence</h3>
+        <p>Better information, better decisions — relationships, analytics and market context behind every move.</p>
+      </div>
+      <div class="card-service">
+        <span class="num">02</span>
+        <h3>Protection</h3>
+        <p>Structure, preparation and leverage. Downside considered as carefully as upside.</p>
+      </div>
+      <div class="card-service">
+        <span class="num">03</span>
+        <h3>Long-Term Positioning</h3>
+        <p>Decisions that compound across a career — and a life beyond football.</p>
+      </div>
+    </div>
+  </section>
+
+  <div id="cta-placeholder" data-headline="Your career deserves<br>a long-term plan."></div>
+  <div id="footer-placeholder"></div>
+
+  <script src="js/site.js"></script>
+</body>
+</html>

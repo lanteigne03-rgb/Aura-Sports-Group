@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Aura Sports Group</title>
+  <meta name="description" content="Start the conversation. Tell us who you are and where you're headed. Every inquiry is read by the team — not a funnel.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;500;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .contact-form {
+      max-width: 864px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      align-items: center;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      width: 100%;
+    }
+    @media (max-width: 720px) { .form-row { grid-template-columns: 1fr; } }
+    .field { display: flex; flex-direction: column; gap: 10px; width: 100%; }
+    .field label {
+      color: var(--grey-400);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 1.98px;
+      text-transform: uppercase;
+      transition: color 0.2s ease;
+    }
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      background: var(--ink-750);
+      border: 1px solid var(--ink-600);
+      border-radius: 2px;
+      padding: 14px 16px;
+      color: var(--white-off);
+      font-family: var(--font-body);
+      font-size: 14px;
+      transition: border-color 0.2s ease;
+    }
+    .field input::placeholder,
+    .field textarea::placeholder { color: var(--grey-500); }
+    .field select:invalid { color: var(--grey-500); }
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      outline: none;
+      border-color: var(--gold-500);
+    }
+    .field:focus-within label { color: var(--gold-500); }
+    .field textarea { min-height: 120px; resize: vertical; }
+    .field--message { max-width: 420px; align-self: center; }
+    .form-note {
+      display: none;
+      color: var(--gold-400);
+      font-size: 13px;
+      letter-spacing: 0.5px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body class="nav-solid">
+  <div id="nav-placeholder"></div>
+
+  <!-- Hero -->
+  <section class="page-hero" style="background: var(--ink-850); padding-bottom: 90px;">
+    <span class="eyebrow">Contact</span>
+    <h1>Start the<br><span class="gold-text">Conversation.</span></h1>
+    <p class="sub">Tell us who you are and where you're headed. Every inquiry is read by the team — not a funnel.</p>
+  </section>
+
+  <!-- Form -->
+  <section class="section" style="padding-top: 80px; padding-bottom: 110px;">
+    <form class="contact-form" id="contactForm" novalidate>
+      <div class="form-row">
+        <div class="field">
+          <label for="f-name">Name</label>
+          <input id="f-name" name="name" type="text" placeholder="Your name" required>
+        </div>
+        <div class="field">
+          <label for="f-email">Email</label>
+          <input id="f-email" name="email" type="email" placeholder="you@example.com" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label for="f-phone">Phone</label>
+          <input id="f-phone" name="phone" type="tel" placeholder="(555) 555-5555">
+        </div>
+        <div class="field">
+          <label for="f-role">I am a…</label>
+          <select id="f-role" name="role" required>
+            <option value="" disabled selected>Select…</option>
+            <option>NFL Player</option>
+            <option>College Player</option>
+            <option>High School Player</option>
+            <option>Parent / Family</option>
+            <option>Coach</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label for="f-team">School / Team (Optional)</label>
+          <input id="f-team" name="team" type="text" placeholder="Your school or team">
+        </div>
+        <div class="field">
+          <label for="f-position">Position / Role (Optional)</label>
+          <input id="f-position" name="position" type="text" placeholder="Your position or role">
+        </div>
+      </div>
+      <div class="field field--message" style="width:100%;">
+        <label for="f-message">Message</label>
+        <textarea id="f-message" name="message" placeholder="Tell us about yourself and your goals."></textarea>
+      </div>
+      <button class="btn btn--primary" type="submit">Start a Conversation</button>
+      <p class="form-note" id="formNote">Thank you — your message is ready to send. Hook this form to your email service or backend to receive inquiries.</p>
+    </form>
+  </section>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="js/site.js"></script>
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      document.getElementById("formNote").style.display = "block";
+    });
+  </script>
+</body>
+</html>

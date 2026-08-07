@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Community &amp; Legacy — Aura Sports Group</title>
+  <meta name="description" content="Build a legacy that lives beyond the game. Community impact as part of long-term career development.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;500;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .community { display: flex; gap: 80px; align-items: center; }
+    .community .media-ph { flex: none; width: 320px; height: 400px; max-width: 100%; }
+    .community .items { flex: 1 1 0; min-width: 280px; display: flex; flex-direction: column; gap: 18px; }
+    .community .item {
+      display: flex; align-items: center; gap: 32px;
+      font-size: 17px; color: var(--grey-300);
+    }
+    .community .item::before {
+      content: "";
+      width: 18px; height: 1px;
+      background: var(--gold-500);
+      flex: none;
+    }
+    @media (max-width: 900px) { .community { flex-direction: column; align-items: flex-start; } }
+  </style>
+</head>
+<body class="nav-solid">
+  <div id="nav-placeholder"></div>
+
+  <!-- Hero -->
+  <section class="page-hero" style="background: var(--ink-850); padding-bottom: 90px;">
+    <span class="eyebrow">Community &amp; Legacy</span>
+    <h1>Build a Legacy That Lives<br><span class="gold-text">Beyond the Game.</span></h1>
+    <p class="sub">Community impact as part of long-term career development.</p>
+  </section>
+
+  <!-- Community -->
+  <section class="section community" style="padding-top: 80px; padding-bottom: 80px;">
+    <div class="media-ph reveal" data-label="Community Image">
+      <img src="assets/img/community.jpg" alt="">
+    </div>
+    <div class="items reveal">
+      <div class="item">Charitable initiatives</div>
+      <div class="item">Community appearances</div>
+      <div class="item">Youth programs</div>
+      <div class="item">Foundation development</div>
+      <div class="item">Local partnerships</div>
+      <div class="item">Causes meaningful to the athlete</div>
+      <div class="item">Legacy planning</div>
+    </div>
+  </section>
+
+  <!-- Post-Career -->
+  <section class="section" style="padding-top: 40px; padding-bottom: 100px;">
+    <div class="section-header reveal" style="max-width: 1000px;">
+      <span class="eyebrow">Post-Career Planning</span>
+      <h2 class="display display--l">The Career After the Career.</h2>
+      <p class="body-m">Throughout an athlete's career, Aura creates exposure to opportunities, industries, businesses and professional experiences aligned with their interests — so the transition out of football starts long before the last snap.</p>
+    </div>
+  </section>
+
+  <div id="cta-placeholder" data-headline="Your career deserves<br>a long-term plan."></div>
+  <div id="footer-placeholder"></div>
+
+  <script src="js/site.js"></script>
+</body>
+</html>

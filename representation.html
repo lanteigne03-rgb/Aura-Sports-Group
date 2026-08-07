@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Representation — Aura Sports Group</title>
+  <meta name="description" content="Every level. One standard. Aura's approach evolves as your career evolves — from the first opportunity to life beyond the game.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;500;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .stages { background: var(--ink-850); display: flex; flex-direction: column; gap: 24px; padding-top: 0; padding-bottom: 120px; }
+    .stage {
+      position: relative;
+      display: block;
+      height: 240px;
+      border: 1px solid var(--ink-700);
+      border-radius: 4px;
+      overflow: hidden;
+      background: linear-gradient(to right, #141216, var(--ink-850));
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+    .stage:hover { border-color: var(--gold-600); box-shadow: 0 0 24px rgba(198,165,103,0.12); }
+    .stage .ghost {
+      position: absolute;
+      left: 40px; top: 34px;
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 800;
+      font-size: 170px;
+      line-height: 1;
+      color: var(--ink-800);
+      opacity: 0.9;
+      user-select: none;
+    }
+    .stage .copy {
+      position: absolute;
+      left: 250px; top: 69px;
+      display: flex; flex-direction: column; gap: 10px;
+      max-width: 46%;
+    }
+    .stage .copy .kicker { color: var(--gold-500); font-size: 12px; font-weight: 500; letter-spacing: 2.64px; }
+    .stage .copy h2 {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: 30px;
+      line-height: 1.1;
+      text-transform: uppercase;
+      color: var(--white-off);
+    }
+    .stage .copy .explore { color: var(--grey-400); font-size: 12px; font-weight: 500; letter-spacing: 1.68px; transition: color 0.2s ease; }
+    .stage:hover .copy .explore { color: var(--gold-400); }
+    .stage .media {
+      position: absolute;
+      right: 0; top: 0; bottom: 0;
+      width: 420px;
+      border: none;
+      border-radius: 0;
+    }
+    .stage .media::before {
+      content: "";
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 200px;
+      z-index: 2;
+      background: linear-gradient(to right, #0f0f12, rgba(15,15,18,0));
+    }
+    @media (max-width: 1080px) {
+      .stage { height: auto; min-height: 220px; }
+      .stage .media { display: none; }
+      .stage .copy { position: static; padding: 48px 32px 48px 170px; max-width: none; }
+      .stage .ghost { font-size: 130px; }
+    }
+    @media (max-width: 640px) {
+      .stage .copy { padding: 40px 24px; }
+      .stage .ghost { display: none; }
+    }
+  </style>
+</head>
+<body class="nav-solid">
+  <div id="nav-placeholder"></div>
+
+  <!-- Hero -->
+  <section class="page-hero" style="background: var(--ink-850); padding-bottom: 100px;">
+    <span class="eyebrow">Representation</span>
+    <h1>Every Level.<br><span class="gold-text">One Standard.</span></h1>
+    <p class="sub">Aura's approach evolves as your career evolves — from the first opportunity to life beyond the game.</p>
+  </section>
+
+  <!-- Career Stages -->
+  <section class="section stages">
+    <a class="stage reveal" href="high-school.html">
+      <span class="ghost" aria-hidden="true">01</span>
+      <div class="copy">
+        <span class="kicker">HIGH SCHOOL</span>
+        <h2>Start With a Plan.</h2>
+        <span class="explore">EXPLORE →</span>
+      </div>
+      <div class="media media-ph" data-label="High School Football Image">
+        <img src="assets/img/high-school-football.jpg" alt="">
+      </div>
+    </a>
+    <a class="stage reveal" href="college-nil.html">
+      <span class="ghost" aria-hidden="true">02</span>
+      <div class="copy">
+        <span class="kicker">COLLEGE / NIL</span>
+        <h2>NIL. Done Right.</h2>
+        <span class="explore">EXPLORE →</span>
+      </div>
+      <div class="media media-ph" data-label="College Football Image">
+        <img src="assets/img/college-football.jpg" alt="">
+      </div>
+    </a>
+    <a class="stage reveal" href="nfl.html">
+      <span class="ghost" aria-hidden="true">03</span>
+      <div class="copy">
+        <span class="kicker">NFL</span>
+        <h2>The Next Contract Is Only Part of the Plan.</h2>
+        <span class="explore">EXPLORE →</span>
+      </div>
+      <div class="media media-ph" data-label="NFL Action Image">
+        <img src="assets/img/nfl-action.jpg" alt="">
+      </div>
+    </a>
+    <a class="stage reveal" href="coaches.html">
+      <span class="ghost" aria-hidden="true">04</span>
+      <div class="copy">
+        <span class="kicker">COACHES</span>
+        <h2>Representation for the People Who Lead the Game.</h2>
+        <span class="explore">EXPLORE →</span>
+      </div>
+      <div class="media media-ph" data-label="Coach Image">
+        <img src="assets/img/coach.jpg" alt="">
+      </div>
+    </a>
+  </section>
+
+  <div id="cta-placeholder" data-headline="Your career deserves<br>a long-term plan."></div>
+  <div id="footer-placeholder"></div>
+
+  <script src="js/site.js"></script>
+</body>
+</html>

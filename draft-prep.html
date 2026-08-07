@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Draft Prep — Aura Sports Group</title>
+  <meta name="description" content="The draft isn't a moment. It's a process. Performance, environment, interviews and intel — one connected draft preparation program.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;500;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .dp-hero {
+      position: relative;
+      padding: 240px var(--pad-x) 120px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+      background: radial-gradient(90% 70% at 50% 0%, rgba(198,165,103,0.08), transparent 60%), var(--ink-950);
+    }
+    .dp-hero h1 {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 800;
+      font-size: clamp(48px, 6.4vw, 92px);
+      line-height: 1;
+      text-transform: uppercase;
+      color: var(--white-off);
+    }
+    .dp-hero .streak {
+      position: absolute;
+      bottom: 60px; left: 50%;
+      transform: translateX(-50%);
+      width: min(1000px, 80vw);
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold-500), transparent);
+    }
+    .dp-hero .barcode--gold i { background: var(--gold-500); }
+
+    .part {
+      display: flex;
+      gap: 80px;
+      align-items: center;
+      padding: 100px var(--pad-x);
+    }
+    .part:nth-child(even) { background: var(--ink-850); }
+    .part .copy { flex: 1 1 0; min-width: 300px; display: flex; flex-direction: column; gap: 18px; }
+    .part .num-row { display: flex; align-items: center; gap: 16px; }
+    .part .num-row .ghost {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 800;
+      font-size: 72px;
+      line-height: 1;
+      background: var(--metal-gold);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .part .num-row h2 {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 800;
+      font-size: 44px;
+      line-height: 1.04;
+      text-transform: uppercase;
+      color: var(--white-off);
+    }
+    .part .tagline {
+      font-family: var(--font-display);
+      font-size: 22px;
+      line-height: 1.2;
+      color: var(--gold-500);
+      text-transform: uppercase;
+    }
+    .part .items { font-size: 15px; line-height: 1.8; color: var(--grey-400); }
+    .part .media-ph { flex: none; width: 480px; height: 270px; max-width: 100%; }
+    @media (max-width: 1080px) { .part { flex-direction: column; align-items: flex-start; } .part.flip { flex-direction: column; } }
+    .part.flip { flex-direction: row-reverse; }
+  </style>
+</head>
+<body class="nav-solid">
+  <div id="nav-placeholder"></div>
+
+  <!-- Hero -->
+  <section class="dp-hero">
+    <span class="eyebrow">Draft Prep</span>
+    <h1>The Draft Isn't a Moment.<br><span class="gold-text">It's a Process.</span></h1>
+    <span class="barcode barcode--gold" style="opacity:0.6;" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+    <span class="streak" aria-hidden="true"></span>
+  </section>
+
+  <!-- 01 Performance -->
+  <section class="part">
+    <div class="copy reveal">
+      <div class="num-row"><span class="ghost">01</span><h2>Performance</h2></div>
+      <p class="tagline">Training and testing.</p>
+      <p class="items">Combine preparation · position-specific training · movement and testing preparation · football-specific development</p>
+    </div>
+    <div class="media-ph reveal" data-label="Performance Image">
+      <img src="assets/img/draft-performance.jpg" alt="">
+    </div>
+  </section>
+
+  <!-- 02 Environment -->
+  <section class="part flip">
+    <div class="copy reveal">
+      <div class="num-row"><span class="ghost">02</span><h2>Environment</h2></div>
+      <p class="tagline">Everything handled. Nothing in the way.</p>
+      <p class="items">Training-location logistics · transportation · premium housing · daily routine</p>
+    </div>
+    <div class="media-ph reveal" data-label="Environment Image">
+      <img src="assets/img/draft-environment.jpg" alt="">
+    </div>
+  </section>
+
+  <!-- 03 Interviews -->
+  <section class="part">
+    <div class="copy reveal">
+      <div class="num-row"><span class="ghost">03</span><h2>Interviews</h2></div>
+      <p class="tagline">Prepared for every room.</p>
+      <p class="items">Team-specific interview prep · mock interviews · communication training · message control · personal story development · film discussion · football IQ · difficult-question preparation</p>
+    </div>
+    <div class="media-ph reveal" data-label="Interviews Image">
+      <img src="assets/img/draft-interviews.jpg" alt="">
+    </div>
+  </section>
+
+  <!-- 04 Intel -->
+  <section class="part flip">
+    <div class="copy reveal">
+      <div class="num-row"><span class="ghost">04</span><h2>Intel</h2></div>
+      <p class="tagline">Information is leverage.</p>
+      <p class="items">Perception · concerns · interest · fit · scheme · medical questions · interview feedback · draft positioning</p>
+    </div>
+    <div class="media-ph reveal" data-label="Intel Image">
+      <img src="assets/img/draft-intel.jpg" alt="">
+    </div>
+  </section>
+
+  <div id="cta-placeholder" data-headline="Your career deserves<br>a long-term plan."></div>
+  <div id="footer-placeholder"></div>
+
+  <script src="js/site.js"></script>
+</body>
+</html>

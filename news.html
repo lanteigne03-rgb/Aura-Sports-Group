@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News — Aura Sports Group</title>
+  <meta name="description" content="Aura in the news — agency news, NFL, college football, business and media coverage.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;500;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .filters { display: flex; flex-wrap: wrap; gap: 10px; }
+    .filter {
+      padding: 10px 18px;
+      border: 1px solid var(--ink-700);
+      border-radius: 999px;
+      background: none;
+      color: var(--grey-300);
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .articles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    @media (max-width: 1080px) { .articles-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 720px) { .articles-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body class="nav-solid">
+  <div id="nav-placeholder"></div>
+
+  <!-- Hero -->
+  <section class="page-hero" style="background: var(--ink-850); padding-bottom: 90px;">
+    <span class="eyebrow">Media</span>
+    <h1>Aura in<br>the News</h1>
+  </section>
+
+  <!-- Category filters -->
+  <section class="section" style="padding-top: 60px; padding-bottom: 20px;">
+    <div class="filters">
+      <button class="filter active" data-filter="all">All</button>
+      <button class="filter" data-filter="agency">Agency News</button>
+      <button class="filter" data-filter="nfl">NFL</button>
+      <button class="filter" data-filter="college">College Football</button>
+      <button class="filter" data-filter="business">Business</button>
+      <button class="filter" data-filter="media">Media</button>
+    </div>
+  </section>
+
+  <!-- Articles (placeholders — replace with real coverage) -->
+  <section class="section" style="padding-top: 40px; padding-bottom: 100px;">
+    <div class="articles-grid">
+      <a class="card-article" href="#" data-category="agency">
+        <div class="thumb"></div>
+        <div class="body"><span class="pub">[ PUBLICATION ]</span><h3>[ Headline ]</h3><span class="date">[ Date ]</span></div>
+      </a>
+      <a class="card-article" href="#" data-category="nfl">
+        <div class="thumb"></div>
+        <div class="body"><span class="pub">[ PUBLICATION ]</span><h3>[ Headline ]</h3><span class="date">[ Date ]</span></div>
+      </a>
+      <a class="card-article" href="#" data-category="college">
+        <div class="thumb"></div>
+        <div class="body"><span class="pub">[ PUBLICATION ]</span><h3>[ Headline ]</h3><span class="date">[ Date ]</span></div>
+      </a>
+      <a class="card-article" href="#" data-category="business">
+        <div class="thumb"></div>
+        <div class="body"><span class="pub">[ PUBLICATION ]</span><h3>[ Headline ]</h3><span class="date">[ Date ]</span></div>
+      </a>
+      <a class="card-article" href="#" data-category="media">
+        <div class="thumb"></div>
+        <div class="body"><span class="pub">[ PUBLICATION ]</span><h3>[ Headline ]</h3><span class="date">[ Date ]</span></div>
+      </a>
+      <a class="card-article" href="#" data-category="agency">
+        <div class="thumb"></div>
+        <div class="body"><span class="pub">[ PUBLICATION ]</span><h3>[ Headline ]</h3><span class="date">[ Date ]</span></div>
+      </a>
+    </div>
+  </section>
+
+  <div id="cta-placeholder" data-headline="Your career deserves<br>a long-term plan."></div>
+  <div id="footer-placeholder"></div>
+
+  <script src="js/site.js"></script>
+</body>
+</html>

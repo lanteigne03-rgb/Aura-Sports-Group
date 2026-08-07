@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aura Sports Group — Elite Football Representation</title>
+  <meta name="description" content="Elite football representation, built for the long game. Aura Sports Group represents premier athletes and coaches at every stage of the game.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;500;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* Home-only styles */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 640px;
+      max-height: 900px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .hero-media {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(120% 90% at 50% 10%, rgba(198,165,103,0.10), transparent 55%),
+        radial-gradient(80% 60% at 80% 80%, rgba(46,46,54,0.6), transparent 60%),
+        var(--ink-900);
+    }
+    .hero-media video {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .hero-scrim {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom,
+        rgba(8,8,10,0.2) 0%,
+        rgba(8,8,10,0.55) 64%,
+        var(--ink-950) 89%);
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      align-items: center;
+      text-align: center;
+      padding: 0 24px;
+    }
+    .hero-inner h1 {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 800;
+      font-size: clamp(40px, 4.6vw, 64px);
+      line-height: 1;
+      text-transform: uppercase;
+      color: var(--white-off);
+    }
+    .hero-ctas { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+
+    .stats-strip {
+      display: flex;
+      justify-content: space-between;
+      gap: 32px;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+    .stat-item { display: flex; flex-direction: column; gap: 8px; }
+    .stat-item .caption {
+      color: var(--grey-400);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 2.4px;
+      text-transform: uppercase;
+    }
+
+    .credibility { background: var(--ink-850); display: flex; flex-direction: column; gap: 72px; align-items: center; }
+    .who { background: var(--ink-850); display: flex; flex-direction: column; gap: 56px; }
+    .pathways { display: flex; gap: 24px; }
+    @media (max-width: 1080px) { .pathways { flex-wrap: wrap; } .card-pathway { flex: 1 1 45%; min-width: 260px; } }
+    @media (max-width: 640px) { .card-pathway { flex: 1 1 100%; } }
+
+    .intel { background: var(--ink-850); display: flex; gap: 80px; align-items: center; }
+    .intel .copy { flex: 1 1 0; min-width: 300px; }
+    .intel .visual { flex: none; width: 480px; max-width: 100%; }
+    @media (max-width: 1080px) { .intel { flex-direction: column; align-items: flex-start; } }
+
+    .news-home { background: var(--ink-950); display: flex; flex-direction: column; gap: 48px; }
+    .news-home .header-row {
+      display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+    }
+    .articles { display: flex; gap: 24px; }
+    @media (max-width: 900px) { .articles { flex-direction: column; } }
+  </style>
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+
+  <!-- 01 · Hero -->
+  <header class="hero">
+    <div class="hero-media">
+      <!-- Drop your hero film at assets/video/hero.mp4 (21:9, autoplay muted loop) -->
+      <video autoplay muted loop playsinline poster="" onerror="this.remove()">
+        <source src="assets/video/hero.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero-scrim"></div>
+    <div class="hero-inner">
+      <h1>
+        Elite Football Representation.<br>
+        <span class="gold-text">Built for the Long Game.</span>
+      </h1>
+      <div class="hero-ctas">
+        <a class="btn btn--primary" href="contact.html">Start a Conversation</a>
+        <a class="btn btn--ghost" href="about.html">Explore Aura</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 02 · Credibility -->
+  <section class="section credibility">
+    <div class="section-header center reveal">
+      <span class="eyebrow">The Agency</span>
+      <h2 class="display display--l" style="text-align:center;">More Than Representation.</h2>
+    </div>
+    <div class="stats-strip reveal">
+      <div class="stat-item">
+        <span class="display--stat display gold-text">50+</span>
+        <span class="caption">Years of Experience</span>
+      </div>
+      <div class="stat-item">
+        <span class="display--stat display gold-text">50+</span>
+        <span class="caption">Draft Picks in the Last Decade</span>
+      </div>
+      <div class="stat-item">
+        <span class="display--stat display gold-text">40+</span>
+        <span class="caption">All-Pro Selections</span>
+      </div>
+      <div class="stat-item">
+        <span class="display--stat display gold-text">50</span>
+        <span class="caption">Pro Bowl Selections</span>
+      </div>
+    </div>
+    <span class="barcode" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+  </section>
+
+  <!-- 04 · Who We Represent -->
+  <section class="section who">
+    <div class="section-header reveal">
+      <span class="eyebrow">Who We Represent</span>
+      <h2 class="display display--l">Every Level. One Standard.</h2>
+    </div>
+    <div class="pathways reveal">
+      <a class="card-pathway" href="nfl.html">
+        <div class="media media-ph" data-label="NFL Action Image">
+          <img src="assets/img/nfl-action.jpg" alt="NFL player in action">
+        </div>
+        <div class="content">
+          <span class="kicker">REPRESENTATION</span>
+          <h3>NFL</h3>
+          <span class="explore">EXPLORE</span>
+        </div>
+        <span class="gold-edge"></span>
+      </a>
+      <a class="card-pathway" href="college-nil.html">
+        <div class="media media-ph" data-label="College Football Image">
+          <img src="assets/img/college-football.jpg" alt="College football player">
+        </div>
+        <div class="content">
+          <span class="kicker">REPRESENTATION</span>
+          <h3>College / NIL</h3>
+          <span class="explore">EXPLORE</span>
+        </div>
+        <span class="gold-edge"></span>
+      </a>
+      <a class="card-pathway" href="high-school.html">
+        <div class="media media-ph" data-label="High School Football Image">
+          <img src="assets/img/high-school-football.jpg" alt="High school football player">
+        </div>
+        <div class="content">
+          <span class="kicker">REPRESENTATION</span>
+          <h3>High School</h3>
+          <span class="explore">EXPLORE</span>
+        </div>
+        <span class="gold-edge"></span>
+      </a>
+      <a class="card-pathway" href="coaches.html">
+        <div class="media media-ph" data-label="Coach Image">
+          <img src="assets/img/coach.jpg" alt="Football coach">
+        </div>
+        <div class="content">
+          <span class="kicker">REPRESENTATION</span>
+          <h3>Coaches</h3>
+          <span class="explore">EXPLORE</span>
+        </div>
+        <span class="gold-edge"></span>
+      </a>
+    </div>
+    <div style="display:flex; justify-content:flex-end;">
+      <span class="barcode barcode--dim" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+    </div>
+  </section>
+
+  <!-- 06 · Relationships + Intelligence -->
+  <section class="section intel">
+    <div class="copy reveal">
+      <div class="section-header">
+        <span class="eyebrow">Relationships + Intelligence</span>
+        <h2 class="display display--l">The Strongest Decisions Start with Better Information.</h2>
+        <p class="body-m">Decades of relationships across professional and college football with coaches, personnel departments, scouting leadership, decision-makers and executives. These inform every recommendation Aura makes.</p>
+      </div>
+    </div>
+    <div class="visual reveal" aria-hidden="true">
+      <svg viewBox="0 0 480 360" width="100%" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="goldBar" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#AA812F"/>
+            <stop offset="0.33" stop-color="#E7C576"/>
+            <stop offset="0.62" stop-color="#B2862A"/>
+            <stop offset="1" stop-color="#E9D8AC"/>
+          </linearGradient>
+        </defs>
+        <g stroke="#222228" stroke-width="1">
+          <line x1="0" y1="60" x2="480" y2="60"/>
+          <line x1="0" y1="120" x2="480" y2="120"/>
+          <line x1="0" y1="180" x2="480" y2="180"/>
+          <line x1="0" y1="240" x2="480" y2="240"/>
+          <line x1="0" y1="300" x2="480" y2="300"/>
+        </g>
+        <g fill="url(#goldBar)" opacity="0.9">
+          <rect x="40"  y="200" width="28" height="120" rx="1"/>
+          <rect x="100" y="130" width="28" height="190" rx="1"/>
+          <rect x="160" y="170" width="28" height="150" rx="1"/>
+          <rect x="220" y="80"  width="28" height="240" rx="1"/>
+          <rect x="280" y="115" width="28" height="205" rx="1"/>
+          <rect x="340" y="40"  width="28" height="280" rx="1"/>
+          <rect x="400" y="65"  width="28" height="255" rx="1"/>
+        </g>
+        <polyline points="20,260 110,205 200,225 260,140 330,170 440,55"
+          fill="none" stroke="#E9D8AC" stroke-width="2" opacity="0.9"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- 07 · Aura In The News -->
+  <section class="section news-home">
+    <div class="header-row reveal">
+      <div class="section-header">
+        <span class="eyebrow">Media</span>
+        <h2 class="display display--l">Aura in the News</h2>
+      </div>
+      <span class="barcode barcode--dim" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+    </div>
+    <div class="articles reveal">
+      <a class="card-article" href="news.html">
+        <div class="thumb"></div>
+        <div class="body">
+          <span class="pub">[ PUBLICATION ]</span>
+          <h3>[ Headline ]</h3>
+          <span class="date">[ Date ]</span>
+        </div>
+      </a>
+      <a class="card-article" href="news.html">
+        <div class="thumb"></div>
+        <div class="body">
+          <span class="pub">[ PUBLICATION ]</span>
+          <h3>[ Headline ]</h3>
+          <span class="date">[ Date ]</span>
+        </div>
+      </a>
+      <a class="card-article" href="news.html">
+        <div class="thumb"></div>
+        <div class="body">
+          <span class="pub">[ PUBLICATION ]</span>
+          <h3>[ Headline ]</h3>
+          <span class="date">[ Date ]</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <div id="cta-placeholder" data-headline="Your career deserves<br>a long-term plan."></div>
+  <div id="footer-placeholder"></div>
+
+  <script src="js/site.js"></script>
+</body>
+</html>
