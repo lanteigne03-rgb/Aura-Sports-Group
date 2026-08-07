@@ -94,7 +94,10 @@
       display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap;
     }
     .articles { display: flex; gap: 24px; }
-    @media (max-width: 900px) { .articles { flex-direction: column; } }
+    @media (max-width: 900px) {
+      .articles { flex-direction: column; }
+      .card-article { flex: 1 1 auto; }
+    }
   </style>
 </head>
 <body>
