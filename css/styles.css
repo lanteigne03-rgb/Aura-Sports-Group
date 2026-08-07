@@ -385,45 +385,21 @@ ul {
 /* ---------- Logo lockup ---------- */
 .logo-lockup {
   display: inline-flex;
-  flex-direction: column;
   align-items: center;
-  line-height: 1;
-  gap: 4px;
+  line-height: 0;
 }
 
-.logo-lockup .logo-aura {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 800;
-  font-size: 34px;
-  letter-spacing: 0.06em;
-  color: var(--white-pure);
+.logo-lockup .logo-mark {
+  display: block;
+  height: 40px;
+  width: auto;
 }
 
-.logo-lockup .logo-sub {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 8px;
-  font-weight: 600;
-  letter-spacing: 3px;
-  color: var(--gold-500);
-  text-transform: uppercase;
-  white-space: nowrap;
-}
+.logo-lockup--footer .logo-mark { height: 64px; }
 
-.logo-lockup .logo-sub::before,
-.logo-lockup .logo-sub::after {
-  content: "";
-  height: 1px;
-  width: 22px;
-  background: var(--gold-600);
+@media (max-width: 900px) {
+  .logo-lockup .logo-mark { height: 32px; }
 }
-
-.logo-lockup--footer .logo-aura { font-size: 50px; }
-.logo-lockup--footer .logo-sub { font-size: 11px; letter-spacing: 4px; }
-.logo-lockup--footer .logo-sub::before,
-.logo-lockup--footer .logo-sub::after { width: 34px; }
 
 /* ---------- Barcode motif ---------- */
 .barcode {

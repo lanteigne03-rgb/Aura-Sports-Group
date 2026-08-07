@@ -17,8 +17,7 @@
   function logo(cls) {
     return (
       "<a class='logo-lockup " + (cls || "") + "' href='index.html' aria-label='Aura Sports Group — Home'>" +
-      "<span class='logo-aura'>AURA</span>" +
-      "<span class='logo-sub'>Sports Group</span>" +
+      "<img class='logo-mark' src='assets/img/aura-logo.svg' alt='Aura Sports Group' width='999' height='293'>" +
       "</a>"
     );
   }
