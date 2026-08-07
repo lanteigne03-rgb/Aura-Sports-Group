@@ -598,7 +598,7 @@ ul {
 /* College card: enlarged photo, shifted left */
 .card-pathway .media img.college-photo {
   transform: scale(1.25);
-  object-position: 55% 5%;
+  object-position: 55% 0%;
 }
 
 .card-pathway:hover .media img.college-photo {
