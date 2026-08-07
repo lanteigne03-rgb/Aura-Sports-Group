@@ -5,17 +5,74 @@
 
 /* ---------- Fonts ---------- */
 /* Display face in Figma is "Dharma Gothic E ExBold Italic" (commercial).
-   Fallback: Anton (Google Fonts) with synthesized oblique.
-   If you own Dharma Gothic E, drop the woff2 files in assets/fonts
-   and uncomment the @font-face below. */
-/*
+   Licensed woff2 files live in assets/fonts. Fallback: Anton (Google Fonts)
+   with synthesized oblique, used if these fail to load. */
 @font-face {
   font-family: "Dharma Gothic E";
-  src: url("../assets/fonts/DharmaGothicE-ExBoldItalic.woff2") format("woff2");
+  src: url("../assets/fonts/DharmaGothicE_ExLight_R.woff2") format("woff2");
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Dharma Gothic E";
+  src: url("../assets/fonts/DharmaGothicE_ExLight_I.woff2") format("woff2");
+  font-weight: 200;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Dharma Gothic E";
+  src: url("../assets/fonts/DharmaGothicE_Light_R.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Dharma Gothic E";
+  src: url("../assets/fonts/DharmaGothicE_Light_I.woff2") format("woff2");
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Dharma Gothic E";
+  src: url("../assets/fonts/DharmaGothicE_Regular_R.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Dharma Gothic E";
+  src: url("../assets/fonts/DharmaGothicE_Regular_I.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Dharma Gothic E";
+  src: url("../assets/fonts/DharmaGothicE_Bold_R.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Dharma Gothic E";
+  src: url("../assets/fonts/DharmaGothicE_ExBold_R.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Dharma Gothic E";
+  src: url("../assets/fonts/DharmaGothicE_ExBold_I.woff2") format("woff2");
   font-weight: 800;
   font-style: italic;
 }
-*/
+@font-face {
+  font-family: "Dharma Gothic E";
+  src: url("../assets/fonts/DharmaGothicE_Heavy_R.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Dharma Gothic E";
+  src: url("../assets/fonts/DharmaGothicE_Heavy_I.woff2") format("woff2");
+  font-weight: 900;
+  font-style: italic;
+}
 
 :root {
   /* ink */
