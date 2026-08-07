@@ -112,6 +112,7 @@
     initReveal();
     initMediaFallbacks();
     initFilters();
+    initSmoothScroll();
   });
 
   /* ---------- Behavior ---------- */
@@ -205,6 +206,51 @@
       if (img.complete && img.naturalWidth > 0) img.hidden = false;
       else if (img.src) { var s = img.src; img.src = ""; img.src = s; }
     });
+  }
+
+  /* Light momentum-style easing on wheel scroll for a smoother feel.
+     Skips touch/coarse pointers (native touch scroll is already smooth)
+     and respects prefers-reduced-motion. */
+  function initSmoothScroll() {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (!window.matchMedia("(pointer: fine)").matches) return;
+    if (!("requestAnimationFrame" in window)) return;
+
+    var ease = 0.16;
+    var current = window.scrollY;
+    var target = current;
+    var raf = null;
+
+    function clamp(v) {
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      return Math.max(0, Math.min(v, max));
+    }
+
+    function update() {
+      current += (target - current) * ease;
+      if (Math.abs(target - current) < 0.4) {
+        current = target;
+        raf = null;
+      } else {
+        raf = requestAnimationFrame(update);
+      }
+      window.scrollTo(0, current);
+    }
+
+    window.addEventListener("wheel", function (e) {
+      if (e.ctrlKey) return; // let pinch-zoom through untouched
+      e.preventDefault();
+      target = clamp(target + e.deltaY);
+      if (!raf) raf = requestAnimationFrame(update);
+    }, { passive: false });
+
+    // stay in sync with non-wheel scrolling (keyboard, scrollbar drag, anchors)
+    window.addEventListener("scroll", function () {
+      if (!raf) {
+        current = window.scrollY;
+        target = current;
+      }
+    }, { passive: true });
   }
 
   /* News category filters */
