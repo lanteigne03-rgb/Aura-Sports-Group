@@ -62,6 +62,31 @@
     }
     .hero-ctas { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
 
+    /* Hero entrance animation */
+    @keyframes heroFadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero-line {
+      display: block;
+      opacity: 0;
+      animation: heroFadeUp 0.9s cubic-bezier(.16,.84,.44,1) forwards;
+    }
+    .hero-line:nth-child(1) { animation-delay: 0.15s; }
+    .hero-line:nth-child(2) { animation-delay: 0.38s; }
+    .hero-ctas .btn {
+      opacity: 0;
+      animation: heroFadeUp 0.8s cubic-bezier(.16,.84,.44,1) forwards;
+      transition: filter 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, transform 0.2s ease;
+    }
+    .hero-ctas .btn:nth-child(1) { animation-delay: 0.6s; }
+    .hero-ctas .btn:nth-child(2) { animation-delay: 0.74s; }
+    .hero-ctas .btn:hover { transform: translateY(-3px); }
+    .hero-ctas .btn:active { transform: translateY(-1px); }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-line, .hero-ctas .btn { animation: none; opacity: 1; transform: none; }
+    }
+
     .stats-strip {
       display: flex;
       justify-content: space-between;
@@ -113,8 +138,8 @@
     <div class="hero-scrim"></div>
     <div class="hero-inner">
       <h1>
-        Elite Football Representation.<br>
-        <span class="gold-text">Built for the Long Game.</span>
+        <span class="hero-line">Elite Football Representation.</span>
+        <span class="hero-line gold-text">Built for the Long Game.</span>
       </h1>
       <div class="hero-ctas">
         <a class="btn btn--primary" href="contact.html">Start a Conversation</a>
