@@ -485,18 +485,22 @@ ul {
 /* ---------- Barcode motif ---------- */
 .barcode {
   display: inline-flex;
-  gap: 3px;
+  gap: 0;
   align-items: center;
-  opacity: 0.6;
+  opacity: 1;
 }
 
 .barcode i {
   display: block;
   height: 28px;
-  background: var(--silver-400);
+  background: var(--ink-950);
 }
 
+.barcode i:nth-child(even) { background: var(--silver-300); }
+
 .barcode--white i { background: var(--white-off); }
+.barcode--white i:nth-child(even) { background: var(--ink-700); }
+
 .barcode--dim { opacity: 0.35; }
 .barcode--bright { opacity: 0.85; }
 
