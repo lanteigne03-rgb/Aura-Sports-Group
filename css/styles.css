@@ -294,6 +294,17 @@ ul {
   position: relative;
 }
 
+/* invisible bridge so the pointer stays "inside" the li while crossing
+   the gap between the nav link and the dropdown below it */
+.nav-links > li::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: 10px;
+}
+
 .nav-links a.nav-link {
   font-size: 13px;
   font-weight: 500;
