@@ -113,6 +113,7 @@
     initMediaFallbacks();
     initFilters();
     initSmoothScroll();
+    initHeroLogoToggle();
   });
 
   /* ---------- Behavior ---------- */
@@ -254,6 +255,29 @@
         target = current;
       }
     }, { passive: true });
+  }
+
+  /* Header logo reveal: only relevant on the home page, where the hero
+     carries its own logo. Adds .hero-out to <body> once the hero has
+     scrolled fully out of view, so the header logo fades in only then. */
+  function initHeroLogoToggle() {
+    var hero = document.querySelector(".hero");
+    if (!hero) return;
+
+    if (!("IntersectionObserver" in window)) {
+      document.body.classList.add("hero-out");
+      return;
+    }
+
+    var io = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          document.body.classList.toggle("hero-out", !entry.isIntersecting);
+        });
+      },
+      { threshold: 0 }
+    );
+    io.observe(hero);
   }
 
   /* News category filters */
