@@ -835,6 +835,7 @@ ul {
 
 .cta-module .barcode { opacity: 0.85; }
 .cta-module .barcode i { background: var(--white-off); }
+.cta-module .cta-row .barcode:last-child { transform: scaleX(-1); }
 
 /* ---------- Footer ---------- */
 .site-footer {
