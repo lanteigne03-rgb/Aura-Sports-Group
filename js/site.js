@@ -147,44 +147,13 @@
     // scroll state
     var links = document.getElementById("navLinks");
     var lastScrollY = window.scrollY;
-    var scrollLockY = 0;
-
-    // iOS Safari only honors `overflow: hidden` on <html>/<body> for
-    // wheel/keyboard scrolling — a real phone can still drag-scroll the
-    // page behind the mobile menu with a touch gesture even though the
-    // page looks fully locked in desktop testing. Pinning the body in
-    // place with position:fixed removes it as a scrollable box entirely
-    // (which iOS *does* respect), then the exact scroll offset is
-    // restored on close so the page doesn't jump.
-    function lockBodyScroll() {
-      scrollLockY = window.pageYOffset || document.documentElement.scrollTop || 0;
-      document.documentElement.classList.add("menu-open");
-      document.body.classList.add("menu-open");
-      document.body.style.position = "fixed";
-      document.body.style.top = -scrollLockY + "px";
-      document.body.style.left = "0";
-      document.body.style.right = "0";
-      document.body.style.width = "100%";
-    }
-
-    function unlockBodyScroll() {
-      document.documentElement.classList.remove("menu-open");
-      document.body.classList.remove("menu-open");
-      document.body.style.position = "";
-      document.body.style.top = "";
-      document.body.style.left = "";
-      document.body.style.right = "";
-      document.body.style.width = "";
-      window.scrollTo(0, scrollLockY);
-    }
-
-    var updateNavAppearance = function () {
+    var onScroll = function () {
       var y = window.scrollY;
-      var menuOpen = links && links.classList.contains("open");
 
       // hide the bar as the page scrolls down, reveal it again on the
       // way up; skip this while the mobile menu is open, and ignore the
       // rubber-band region right at the top so it never hides too early
+      var menuOpen = links && links.classList.contains("open");
       if (!menuOpen) {
         if (y <= 40) {
           nav.classList.remove("nav-hidden");
@@ -201,55 +170,54 @@
       // slides away. On the way back up, both land on the same tick, so
       // the bar reappears already in its solid state instead of fading
       // it in separately.
-      //
-      // The mobile menu panel is always opaque, but the 76px header strip
-      // above it only got its own solid background from scroll position —
-      // so opening the menu at the very top of a page (e.g. right on the
-      // hero) left that strip transparent, exposing hero content through
-      // a gap above an otherwise opaque menu. Forcing "scrolled" on
-      // whenever the menu is open closes that gap.
-      nav.classList.toggle(
-        "scrolled",
-        menuOpen || (y > 40 && !nav.classList.contains("nav-hidden"))
-      );
+      nav.classList.toggle("scrolled", y > 40 && !nav.classList.contains("nav-hidden"));
 
       lastScrollY = y;
     };
-    window.addEventListener("scroll", updateNavAppearance, { passive: true });
-    updateNavAppearance();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
 
     // burger
     var burger = document.getElementById("navBurger");
-    if (burger && links) {
-      var closeMenu = function () {
-        links.classList.remove("open");
-        burger.classList.remove("open");
-        burger.setAttribute("aria-expanded", "false");
-        burger.setAttribute("aria-label", "Menu");
-        unlockBodyScroll();
-        links.querySelectorAll("li.open").forEach(function (li) {
-          li.classList.remove("open");
-        });
-        updateNavAppearance();
-      };
-
-      burger.addEventListener("click", function () {
-        var open = links.classList.toggle("open");
-        // Morphs the burger's three bars into an X (see the
-        // .nav-burger.open rules in styles.css) so the icon itself
-        // confirms the tap and shows how to close the menu again.
-        burger.classList.toggle("open", open);
-        burger.setAttribute("aria-expanded", open ? "true" : "false");
-        burger.setAttribute("aria-label", open ? "Close menu" : "Menu");
-        if (open) {
-          lockBodyScroll();
-        } else {
-          unlockBodyScroll();
+    var heroVideo = document.querySelector(".hero-media video");
+    var setMenuOpen = function (open) {
+      links.classList.toggle("open", open);
+      burger.setAttribute("aria-expanded", open ? "true" : "false");
+      document.body.classList.toggle("nav-open", open);
+      if (open) {
+        nav.classList.remove("nav-hidden");
+        // pause the hero video while the full-screen menu is up — on iOS
+        // Safari a playing <video> can be promoted to its own compositing
+        // layer and paint through the menu regardless of z-index, so this
+        // removes the source of the bleed-through rather than just hoping
+        // the overlay wins the stacking order
+        if (heroVideo && !heroVideo.paused) {
+          heroVideo.dataset.pausedByNav = "1";
+          heroVideo.pause();
         }
-        if (open) nav.classList.remove("nav-hidden");
-        updateNavAppearance();
+      } else if (heroVideo && heroVideo.dataset.pausedByNav) {
+        delete heroVideo.dataset.pausedByNav;
+        heroVideo.play().catch(function () {});
+      }
+    };
+    if (burger && links) {
+      burger.addEventListener("click", function () {
+        setMenuOpen(!links.classList.contains("open"));
       });
-
+      // close on Escape
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && links.classList.contains("open")) setMenuOpen(false);
+      });
+      // close whenever a real navigation happens from inside the menu
+      // (leaf links only — parent items with a dropdown are handled below)
+      links.querySelectorAll("a.nav-link").forEach(function (a) {
+        var li = a.closest("li");
+        if (li && li.querySelector(".nav-drop")) return;
+        a.addEventListener("click", function () { setMenuOpen(false); });
+      });
+      links.querySelectorAll(".nav-drop a").forEach(function (a) {
+        a.addEventListener("click", function () { setMenuOpen(false); });
+      });
       // mobile: tap a parent item toggles its dropdown
       links.querySelectorAll("li").forEach(function (li) {
         var drop = li.querySelector(".nav-drop");
@@ -261,20 +229,6 @@
           }
         });
       });
-
-      // rotating to landscape or resizing past the mobile breakpoint
-      // while the menu is open used to leave the body scroll-locked and
-      // the header forced solid with no way to close it (the burger is
-      // hidden above 900px) — close it automatically instead.
-      window.addEventListener(
-        "resize",
-        function () {
-          if (window.innerWidth > 900 && links.classList.contains("open")) {
-            closeMenu();
-          }
-        },
-        { passive: true }
-      );
     }
   }
 

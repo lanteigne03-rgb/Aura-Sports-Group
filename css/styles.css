@@ -319,7 +319,6 @@ ul {
   text-transform: uppercase;
   padding: 8px 0;
   color: var(--white-off);
-  -webkit-tap-highlight-color: transparent;
   /* gradient fill sits ready off to the right; revealed by sweeping
      background-position + fading text-fill-color on hover */
   background: var(--metal-gold);
@@ -462,39 +461,25 @@ ul {
   border: none;
   cursor: pointer;
   padding: 6px;
-  /* On a real phone (not visible in desktop/devtools testing) tapping a
-     button paints a grey/blue highlight box by default and the browser
-     waits ~300ms to rule out a double-tap before firing the click — both
-     make the X-morph look like it stutters or flashes. */
-  -webkit-tap-highlight-color: transparent;
-  touch-action: manipulation;
 }
 
 .nav-burger span {
   width: 24px;
   height: 2px;
   background: var(--white-off);
-  transform-origin: center;
-  transition: transform 0.3s cubic-bezier(.16,.84,.44,1), opacity 0.2s ease;
+  transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
-/* Burger → X morph while the mobile menu is open. The three bars sit at
-   y = 0-2 / 7-9 / 14-16 (2px bars, 5px gap), so the group's vertical
-   center is y = 8: the top and bottom bars each travel 7px to meet there,
-   the middle bar just fades out rather than trying to rotate through it. */
-.nav-burger.open span:nth-child(1) {
+/* burger → close (X), driven by the button's own aria-expanded state so
+   there's a clear visual confirmation the menu actually opened */
+.nav-burger[aria-expanded="true"] span:nth-child(1) {
   transform: translateY(7px) rotate(45deg);
 }
-.nav-burger.open span:nth-child(2) {
+.nav-burger[aria-expanded="true"] span:nth-child(2) {
   opacity: 0;
-  transform: scaleX(0);
 }
-.nav-burger.open span:nth-child(3) {
+.nav-burger[aria-expanded="true"] span:nth-child(3) {
   transform: translateY(-7px) rotate(-45deg);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .nav-burger span { transition: none; }
 }
 
 /* ---------- Logo lockup ---------- */
@@ -1032,16 +1017,6 @@ ul {
   .grid-3 { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* Locks the page behind the mobile menu so it can't be scrolled while the
-   full-screen panel is open (see the burger click handler in site.js,
-   which toggles this class on both <html> and <body> — overflow:hidden on
-   body alone isn't enough to reliably block viewport scrolling). */
-html.menu-open,
-body.menu-open {
-  overflow: hidden;
-  height: 100%;
-}
-
 @media (max-width: 900px) {
   .site-nav { padding: 16px 24px; }
 
@@ -1049,15 +1024,19 @@ body.menu-open {
     position: fixed;
     inset: 0;
     top: 76px;
+    z-index: 1;
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
-    background: rgba(8, 8, 10, 0.97);
+    overflow-y: auto;
+    /* solid, not translucent — a video/filtered layer in the hero can be
+       promoted to its own compositing layer on iOS Safari and paint through
+       a semi-transparent overlay above it, so this menu can't afford to be
+       anything but fully opaque */
+    background: var(--ink-950);
     padding: 32px;
     transform: translateX(100%);
     transition: transform 0.3s ease;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
   }
 
   .nav-links.open { transform: none; }
@@ -1078,6 +1057,21 @@ body.menu-open {
   .nav-links li.open .nav-drop { display: block; }
   .nav-burger { display: flex; }
   .nav-cta { display: none; }
+
+  /* Belt-and-suspenders for the iOS Safari video-bleed-through bug: the
+     hero's <video> and its filtered/blended logo layers are the pieces
+     most likely to composite above a fixed overlay on WebKit, so pull them
+     out of the render entirely (not just visually covered) while the
+     full-screen mobile menu is open — see .nav-open toggle in site.js. */
+  body.nav-open {
+    overflow: hidden;
+  }
+  body.nav-open .hero-media,
+  body.nav-open .hero-scrim,
+  body.nav-open .hero-logo-wrap,
+  body.nav-open .scroll-indicator {
+    visibility: hidden;
+  }
 }
 
 @media (max-width: 720px) {
