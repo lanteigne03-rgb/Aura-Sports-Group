@@ -147,6 +147,37 @@
     // scroll state
     var links = document.getElementById("navLinks");
     var lastScrollY = window.scrollY;
+    var scrollLockY = 0;
+
+    // iOS Safari only honors `overflow: hidden` on <html>/<body> for
+    // wheel/keyboard scrolling — a real phone can still drag-scroll the
+    // page behind the mobile menu with a touch gesture even though the
+    // page looks fully locked in desktop testing. Pinning the body in
+    // place with position:fixed removes it as a scrollable box entirely
+    // (which iOS *does* respect), then the exact scroll offset is
+    // restored on close so the page doesn't jump.
+    function lockBodyScroll() {
+      scrollLockY = window.pageYOffset || document.documentElement.scrollTop || 0;
+      document.documentElement.classList.add("menu-open");
+      document.body.classList.add("menu-open");
+      document.body.style.position = "fixed";
+      document.body.style.top = -scrollLockY + "px";
+      document.body.style.left = "0";
+      document.body.style.right = "0";
+      document.body.style.width = "100%";
+    }
+
+    function unlockBodyScroll() {
+      document.documentElement.classList.remove("menu-open");
+      document.body.classList.remove("menu-open");
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.left = "";
+      document.body.style.right = "";
+      document.body.style.width = "";
+      window.scrollTo(0, scrollLockY);
+    }
+
     var updateNavAppearance = function () {
       var y = window.scrollY;
       var menuOpen = links && links.classList.contains("open");
@@ -195,8 +226,7 @@
         burger.classList.remove("open");
         burger.setAttribute("aria-expanded", "false");
         burger.setAttribute("aria-label", "Menu");
-        document.documentElement.classList.remove("menu-open");
-        document.body.classList.remove("menu-open");
+        unlockBodyScroll();
         links.querySelectorAll("li.open").forEach(function (li) {
           li.classList.remove("open");
         });
@@ -211,14 +241,11 @@
         burger.classList.toggle("open", open);
         burger.setAttribute("aria-expanded", open ? "true" : "false");
         burger.setAttribute("aria-label", open ? "Close menu" : "Menu");
-        // Lock the page behind the menu so it can't scroll while the
-        // full-screen mobile panel is open — previously the page kept
-        // scrolling underneath, which could shift/reveal content behind
-        // the (nearly opaque) panel and made the overlay feel broken.
-        // Both <html> and <body> need the class: overflow:hidden on body
-        // alone doesn't reliably block viewport scrolling.
-        document.documentElement.classList.toggle("menu-open", open);
-        document.body.classList.toggle("menu-open", open);
+        if (open) {
+          lockBodyScroll();
+        } else {
+          unlockBodyScroll();
+        }
         if (open) nav.classList.remove("nav-hidden");
         updateNavAppearance();
       });

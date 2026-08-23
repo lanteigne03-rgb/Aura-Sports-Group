@@ -319,6 +319,7 @@ ul {
   text-transform: uppercase;
   padding: 8px 0;
   color: var(--white-off);
+  -webkit-tap-highlight-color: transparent;
   /* gradient fill sits ready off to the right; revealed by sweeping
      background-position + fading text-fill-color on hover */
   background: var(--metal-gold);
@@ -461,6 +462,12 @@ ul {
   border: none;
   cursor: pointer;
   padding: 6px;
+  /* On a real phone (not visible in desktop/devtools testing) tapping a
+     button paints a grey/blue highlight box by default and the browser
+     waits ~300ms to rule out a double-tap before firing the click — both
+     make the X-morph look like it stutters or flashes. */
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 .nav-burger span {
