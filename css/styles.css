@@ -1043,6 +1043,14 @@ ul {
 
   .nav-links a.nav-link { font-size: 18px; padding: 12px 0; }
 
+  /* Matches the specificity of the desktop hover/focus-within reveal rule
+     below (.nav-links li:hover .nav-drop, .nav-links li:focus-within
+     .nav-drop) — otherwise that rule's translateX(-50%) desktop-dropdown
+     offset wins the cascade and survives into mobile whenever iOS gives the
+     tapped <li> a sticky :hover or :focus-within state, shoving the
+     dropdown roughly half its own width off-screen to the left. */
+  .nav-links li:hover .nav-drop,
+  .nav-links li:focus-within .nav-drop,
   .nav-drop {
     position: static;
     transform: none;
