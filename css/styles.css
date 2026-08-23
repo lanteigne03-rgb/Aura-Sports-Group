@@ -1080,6 +1080,23 @@ ul {
   body.nav-open .scroll-indicator {
     visibility: hidden;
   }
+
+  /* .site-nav.scrolled/.solid apply backdrop-filter, and .nav-hidden applies
+     a transform — both properties establish a new CSS containing block for
+     any position:fixed descendant. #navLinks is exactly that: a fixed,
+     full-viewport element nested inside #siteNav. Once the page has been
+     scrolled past 40px, .scrolled is already on #siteNav by the time the
+     menu opens, so #navLinks stops being fixed to the viewport and becomes
+     fixed to #siteNav's own ~64px-tall box instead — collapsing the menu
+     down to a sliver that only fits the first link, with the page showing
+     through where the full-screen backdrop should be. Stripping both
+     properties while the menu is open removes the containing block so
+     #navLinks goes back to sizing against the real viewport. */
+  body.nav-open #siteNav {
+    transform: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
 }
 
 @media (max-width: 720px) {
