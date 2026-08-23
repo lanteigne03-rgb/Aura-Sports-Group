@@ -185,10 +185,58 @@
       42%  { opacity: 0; }
       100% { opacity: 0; }
     }
+
+    /* Cursor-tracking gold burst glow — same rgba(198,165,103,…) glow color
+       and quick-in/slow-out feel as the navbar link hover, but cast as a
+       radial burst centered on --glow-x/--glow-y (set from pointer position
+       by initHeroLogoGlow in site.js) instead of a text-shadow. Appears once
+       the glitch-emerge animation above has fully settled at 5s (3s delay +
+       2s duration), then breathes gently until the cursor moves over it. */
+    @property --glow-x {
+      syntax: '<percentage>';
+      inherits: false;
+      initial-value: 50%;
+    }
+    @property --glow-y {
+      syntax: '<percentage>';
+      inherits: false;
+      initial-value: 50%;
+    }
+    .hero-logo-wrap {
+      --glow-x: 50%;
+      --glow-y: 50%;
+    }
+    .hero-logo-glow {
+      position: absolute;
+      inset: -35%;
+      pointer-events: none;
+      opacity: 0;
+      mix-blend-mode: screen;
+      background: radial-gradient(
+        circle at var(--glow-x) var(--glow-y),
+        rgba(198,165,103,0.65) 0%,
+        rgba(198,165,103,0.32) 20%,
+        rgba(198,165,103,0.12) 38%,
+        rgba(198,165,103,0) 58%
+      );
+      filter: blur(20px);
+      transition: --glow-x 0.18s ease-out, --glow-y 0.18s ease-out;
+      animation: heroLogoGlowIn 1.4s ease forwards, heroLogoGlowPulse 4s ease-in-out infinite;
+      animation-delay: 5s, 6.4s;
+    }
+    @keyframes heroLogoGlowIn {
+      from { opacity: 0; }
+      to   { opacity: .55; }
+    }
+    @keyframes heroLogoGlowPulse {
+      0%, 100% { opacity: .55; }
+      50%      { opacity: .85; }
+    }
     @media (prefers-reduced-motion: reduce) {
       .hero-logo-wrap .hero-logo { animation: none; opacity: 1; filter: none; transform: none; clip-path: none; }
       .hero-logo-wrap::after,
       .hero-logo-glitch { display: none; }
+      .hero-logo-glow { animation: none; opacity: .5; transition: none; }
     }
 
     /* Navbar entrance animation */
@@ -332,6 +380,7 @@
         <img class="hero-logo" src="assets/img/aura-logo-gold.png" alt="Aura Sports Group">
         <img class="hero-logo-glitch hero-logo-glitch--r" src="assets/img/aura-logo-gold.png" alt="" aria-hidden="true">
         <img class="hero-logo-glitch hero-logo-glitch--b" src="assets/img/aura-logo-gold.png" alt="" aria-hidden="true">
+        <div class="hero-logo-glow" aria-hidden="true"></div>
       </div>
     </div>
     <div class="scroll-indicator" aria-hidden="true">

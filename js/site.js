@@ -111,6 +111,7 @@
     initMediaFallbacks();
     initSmoothScroll();
     initHeroLogoToggle();
+    initHeroLogoGlow();
   });
 
   /* ---------- Behavior ---------- */
@@ -297,6 +298,59 @@
       function () {
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(build, 150);
+      },
+      { passive: true }
+    );
+  }
+
+  /* Cursor-tracking gold burst glow behind the hero logo. The glow's own
+     entrance timing (it only becomes visible once the glitch-emerge
+     animation has settled) lives entirely in CSS via animation-delay —
+     this just drives where it's centered, by writing --glow-x/--glow-y
+     onto .hero-logo-wrap as the pointer moves over the hero. Skipped for
+     reduced-motion and non-fine pointers (touch has no hover to track). */
+  function initHeroLogoGlow() {
+    var wrap = document.querySelector(".hero-logo-wrap");
+    var glow = wrap ? wrap.querySelector(".hero-logo-glow") : null;
+    var hero = document.querySelector(".hero");
+    if (!wrap || !glow || !hero) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (!window.matchMedia("(pointer: fine)").matches) return;
+
+    var raf = null;
+    var pending = null;
+
+    function apply() {
+      raf = null;
+      if (!pending) return;
+      wrap.style.setProperty("--glow-x", pending.x + "%");
+      wrap.style.setProperty("--glow-y", pending.y + "%");
+      pending = null;
+    }
+
+    hero.addEventListener(
+      "pointermove",
+      function (e) {
+        var r = wrap.getBoundingClientRect();
+        if (!r.width || !r.height) return;
+        var x = ((e.clientX - r.left) / r.width) * 100;
+        var y = ((e.clientY - r.top) / r.height) * 100;
+        // let the glow roam a bit past the logo's own edges so it reads as
+        // a spotlight sweeping the hero, not a strict crop to the wordmark
+        x = Math.max(-60, Math.min(160, x));
+        y = Math.max(-60, Math.min(160, y));
+        pending = { x: x, y: y };
+        if (!raf) raf = requestAnimationFrame(apply);
+      },
+      { passive: true }
+    );
+
+    hero.addEventListener(
+      "pointerleave",
+      function () {
+        pending = null;
+        wrap.style.setProperty("--glow-x", "50%");
+        wrap.style.setProperty("--glow-y", "50%");
       },
       { passive: true }
     );
