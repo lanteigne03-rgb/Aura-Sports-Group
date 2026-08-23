@@ -76,6 +76,24 @@
       .hero-line { animation: none; opacity: 1; transform: none; }
     }
 
+    /* Hero logo emerge animation — appears after 3s */
+    .hero-logo {
+      width: min(560px, 60vw);
+      opacity: 0;
+      filter: blur(20px);
+      transform: scale(0.82);
+      animation: heroLogoEmerge 2s cubic-bezier(.16,.84,.44,1) forwards;
+      animation-delay: 3s;
+    }
+    @keyframes heroLogoEmerge {
+      0% { opacity: 0; filter: blur(20px); transform: scale(0.82); }
+      55% { opacity: 1; filter: blur(3px); }
+      100% { opacity: 1; filter: blur(0); transform: scale(1); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-logo { animation: none; opacity: 1; filter: none; transform: none; }
+    }
+
     /* Navbar entrance animation */
     @keyframes navItemIn {
       from { opacity: 0; transform: translateY(-12px); }
@@ -200,6 +218,7 @@
     </div>
     <div class="hero-scrim"></div>
     <div class="hero-inner">
+      <img class="hero-logo" src="assets/img/aura-logo.svg" alt="Aura Sports Group">
     </div>
     <div class="scroll-indicator" aria-hidden="true">
       <span class="scroll-line"></span>
