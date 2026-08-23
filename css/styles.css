@@ -1093,6 +1093,13 @@ ul {
      properties while the menu is open removes the containing block so
      #navLinks goes back to sizing against the real viewport. */
   body.nav-open #siteNav {
+    /* instant, not eased — #siteNav's own transition (backdrop-filter 0.3s,
+       transform 0.35s) would otherwise animate this suppression in and out,
+       which means the containing-block bug it's meant to prevent is still
+       in effect for the whole crossfade instead of being gone from frame
+       one. site.js holds .nav-open through the close slide so this can't
+       flip back mid-animation either. */
+    transition: none;
     transform: none;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
