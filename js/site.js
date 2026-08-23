@@ -149,7 +149,6 @@
     var lastScrollY = window.scrollY;
     var onScroll = function () {
       var y = window.scrollY;
-      nav.classList.toggle("scrolled", y > 40);
 
       // hide the bar as the page scrolls down, reveal it again on the
       // way up; skip this while the mobile menu is open, and ignore the
@@ -164,6 +163,15 @@
           nav.classList.remove("nav-hidden");
         }
       }
+
+      // the solid background is decided *after* the hide state, and only
+      // applies while the bar is actually visible — otherwise, on a hero
+      // page, scrolling down flashes the solid bar for a beat before it
+      // slides away. On the way back up, both land on the same tick, so
+      // the bar reappears already in its solid state instead of fading
+      // it in separately.
+      nav.classList.toggle("scrolled", y > 40 && !nav.classList.contains("nav-hidden"));
+
       lastScrollY = y;
     };
     window.addEventListener("scroll", onScroll, { passive: true });
