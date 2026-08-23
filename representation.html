@@ -10,7 +10,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;500;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <style>
-    .pathways-section { background: var(--ink-850); padding-bottom: 120px; }
+    .pathways-section { background: var(--ink-850); padding-top: 200px; padding-bottom: 120px; }
+    @media (max-width: 900px) { .pathways-section { padding-top: 140px; } }
     .pathways { display: flex; gap: 24px; }
     @media (max-width: 1080px) { .pathways { flex-wrap: wrap; } .card-pathway { flex: 1 1 45%; min-width: 260px; } }
     @media (max-width: 640px) { .card-pathway { flex: 1 1 100%; } }
@@ -18,12 +19,6 @@
 </head>
 <body class="nav-solid">
   <div id="nav-placeholder"></div>
-
-  <!-- Hero -->
-  <section class="page-hero" style="background: var(--ink-850); padding-bottom: 100px;">
-    <h1>Every Level.<br><span class="gold-text">One Standard.</span></h1>
-    <p class="sub">Aura's approach evolves as your career evolves — from the first opportunity to life beyond the game.</p>
-  </section>
 
   <!-- Who We Represent -->
   <section class="section pathways-section">
