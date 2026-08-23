@@ -76,7 +76,7 @@
       .hero-line { animation: none; opacity: 1; transform: none; }
     }
 
-    /* Hero logo glitch-emerge animation — appears after 3s.
+    /* Hero logo glitch-emerge animation — appears after 2s.
        .hero-logo-wrap stacks the real logo (.hero-logo — kept as the sole
        element with that class so initHeroLogoToggle's IntersectionObserver
        in site.js still targets exactly one node) under two color-split
@@ -102,7 +102,7 @@
       opacity: 0;
       pointer-events: none;
       animation: heroLogoScanlines 2s steps(1,end) forwards;
-      animation-delay: 3s;
+      animation-delay: 2s;
     }
     .hero-logo-wrap .hero-logo {
       position: relative;
@@ -113,7 +113,7 @@
       transform: scale(0.82) translate(0,0);
       clip-path: inset(0 0 0 0);
       animation: heroLogoGlitchMain 2s steps(1,end) forwards;
-      animation-delay: 3s;
+      animation-delay: 2s;
     }
     .hero-logo-glitch {
       position: absolute;
@@ -127,12 +127,12 @@
     .hero-logo-glitch--r {
       filter: sepia(1) saturate(8) hue-rotate(-50deg) brightness(1.15);
       animation: heroLogoGlitchR 2s steps(1,end) forwards;
-      animation-delay: 3s;
+      animation-delay: 2s;
     }
     .hero-logo-glitch--b {
       filter: sepia(1) saturate(8) hue-rotate(150deg) brightness(1.15);
       animation: heroLogoGlitchB 2s steps(1,end) forwards;
-      animation-delay: 3s;
+      animation-delay: 2s;
     }
     @keyframes heroLogoGlitchMain {
       0%   { opacity: 0;   filter: blur(20px); transform: scale(.82) translate(0,0); clip-path: inset(0 0 0 0); }
