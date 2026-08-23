@@ -272,7 +272,8 @@ ul {
   align-items: center;
   justify-content: space-between;
   padding: 20px 64px;
-  transition: background 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease;
+  transition: background 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease,
+    transform 0.35s ease;
   border-bottom: 1px solid transparent;
 }
 
@@ -282,6 +283,12 @@ ul {
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom-color: var(--ink-700);
+}
+
+/* hidden while scrolling down past the top of the page; slides back
+   in as soon as the user scrolls up (see initNav in site.js) */
+.site-nav.nav-hidden {
+  transform: translateY(-100%);
 }
 
 .nav-links {

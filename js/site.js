@@ -145,19 +145,37 @@
     if (document.body.classList.contains("nav-solid")) nav.classList.add("solid");
 
     // scroll state
+    var links = document.getElementById("navLinks");
+    var lastScrollY = window.scrollY;
     var onScroll = function () {
-      nav.classList.toggle("scrolled", window.scrollY > 40);
+      var y = window.scrollY;
+      nav.classList.toggle("scrolled", y > 40);
+
+      // hide the bar as the page scrolls down, reveal it again on the
+      // way up; skip this while the mobile menu is open, and ignore the
+      // rubber-band region right at the top so it never hides too early
+      var menuOpen = links && links.classList.contains("open");
+      if (!menuOpen) {
+        if (y <= 40) {
+          nav.classList.remove("nav-hidden");
+        } else if (y > lastScrollY) {
+          nav.classList.add("nav-hidden");
+        } else if (y < lastScrollY) {
+          nav.classList.remove("nav-hidden");
+        }
+      }
+      lastScrollY = y;
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
 
     // burger
     var burger = document.getElementById("navBurger");
-    var links = document.getElementById("navLinks");
     if (burger && links) {
       burger.addEventListener("click", function () {
         var open = links.classList.toggle("open");
         burger.setAttribute("aria-expanded", open ? "true" : "false");
+        if (open) nav.classList.remove("nav-hidden");
       });
       // mobile: tap a parent item toggles its dropdown
       links.querySelectorAll("li").forEach(function (li) {
