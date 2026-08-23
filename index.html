@@ -85,7 +85,10 @@
        a smooth crossfade. */
     .hero-logo-wrap {
       position: relative;
-      width: min(560px, 60vw);
+      width: min(520px, 56vw);
+    }
+    @media (max-width: 720px) {
+      .hero-logo-wrap { width: min(520px, 66vw); }
     }
     .hero-logo-wrap::after {
       content: '';
