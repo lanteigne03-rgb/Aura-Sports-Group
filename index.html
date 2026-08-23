@@ -60,8 +60,6 @@
       text-transform: uppercase;
       color: var(--white-off);
     }
-    .hero-ctas { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
-
     /* Hero entrance animation */
     @keyframes heroFadeUp {
       from { opacity: 0; transform: translateY(28px); }
@@ -74,17 +72,8 @@
     }
     .hero-line:nth-child(1) { animation-delay: 1s; }
     .hero-line:nth-child(2) { animation-delay: 1.28s; }
-    .hero-ctas .btn {
-      opacity: 0;
-      animation: heroFadeUp 1.2s cubic-bezier(.16,.84,.44,1) forwards;
-      transition: filter 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, transform 0.2s ease;
-    }
-    .hero-ctas .btn:nth-child(1) { animation-delay: 1.55s; }
-    .hero-ctas .btn:nth-child(2) { animation-delay: 1.72s; }
-    .hero-ctas .btn:hover { transform: translateY(-3px); }
-    .hero-ctas .btn:active { transform: translateY(-1px); }
     @media (prefers-reduced-motion: reduce) {
-      .hero-line, .hero-ctas .btn { animation: none; opacity: 1; transform: none; }
+      .hero-line { animation: none; opacity: 1; transform: none; }
     }
 
     /* Navbar entrance animation */
