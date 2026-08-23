@@ -258,11 +258,18 @@
   }
 
   /* Header logo reveal: only relevant on the home page, where the hero
-     carries its own logo. Adds .hero-out to <body> once the hero logo
-     itself has scrolled fully out of view, so the header logo fades in
-     only then; removed again if the hero logo scrolls back into view. */
+     carries its own logo. Adds .hero-out to <body> as soon as the hero
+     logo passes behind the fixed header (not merely once it's fully off
+     screen), so the header logo fades in right as the hero one disappears
+     under it; removed again once the hero logo re-emerges below the header.
+
+     The observer's root is shrunk from the top by the header's own height
+     (via rootMargin), so "intersecting" means "visible below the header,"
+     not just "visible in the viewport." Recomputed on resize since the
+     header's height changes at the mobile breakpoint. */
   function initHeroLogoToggle() {
     var heroLogo = document.querySelector(".hero-logo");
+    var nav = document.getElementById("siteNav");
     if (!heroLogo) return;
 
     if (!("IntersectionObserver" in window)) {
@@ -270,15 +277,33 @@
       return;
     }
 
-    var io = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          document.body.classList.toggle("hero-out", !entry.isIntersecting);
-        });
+    var io = null;
+
+    function build() {
+      if (io) io.disconnect();
+      var navHeight = nav ? Math.ceil(nav.getBoundingClientRect().height) : 0;
+      io = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            document.body.classList.toggle("hero-out", !entry.isIntersecting);
+          });
+        },
+        { threshold: 0, rootMargin: "-" + navHeight + "px 0px 0px 0px" }
+      );
+      io.observe(heroLogo);
+    }
+
+    build();
+
+    var resizeTimer = null;
+    window.addEventListener(
+      "resize",
+      function () {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(build, 150);
       },
-      { threshold: 0 }
+      { passive: true }
     );
-    io.observe(heroLogo);
   }
 
   /* News category filters */
