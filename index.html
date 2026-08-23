@@ -76,22 +76,119 @@
       .hero-line { animation: none; opacity: 1; transform: none; }
     }
 
-    /* Hero logo emerge animation — appears after 3s */
-    .hero-logo {
+    /* Hero logo glitch-emerge animation — appears after 3s.
+       .hero-logo-wrap stacks the real logo (.hero-logo — kept as the sole
+       element with that class so initHeroLogoToggle's IntersectionObserver
+       in site.js still targets exactly one node) under two color-split
+       clones (.hero-logo-glitch--r/--b) and a scanline overlay, all driven
+       by stepped keyframes so they read as a digital stutter rather than
+       a smooth crossfade. */
+    .hero-logo-wrap {
+      position: relative;
       width: min(560px, 60vw);
+    }
+    .hero-logo-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(255,255,255,0.10) 0px,
+        rgba(255,255,255,0.10) 1px,
+        transparent 1px,
+        transparent 3px
+      );
+      mix-blend-mode: overlay;
       opacity: 0;
-      filter: blur(20px);
-      transform: scale(0.82);
-      animation: heroLogoEmerge 2s cubic-bezier(.16,.84,.44,1) forwards;
+      pointer-events: none;
+      animation: heroLogoScanlines 2s steps(1,end) forwards;
       animation-delay: 3s;
     }
-    @keyframes heroLogoEmerge {
-      0% { opacity: 0; filter: blur(20px); transform: scale(0.82); }
-      55% { opacity: 1; filter: blur(3px); }
-      100% { opacity: 1; filter: blur(0); transform: scale(1); }
+    .hero-logo-wrap .hero-logo {
+      position: relative;
+      display: block;
+      width: 100%;
+      opacity: 0;
+      filter: blur(20px);
+      transform: scale(0.82) translate(0,0);
+      clip-path: inset(0 0 0 0);
+      animation: heroLogoGlitchMain 2s steps(1,end) forwards;
+      animation-delay: 3s;
+    }
+    .hero-logo-glitch {
+      position: absolute;
+      inset: 0;
+      display: block;
+      width: 100%;
+      opacity: 0;
+      pointer-events: none;
+      mix-blend-mode: screen;
+    }
+    .hero-logo-glitch--r {
+      filter: sepia(1) saturate(8) hue-rotate(-50deg) brightness(1.15);
+      animation: heroLogoGlitchR 2s steps(1,end) forwards;
+      animation-delay: 3s;
+    }
+    .hero-logo-glitch--b {
+      filter: sepia(1) saturate(8) hue-rotate(150deg) brightness(1.15);
+      animation: heroLogoGlitchB 2s steps(1,end) forwards;
+      animation-delay: 3s;
+    }
+    @keyframes heroLogoGlitchMain {
+      0%   { opacity: 0;   filter: blur(20px); transform: scale(.82) translate(0,0); clip-path: inset(0 0 0 0); }
+      4%   { opacity: .9;  filter: blur(6px);  transform: scale(.9) translate(-8px,0); clip-path: inset(12% 0 58% 0); }
+      8%   { opacity: 0;   filter: blur(6px);  transform: scale(.9) translate(6px,0); clip-path: inset(42% 0 18% 0); }
+      12%  { opacity: 1;   filter: blur(3px);  transform: scale(.94) translate(-4px,0); clip-path: inset(0 0 70% 0); }
+      16%  { opacity: .85; filter: blur(3px);  transform: scale(.94) translate(6px,0); clip-path: inset(55% 0 0 0); }
+      20%  { opacity: 1;   filter: blur(2px);  transform: scale(.97) translate(0,0); clip-path: inset(0 0 0 0); }
+      26%  { opacity: .2;  filter: blur(0);    transform: scale(1) translate(-10px,0); clip-path: inset(22% 0 34% 0); }
+      30%  { opacity: 1;   filter: blur(0);    transform: scale(1) translate(0,0); clip-path: inset(0 0 0 0); }
+      38%  { opacity: 1;   filter: blur(0);    transform: scale(1) translate(4px,0); clip-path: inset(64% 0 6% 0); }
+      42%  { opacity: 1;   filter: blur(0);    transform: scale(1) translate(0,0); clip-path: inset(0 0 0 0); }
+      55%  { opacity: .4;  transform: translate(-3px,0); }
+      58%  { opacity: 1;   transform: translate(0,0); }
+      100% { opacity: 1;   filter: blur(0);    transform: scale(1) translate(0,0); clip-path: inset(0 0 0 0); }
+    }
+    @keyframes heroLogoGlitchR {
+      0%   { opacity: 0; transform: translate(0,0); clip-path: inset(0 0 0 0); }
+      4%   { opacity: .7; transform: translate(-12px,2px); clip-path: inset(16% 0 54% 0); }
+      8%   { opacity: 0; }
+      12%  { opacity: .6; transform: translate(-7px,0); clip-path: inset(0 0 60% 0); }
+      16%  { opacity: .5; transform: translate(8px,-2px); clip-path: inset(50% 0 0 0); }
+      20%  { opacity: 0; }
+      26%  { opacity: .55; transform: translate(-12px,0); clip-path: inset(24% 0 30% 0); }
+      30%  { opacity: 0; }
+      38%  { opacity: .45; transform: translate(5px,0); clip-path: inset(62% 0 8% 0); }
+      42%  { opacity: 0; }
+      100% { opacity: 0; }
+    }
+    @keyframes heroLogoGlitchB {
+      0%   { opacity: 0; transform: translate(0,0); clip-path: inset(0 0 0 0); }
+      4%   { opacity: .7; transform: translate(12px,-2px); clip-path: inset(16% 0 54% 0); }
+      8%   { opacity: 0; }
+      12%  { opacity: .6; transform: translate(7px,0); clip-path: inset(0 0 60% 0); }
+      16%  { opacity: .5; transform: translate(-8px,2px); clip-path: inset(50% 0 0 0); }
+      20%  { opacity: 0; }
+      26%  { opacity: .55; transform: translate(12px,0); clip-path: inset(24% 0 30% 0); }
+      30%  { opacity: 0; }
+      38%  { opacity: .45; transform: translate(-5px,0); clip-path: inset(62% 0 8% 0); }
+      42%  { opacity: 0; }
+      100% { opacity: 0; }
+    }
+    @keyframes heroLogoScanlines {
+      0%   { opacity: 0; }
+      4%   { opacity: .5; }
+      8%   { opacity: 0; }
+      12%  { opacity: .4; }
+      20%  { opacity: 0; }
+      26%  { opacity: .3; }
+      42%  { opacity: 0; }
+      100% { opacity: 0; }
     }
     @media (prefers-reduced-motion: reduce) {
-      .hero-logo { animation: none; opacity: 1; filter: none; transform: none; }
+      .hero-logo-wrap .hero-logo { animation: none; opacity: 1; filter: none; transform: none; clip-path: none; }
+      .hero-logo-wrap::after,
+      .hero-logo-glitch { display: none; }
     }
 
     /* Navbar entrance animation */
@@ -231,7 +328,11 @@
     </div>
     <div class="hero-scrim"></div>
     <div class="hero-inner">
-      <img class="hero-logo" src="assets/img/aura-logo-gold.png" alt="Aura Sports Group">
+      <div class="hero-logo-wrap">
+        <img class="hero-logo" src="assets/img/aura-logo-gold.png" alt="Aura Sports Group">
+        <img class="hero-logo-glitch hero-logo-glitch--r" src="assets/img/aura-logo-gold.png" alt="" aria-hidden="true">
+        <img class="hero-logo-glitch hero-logo-glitch--b" src="assets/img/aura-logo-gold.png" alt="" aria-hidden="true">
+      </div>
     </div>
     <div class="scroll-indicator" aria-hidden="true">
       <span class="scroll-line"></span>
