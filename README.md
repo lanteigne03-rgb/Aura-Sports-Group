@@ -4,12 +4,12 @@ Static site built from the Figma design (`Aura Sports Group — Website`). No bu
 
 ## Pages
 
-`index.html` (Home) · `about.html` · `representation.html` · `nfl.html` · `college-nil.html` · `high-school.html` · `coaches.html` · `draft-prep.html` · `marketing.html` · `athlete-care.html` · `business.html` · `health.html` · `community.html` · `news.html` · `contact.html`
+`index.html` (Home) · `about.html` · `representation.html` · `nfl.html` · `college-nil.html` · `high-school.html` · `coaches.html` · `draft-prep.html` · `marketing.html` · `athlete-care.html` · `business.html` · `health.html` · `community.html` · `contact.html`
 
 ## Structure
 
 - `css/styles.css` — design tokens (colors, type, spacing from the Figma design system) + shared components
-- `js/site.js` — injects the shared nav / CTA module / footer, handles scroll nav, mobile menu, reveal animations, news filters, and image fallbacks
+- `js/site.js` — injects the shared nav / CTA module / footer, handles scroll nav, mobile menu, reveal animations, and image fallbacks
 
 ## Dropping in real photos
 
@@ -38,6 +38,6 @@ The design uses **Dharma Gothic E ExBold Italic** (commercial). The site falls b
 ## Before launch
 
 - Replace placeholder service copy on the High School and Coaches pages (flagged in the design).
-- Replace `[ PUBLICATION ] / [ Headline ]` article placeholders on Home and News with real coverage.
+- Replace `[ PUBLICATION ] / [ Headline ]` article placeholders on Home with real coverage.
 - Wire the contact form (`contact.html`) to your email service or backend.
 - Add real social links in the footer (`js/site.js`).

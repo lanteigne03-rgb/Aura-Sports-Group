@@ -45,7 +45,6 @@
     "<a href='health.html'>Health &amp; Performance</a>" +
     "<a href='community.html'>Community &amp; Legacy</a>" +
     "</div></li>" +
-    "<li data-page='news'><a class='nav-link' href='news.html'>News</a></li>" +
     "</ul>" +
     "<a class='nav-cta' href='contact.html'><span class='nav-cta-label'>Contact Us</span></a>" +
     "</nav>";
@@ -71,8 +70,7 @@
     "<div class='footer-col'><span class='col-title'>Agency</span>" +
     "<a href='about.html'>About</a>" +
     "<a href='representation.html'>Representation</a>" +
-    "<a href='draft-prep.html'>Draft Prep</a>" +
-    "<a href='news.html'>News</a></div>" +
+    "<a href='draft-prep.html'>Draft Prep</a></div>" +
     "<div class='footer-col'><span class='col-title'>Services</span>" +
     "<a href='marketing.html'>Marketing &amp; Brand</a>" +
     "<a href='athlete-care.html'>Athlete Care</a>" +
@@ -111,7 +109,6 @@
     initNav();
     initReveal();
     initMediaFallbacks();
-    initFilters();
     initSmoothScroll();
     initHeroLogoToggle();
   });
@@ -136,8 +133,7 @@
       "athlete-care": "services",
       business: "services",
       health: "services",
-      community: "services",
-      news: "news"
+      community: "services"
     };
     var active = map[page];
     if (active) {
@@ -304,24 +300,6 @@
       },
       { passive: true }
     );
-  }
-
-  /* News category filters */
-  function initFilters() {
-    var filters = document.querySelectorAll(".filter[data-filter]");
-    if (!filters.length) return;
-    var cards = document.querySelectorAll("[data-category]");
-    filters.forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        filters.forEach(function (b) { b.classList.remove("active"); });
-        btn.classList.add("active");
-        var f = btn.getAttribute("data-filter");
-        cards.forEach(function (card) {
-          card.style.display =
-            f === "all" || card.getAttribute("data-category") === f ? "" : "none";
-        });
-      });
-    });
   }
 
   /* expose barcode helpers for inline use */
