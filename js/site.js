@@ -258,11 +258,12 @@
   }
 
   /* Header logo reveal: only relevant on the home page, where the hero
-     carries its own logo. Adds .hero-out to <body> once the hero has
-     scrolled fully out of view, so the header logo fades in only then. */
+     carries its own logo. Adds .hero-out to <body> once the hero logo
+     itself has scrolled fully out of view, so the header logo fades in
+     only then; removed again if the hero logo scrolls back into view. */
   function initHeroLogoToggle() {
-    var hero = document.querySelector(".hero");
-    if (!hero) return;
+    var heroLogo = document.querySelector(".hero-logo");
+    if (!heroLogo) return;
 
     if (!("IntersectionObserver" in window)) {
       document.body.classList.add("hero-out");
@@ -277,7 +278,7 @@
       },
       { threshold: 0 }
     );
-    io.observe(hero);
+    io.observe(heroLogo);
   }
 
   /* News category filters */

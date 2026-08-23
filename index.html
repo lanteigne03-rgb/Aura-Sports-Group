@@ -122,8 +122,8 @@
     }
 
     /* Header logo: hidden while the hero (with its own logo) is on screen,
-       revealed once the hero has scrolled out of view. Toggled via the
-       .hero-out class site.js adds/removes on <body> with an IntersectionObserver. */
+       revealed after 4 scroll gestures (see initHeroLogoToggle in site.js).
+       Toggled via the .hero-out class site.js adds/removes on <body>. */
     body.home #siteNav .logo-lockup {
       opacity: 0;
       pointer-events: none;
