@@ -180,20 +180,11 @@
     // burger
     var burger = document.getElementById("navBurger");
     var heroVideo = document.querySelector(".hero-media video");
-    // Must match the transition duration on #navLinks (transform 0.3s) in
-    // styles.css — see the comment below on why the close path holds
-    // .nav-open for this long instead of dropping it immediately.
-    var NAV_CLOSE_MS = 300;
-    var navCloseTimer = null;
     var setMenuOpen = function (open) {
-      if (navCloseTimer) {
-        clearTimeout(navCloseTimer);
-        navCloseTimer = null;
-      }
       links.classList.toggle("open", open);
       burger.setAttribute("aria-expanded", open ? "true" : "false");
+      document.body.classList.toggle("nav-open", open);
       if (open) {
-        document.body.classList.add("nav-open");
         nav.classList.remove("nav-hidden");
         // pause the hero video while the full-screen menu is up — on iOS
         // Safari a playing <video> can be promoted to its own compositing
@@ -204,25 +195,9 @@
           heroVideo.dataset.pausedByNav = "1";
           heroVideo.pause();
         }
-      } else {
-        if (heroVideo && heroVideo.dataset.pausedByNav) {
-          delete heroVideo.dataset.pausedByNav;
-          heroVideo.play().catch(function () {});
-        }
-        // Keep .nav-open (and with it styles.css's instant, transition-free
-        // suppression of #siteNav's backdrop-filter/transform) in place
-        // until #navLinks has actually finished sliding off. backdrop-filter
-        // creates a containing block for position:fixed descendants, so on
-        // any page/scroll state where the bar is blurred (.scrolled or
-        // .nav-solid's .solid), dropping .nav-open immediately would let the
-        // blur transition back in *while* the full-screen menu is still
-        // visibly animating away — the menu's fixed positioning would
-        // recompute against the bar instead of the viewport mid-slide,
-        // producing a jarring resize/pop instead of a clean close.
-        navCloseTimer = setTimeout(function () {
-          document.body.classList.remove("nav-open");
-          navCloseTimer = null;
-        }, NAV_CLOSE_MS);
+      } else if (heroVideo && heroVideo.dataset.pausedByNav) {
+        delete heroVideo.dataset.pausedByNav;
+        heroVideo.play().catch(function () {});
       }
     };
     if (burger && links) {
