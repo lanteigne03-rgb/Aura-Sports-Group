@@ -467,7 +467,27 @@ ul {
   width: 24px;
   height: 2px;
   background: var(--white-off);
-  transition: transform 0.25s ease, opacity 0.25s ease;
+  transform-origin: center;
+  transition: transform 0.3s cubic-bezier(.16,.84,.44,1), opacity 0.2s ease;
+}
+
+/* Burger → X morph while the mobile menu is open. The three bars sit at
+   y = 0-2 / 7-9 / 14-16 (2px bars, 5px gap), so the group's vertical
+   center is y = 8: the top and bottom bars each travel 7px to meet there,
+   the middle bar just fades out rather than trying to rotate through it. */
+.nav-burger.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav-burger.open span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.nav-burger.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-burger span { transition: none; }
 }
 
 /* ---------- Logo lockup ---------- */
@@ -1005,6 +1025,16 @@ ul {
   .grid-3 { grid-template-columns: repeat(2, 1fr); }
 }
 
+/* Locks the page behind the mobile menu so it can't be scrolled while the
+   full-screen panel is open (see the burger click handler in site.js,
+   which toggles this class on both <html> and <body> — overflow:hidden on
+   body alone isn't enough to reliably block viewport scrolling). */
+html.menu-open,
+body.menu-open {
+  overflow: hidden;
+  height: 100%;
+}
+
 @media (max-width: 900px) {
   .site-nav { padding: 16px 24px; }
 
@@ -1019,6 +1049,8 @@ ul {
     padding: 32px;
     transform: translateX(100%);
     transition: transform 0.3s ease;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .nav-links.open { transform: none; }

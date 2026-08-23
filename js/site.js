@@ -147,13 +147,13 @@
     // scroll state
     var links = document.getElementById("navLinks");
     var lastScrollY = window.scrollY;
-    var onScroll = function () {
+    var updateNavAppearance = function () {
       var y = window.scrollY;
+      var menuOpen = links && links.classList.contains("open");
 
       // hide the bar as the page scrolls down, reveal it again on the
       // way up; skip this while the mobile menu is open, and ignore the
       // rubber-band region right at the top so it never hides too early
-      var menuOpen = links && links.classList.contains("open");
       if (!menuOpen) {
         if (y <= 40) {
           nav.classList.remove("nav-hidden");
@@ -170,21 +170,59 @@
       // slides away. On the way back up, both land on the same tick, so
       // the bar reappears already in its solid state instead of fading
       // it in separately.
-      nav.classList.toggle("scrolled", y > 40 && !nav.classList.contains("nav-hidden"));
+      //
+      // The mobile menu panel is always opaque, but the 76px header strip
+      // above it only got its own solid background from scroll position —
+      // so opening the menu at the very top of a page (e.g. right on the
+      // hero) left that strip transparent, exposing hero content through
+      // a gap above an otherwise opaque menu. Forcing "scrolled" on
+      // whenever the menu is open closes that gap.
+      nav.classList.toggle(
+        "scrolled",
+        menuOpen || (y > 40 && !nav.classList.contains("nav-hidden"))
+      );
 
       lastScrollY = y;
     };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
+    window.addEventListener("scroll", updateNavAppearance, { passive: true });
+    updateNavAppearance();
 
     // burger
     var burger = document.getElementById("navBurger");
     if (burger && links) {
+      var closeMenu = function () {
+        links.classList.remove("open");
+        burger.classList.remove("open");
+        burger.setAttribute("aria-expanded", "false");
+        burger.setAttribute("aria-label", "Menu");
+        document.documentElement.classList.remove("menu-open");
+        document.body.classList.remove("menu-open");
+        links.querySelectorAll("li.open").forEach(function (li) {
+          li.classList.remove("open");
+        });
+        updateNavAppearance();
+      };
+
       burger.addEventListener("click", function () {
         var open = links.classList.toggle("open");
+        // Morphs the burger's three bars into an X (see the
+        // .nav-burger.open rules in styles.css) so the icon itself
+        // confirms the tap and shows how to close the menu again.
+        burger.classList.toggle("open", open);
         burger.setAttribute("aria-expanded", open ? "true" : "false");
+        burger.setAttribute("aria-label", open ? "Close menu" : "Menu");
+        // Lock the page behind the menu so it can't scroll while the
+        // full-screen mobile panel is open — previously the page kept
+        // scrolling underneath, which could shift/reveal content behind
+        // the (nearly opaque) panel and made the overlay feel broken.
+        // Both <html> and <body> need the class: overflow:hidden on body
+        // alone doesn't reliably block viewport scrolling.
+        document.documentElement.classList.toggle("menu-open", open);
+        document.body.classList.toggle("menu-open", open);
         if (open) nav.classList.remove("nav-hidden");
+        updateNavAppearance();
       });
+
       // mobile: tap a parent item toggles its dropdown
       links.querySelectorAll("li").forEach(function (li) {
         var drop = li.querySelector(".nav-drop");
@@ -196,6 +234,20 @@
           }
         });
       });
+
+      // rotating to landscape or resizing past the mobile breakpoint
+      // while the menu is open used to leave the body scroll-locked and
+      // the header forced solid with no way to close it (the burger is
+      // hidden above 900px) — close it automatically instead.
+      window.addEventListener(
+        "resize",
+        function () {
+          if (window.innerWidth > 900 && links.classList.contains("open")) {
+            closeMenu();
+          }
+        },
+        { passive: true }
+      );
     }
   }
 
