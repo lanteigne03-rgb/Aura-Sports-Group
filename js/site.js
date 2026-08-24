@@ -36,7 +36,6 @@
     "<a href='high-school.html'>High School</a>" +
     "<a href='coaches.html'>Coaches</a>" +
     "</div></li>" +
-    "<li data-page='draft-prep'><a class='nav-link' href='draft-prep.html'>Draft Prep</a></li>" +
     "<li data-page='services'><a class='nav-link' href='marketing.html'>Services</a>" +
     "<div class='nav-drop'>" +
     "<a href='marketing.html'>Marketing &amp; Brand</a>" +
@@ -45,8 +44,8 @@
     "<a href='health.html'>Health &amp; Performance</a>" +
     "<a href='community.html'>Community &amp; Legacy</a>" +
     "</div></li>" +
+    "<li data-page='contact'><a class='nav-link' href='contact.html'>Contact</a></li>" +
     "</ul>" +
-    "<a class='nav-cta' href='contact.html'><span class='nav-cta-label'>Contact Us</span></a>" +
     "</nav>";
 
   function ctaModule(headlineHTML) {
@@ -69,8 +68,7 @@
     "<div class='footer-cols'>" +
     "<div class='footer-col'><span class='col-title'>Agency</span>" +
     "<a href='about.html'>About</a>" +
-    "<a href='representation.html'>Representation</a>" +
-    "<a href='draft-prep.html'>Draft Prep</a></div>" +
+    "<a href='representation.html'>Representation</a></div>" +
     "<div class='footer-col'><span class='col-title'>Services</span>" +
     "<a href='marketing.html'>Marketing &amp; Brand</a>" +
     "<a href='athlete-care.html'>Athlete Care</a>" +
@@ -147,12 +145,12 @@
       "college-nil": "representation",
       "high-school": "representation",
       coaches: "representation",
-      "draft-prep": "draft-prep",
       marketing: "services",
       "athlete-care": "services",
       business: "services",
       health: "services",
-      community: "services"
+      community: "services",
+      contact: "contact"
     };
     var active = map[page];
     if (active) {

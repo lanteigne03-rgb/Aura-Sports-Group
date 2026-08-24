@@ -432,53 +432,6 @@ ul {
   text-shadow: 0 0 8px rgba(198, 165, 103, 0.75), 0 0 18px rgba(198, 165, 103, 0.45);
 }
 
-.nav-cta {
-  border: 1px solid var(--gold-600);
-  border-radius: 2px;
-  padding: 12px 22px;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 1.98px;
-  color: var(--white-off);
-  text-transform: uppercase;
-  text-shadow:
-    0 0 0 rgba(198, 165, 103, 0),
-    0 0 0 rgba(198, 165, 103, 0),
-    0 0 0 rgba(198, 165, 103, 0),
-    0 0 0 rgba(198, 165, 103, 0);
-  transition: background 0.2s ease, box-shadow 0.2s ease, color 0.2s ease, text-shadow 0.4s ease;
-}
-
-.nav-cta:hover {
-  color: var(--gold-300);
-  background: rgba(198, 165, 103, 0.1);
-  box-shadow: 0 0 14px rgba(198, 165, 103, 0.25);
-  text-shadow:
-    0 0 2px rgba(198, 165, 103, 0.9),
-    0 0 6px rgba(198, 165, 103, 0.75),
-    0 0 12px rgba(198, 165, 103, 0.55),
-    0 0 22px rgba(198, 165, 103, 0.35);
-}
-
-/* gradient fill lives on the inner label so the button's own translucent
-   fill/border (set above) isn't clipped away with the text; wipes in fast
-   on hover, fades back out slowly, matching the nav-link treatment */
-.nav-cta-label {
-  background: var(--metal-gold);
-  background-size: 260% 100%;
-  background-position: 100% 0;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: var(--white-off);
-  transition: -webkit-text-fill-color 1s ease, background-position 0.9s ease;
-}
-
-.nav-cta:hover .nav-cta-label {
-  -webkit-text-fill-color: transparent;
-  background-position: 0% 0;
-  transition: -webkit-text-fill-color 0.25s ease, background-position 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
 /* burger */
 .nav-burger {
   display: none;
@@ -1095,7 +1048,6 @@ ul {
 
   .nav-links li.open .nav-drop { display: block; }
   .nav-burger { display: flex; }
-  .nav-cta { display: none; }
 
   /* Belt-and-suspenders for the iOS Safari video-bleed-through bug: the
      hero's <video> and its filtered/blended logo layers are the pieces
