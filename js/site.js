@@ -40,13 +40,10 @@
     "<a href='recruits.html'>Recruits</a>" +
     "<a href='coaches.html'>Coaches</a>" +
     "</div></li>" +
-    "<li data-page='services'><a class='nav-link' href='marketing.html'>Services</a>" +
+    "<li data-page='marketing'><a class='nav-link' href='marketing-overview.html'>Marketing</a>" +
     "<div class='nav-drop'>" +
-    "<a href='marketing.html'>Marketing &amp; Brand</a>" +
-    "<a href='athlete-care.html'>Athlete Care</a>" +
-    "<a href='business.html'>Business &amp; Analytics</a>" +
-    "<a href='health.html'>Health &amp; Performance</a>" +
-    "<a href='community.html'>Community &amp; Legacy</a>" +
+    "<a href='marketing-overview.html'>Overview</a>" +
+    "<a href='brand-inquiries.html'>Brand Inquiries</a>" +
     "</div></li>" +
     "<li data-page='contact'><a class='nav-link' href='contact.html'>Contact</a></li>" +
     "</ul>" +
@@ -75,11 +72,8 @@
     "<a href='our-team.html'>Our Team</a>" +
     "<a href='representation.html'>Representation</a></div>" +
     "<div class='footer-col'><span class='col-title'>Services</span>" +
-    "<a href='marketing.html'>Marketing &amp; Brand</a>" +
-    "<a href='athlete-care.html'>Athlete Care</a>" +
-    "<a href='business.html'>Business &amp; Analytics</a>" +
-    "<a href='health.html'>Health &amp; Performance</a>" +
-    "<a href='community.html'>Community &amp; Legacy</a></div>" +
+    "<a href='marketing-overview.html'>Overview</a>" +
+    "<a href='brand-inquiries.html'>Brand Inquiries</a></div>" +
     "<div class='footer-col'><span class='col-title'>Connect</span>" +
     "<a href='contact.html'>Contact</a>" +
     "<a href='#' rel='noopener'>Instagram</a>" +
@@ -151,11 +145,8 @@
       "college-nil": "representation",
       recruits: "representation",
       coaches: "representation",
-      marketing: "services",
-      "athlete-care": "services",
-      business: "services",
-      health: "services",
-      community: "services",
+      "marketing-overview": "marketing",
+      "brand-inquiries": "marketing",
       contact: "contact"
     };
     var active = map[page];
