@@ -32,7 +32,7 @@
     "<li data-page='representation'><a class='nav-link' href='representation.html'>Representation</a>" +
     "<div class='nav-drop'>" +
     "<a href='nfl.html'>NFL</a>" +
-    "<a href='college-nil.html'>College / NIL</a>" +
+    "<a href='college-nil.html'>College</a>" +
     "<a href='high-school.html'>High School</a>" +
     "<a href='coaches.html'>Coaches</a>" +
     "</div></li>" +
