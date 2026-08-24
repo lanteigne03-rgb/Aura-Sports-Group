@@ -119,6 +119,25 @@
     var nav = document.getElementById("siteNav");
     if (!nav) return;
 
+    // Mirror the bar's real rendered height onto --nav-h so the mobile
+    // full-screen menu (top: var(--nav-h)) starts exactly at its bottom
+    // edge instead of a hardcoded guess — the bar's height changes with
+    // the 900px breakpoint (padding + logo size both shrink), so this is
+    // re-measured on resize, not just once at load.
+    var syncNavHeight = function () {
+      document.documentElement.style.setProperty("--nav-h", nav.offsetHeight + "px");
+    };
+    syncNavHeight();
+    var navHeightResizeTimer = null;
+    window.addEventListener(
+      "resize",
+      function () {
+        clearTimeout(navHeightResizeTimer);
+        navHeightResizeTimer = setTimeout(syncNavHeight, 150);
+      },
+      { passive: true }
+    );
+
     // active link highlight
     var page = (location.pathname.split("/").pop() || "index.html").replace(".html", "");
     var map = {

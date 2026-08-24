@@ -1050,7 +1050,11 @@ ul {
   .nav-links {
     position: fixed;
     inset: 0;
-    top: 76px;
+    /* --nav-h is the bar's real measured height, kept in sync by site.js —
+       the old hardcoded 76px didn't match the mobile bar's actual ~64px
+       (16px padding + 32px logo), leaving a thin strip of the page visible
+       between the bar and the menu's backdrop. */
+    top: var(--nav-h, 76px);
     z-index: 1;
     flex-direction: column;
     align-items: flex-start;
