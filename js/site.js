@@ -67,11 +67,15 @@
     "<div class='top'>" +
     logo("logo-lockup--footer") +
     "<div class='footer-cols'>" +
-    "<div class='footer-col'><span class='col-title'>Agency</span>" +
+    "<div class='footer-col'><span class='col-title'>About</span>" +
     "<a href='the-agency.html'>The Agency</a>" +
-    "<a href='our-team.html'>Our Team</a>" +
-    "<a href='representation.html'>Representation</a></div>" +
-    "<div class='footer-col'><span class='col-title'>Services</span>" +
+    "<a href='our-team.html'>Our Team</a></div>" +
+    "<div class='footer-col'><span class='col-title'>Representation</span>" +
+    "<a href='nfl.html'>NFL</a>" +
+    "<a href='college-nil.html'>College</a>" +
+    "<a href='recruits.html'>Recruits</a>" +
+    "<a href='coaches.html'>Coaches</a></div>" +
+    "<div class='footer-col'><span class='col-title'>Marketing</span>" +
     "<a href='marketing-overview.html'>Overview</a>" +
     "<a href='brand-inquiries.html'>Brand Inquiries</a></div>" +
     "<div class='footer-col'><span class='col-title'>Connect</span>" +
