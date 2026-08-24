@@ -80,9 +80,9 @@
     "<a href='brand-inquiries.html'>Brand Inquiries</a></div>" +
     "<div class='footer-col'><span class='col-title'>Connect</span>" +
     "<a href='contact.html'>Contact</a>" +
-    "<a href='#' rel='noopener'>Instagram</a>" +
-    "<a href='#' rel='noopener'>X / Twitter</a>" +
-    "<a href='#' rel='noopener'>LinkedIn</a></div>" +
+    "<a href='https://www.instagram.com/aurasports/?hl=en' target='_blank' rel='noopener'>Instagram</a>" +
+    "<a href='https://x.com/aurasportsgroup?lang=en' target='_blank' rel='noopener'>X / Twitter</a>" +
+    "<a href='https://www.linkedin.com/company/aura-sports-group/' target='_blank' rel='noopener'>LinkedIn</a></div>" +
     "</div></div>" +
     "<div class='bottom'>" +
     "<p>© 2026 Aura Sports Group. All rights reserved.</p>" +
