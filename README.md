@@ -4,7 +4,7 @@ Static site built from the Figma design (`Aura Sports Group — Website`). No bu
 
 ## Pages
 
-`index.html` (Home) · `about.html` · `representation.html` · `nfl.html` · `college-nil.html` · `recruits.html` · `coaches.html` · `draft-prep.html` · `marketing.html` · `athlete-care.html` · `business.html` · `health.html` · `community.html` · `contact.html`
+`index.html` (Home) · `the-agency.html` · `our-team.html` · `representation.html` · `nfl.html` · `college-nil.html` · `recruits.html` · `coaches.html` · `draft-prep.html` · `marketing.html` · `athlete-care.html` · `business.html` · `health.html` · `community.html` · `contact.html`
 
 ## Structure
 
@@ -26,7 +26,8 @@ Every photo slot renders a styled placeholder until the matching file exists in 
 | `high-school-hero.jpg` | Recruits page hero (wide) |
 | `coach-hero.jpg` | Coaches page hero (wide) |
 | `draft-performance.jpg` / `draft-environment.jpg` / `draft-interviews.jpg` / `draft-intel.jpg` | Draft Prep parts |
-| `about-story.jpg` | About page |
+| `about-story.jpg` | The Agency page |
+| `team/member-01.jpg` … `team/member-06.jpg` | Our Team page (one per profile) |
 | `athlete-care.jpg` | Athlete Care media band |
 | `community.jpg` | Community page |
 | `assets/video/hero.mp4` | Home hero film (21:9, autoplay muted loop) |
@@ -38,6 +39,7 @@ The design uses **Dharma Gothic E ExBold Italic** (commercial). The site falls b
 ## Before launch
 
 - Replace placeholder service copy on the Recruits and Coaches pages (flagged in the design).
+- Replace the `[ Name ]` / title placeholders and photos on the Our Team page with real profiles.
 - Replace `[ PUBLICATION ] / [ Headline ]` article placeholders on Home with real coverage.
 - Wire the contact form (`contact.html`) to your email service or backend.
 - Add real social links in the footer (`js/site.js`).

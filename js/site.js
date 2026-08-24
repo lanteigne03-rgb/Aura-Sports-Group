@@ -28,7 +28,11 @@
     "<button class='nav-burger' id='navBurger' aria-label='Menu' aria-expanded='false'>" +
     "<span></span><span></span><span></span></button>" +
     "<ul class='nav-links' id='navLinks'>" +
-    "<li data-page='about'><a class='nav-link' href='about.html'>About</a></li>" +
+    "<li data-page='about'><a class='nav-link' href='the-agency.html'>About</a>" +
+    "<div class='nav-drop'>" +
+    "<a href='the-agency.html'>The Agency</a>" +
+    "<a href='our-team.html'>Our Team</a>" +
+    "</div></li>" +
     "<li data-page='representation'><a class='nav-link' href='representation.html'>Representation</a>" +
     "<div class='nav-drop'>" +
     "<a href='nfl.html'>NFL</a>" +
@@ -67,7 +71,8 @@
     logo("logo-lockup--footer") +
     "<div class='footer-cols'>" +
     "<div class='footer-col'><span class='col-title'>Agency</span>" +
-    "<a href='about.html'>About</a>" +
+    "<a href='the-agency.html'>The Agency</a>" +
+    "<a href='our-team.html'>Our Team</a>" +
     "<a href='representation.html'>Representation</a></div>" +
     "<div class='footer-col'><span class='col-title'>Services</span>" +
     "<a href='marketing.html'>Marketing &amp; Brand</a>" +
@@ -139,7 +144,8 @@
     // active link highlight
     var page = (location.pathname.split("/").pop() || "index.html").replace(".html", "");
     var map = {
-      about: "about",
+      "the-agency": "about",
+      "our-team": "about",
       representation: "representation",
       nfl: "representation",
       "college-nil": "representation",
