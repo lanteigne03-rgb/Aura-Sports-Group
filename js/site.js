@@ -86,7 +86,7 @@
     "</div></div>" +
     "<div class='bottom'>" +
     "<p>© 2026 Aura Sports Group. All rights reserved.</p>" +
-    "<div class='legal'><a href='#'>Privacy Policy</a><a href='#'>Terms</a></div>" +
+    "<div class='legal'><a href='privacy-policy.html'>Privacy Policy</a><a href='terms.html'>Terms</a></div>" +
     "</div>" +
     "</footer>";
 
