@@ -1111,6 +1111,26 @@ ul {
   body.nav-open .scroll-indicator {
     visibility: hidden;
   }
+
+  /* The bar itself is only solid once .scrolled/.solid is present — at the
+     very top of an unscrolled, non-nav-solid page it's still fully
+     transparent (rgba(8,8,10,0)), so opening the menu there leaves whatever
+     is behind the bar (hero art, a page-hero image) showing through as a
+     strip above the menu's opaque backdrop. This forces the same solid +
+     blurred look the bar gets from .scrolled/.solid whenever the menu is
+     open, regardless of scroll position, so the top edge is never see-
+     through — background is safe to set directly on #siteNav (only
+     backdrop-filter creates a containing block, and that one lives on the
+     ::before layer, not on #siteNav itself, so this can't reintroduce the
+     earlier collapsed-menu bug). */
+  body.nav-open #siteNav {
+    background: rgba(8, 8, 10, 0.82);
+    border-bottom-color: var(--ink-700);
+  }
+  body.nav-open #siteNav::before {
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
 }
 
 @media (max-width: 720px) {
