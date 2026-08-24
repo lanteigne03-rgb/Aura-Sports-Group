@@ -33,7 +33,7 @@
     "<div class='nav-drop'>" +
     "<a href='nfl.html'>NFL</a>" +
     "<a href='college-nil.html'>College</a>" +
-    "<a href='high-school.html'>High School</a>" +
+    "<a href='recruits.html'>Recruits</a>" +
     "<a href='coaches.html'>Coaches</a>" +
     "</div></li>" +
     "<li data-page='services'><a class='nav-link' href='marketing.html'>Services</a>" +
@@ -143,7 +143,7 @@
       representation: "representation",
       nfl: "representation",
       "college-nil": "representation",
-      "high-school": "representation",
+      recruits: "representation",
       coaches: "representation",
       marketing: "services",
       "athlete-care": "services",

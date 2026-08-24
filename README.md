@@ -4,7 +4,7 @@ Static site built from the Figma design (`Aura Sports Group — Website`). No bu
 
 ## Pages
 
-`index.html` (Home) · `about.html` · `representation.html` · `nfl.html` · `college-nil.html` · `high-school.html` · `coaches.html` · `draft-prep.html` · `marketing.html` · `athlete-care.html` · `business.html` · `health.html` · `community.html` · `contact.html`
+`index.html` (Home) · `about.html` · `representation.html` · `nfl.html` · `college-nil.html` · `recruits.html` · `coaches.html` · `draft-prep.html` · `marketing.html` · `athlete-care.html` · `business.html` · `health.html` · `community.html` · `contact.html`
 
 ## Structure
 
@@ -23,7 +23,7 @@ Every photo slot renders a styled placeholder until the matching file exists in 
 | `coach.jpg` | Home pathway card, Representation stage |
 | `nfl-hero.jpg` | NFL page hero (wide) |
 | `college-hero.jpg` / `college-lens.jpg` | College page |
-| `high-school-hero.jpg` | High School page hero (wide) |
+| `high-school-hero.jpg` | Recruits page hero (wide) |
 | `coach-hero.jpg` | Coaches page hero (wide) |
 | `draft-performance.jpg` / `draft-environment.jpg` / `draft-interviews.jpg` / `draft-intel.jpg` | Draft Prep parts |
 | `about-story.jpg` | About page |
@@ -37,7 +37,7 @@ The design uses **Dharma Gothic E ExBold Italic** (commercial). The site falls b
 
 ## Before launch
 
-- Replace placeholder service copy on the High School and Coaches pages (flagged in the design).
+- Replace placeholder service copy on the Recruits and Coaches pages (flagged in the design).
 - Replace `[ PUBLICATION ] / [ Headline ]` article placeholders on Home with real coverage.
 - Wire the contact form (`contact.html`) to your email service or backend.
 - Add real social links in the footer (`js/site.js`).
