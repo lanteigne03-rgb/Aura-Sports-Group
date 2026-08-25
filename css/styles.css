@@ -273,7 +273,7 @@ ul {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px var(--pad-x);
+  padding: 20px 64px;
   transition: background 0.3s ease, border-color 0.3s ease, transform 0.35s ease;
   border-bottom: 1px solid transparent;
   background: rgba(8, 8, 10, 0);
@@ -438,14 +438,14 @@ ul {
   white-space: nowrap;
 }
 
-/* the glow is scoped to the text glyphs themselves (an inline span sized to
-   the text, not the full-width <a>), so it only lights up when the pointer
-   is actually over the words — not the padded row around them */
 .nav-drop a span {
   transition: color 0.2s ease, text-shadow 0.2s ease;
 }
 
-.nav-drop a span:hover {
+/* glow trigger matches the clickable box exactly (the <a> is already
+   shrink-wrapped to the label + its click-comfort padding above), so
+   hovering anywhere in that box lights up the text */
+.nav-drop a:hover span {
   color: var(--gold-400);
   text-shadow: 0 0 8px rgba(198, 165, 103, 0.75), 0 0 18px rgba(198, 165, 103, 0.45);
 }
