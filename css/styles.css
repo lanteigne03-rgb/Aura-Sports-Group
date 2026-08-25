@@ -275,14 +275,12 @@ ul {
   justify-content: space-between;
   padding: 20px var(--pad-x);
   transition: background 0.3s ease, border-color 0.3s ease, transform 0.35s ease;
-  border-bottom: 1px solid transparent;
   background: rgba(8, 8, 10, 0);
 }
 
 .site-nav.scrolled,
 .site-nav.solid {
   background: rgba(8, 8, 10, 0.82);
-  border-bottom-color: var(--ink-700);
 }
 
 /* The frosted-glass blur lives on its own layer behind the nav's real
@@ -1068,7 +1066,6 @@ ul {
      earlier collapsed-menu bug). */
   body.nav-open #siteNav {
     background: rgba(8, 8, 10, 0.82);
-    border-bottom-color: var(--ink-700);
   }
   body.nav-open #siteNav::before {
     backdrop-filter: blur(14px);
