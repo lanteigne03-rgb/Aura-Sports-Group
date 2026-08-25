@@ -49,19 +49,6 @@
     "</ul>" +
     "</nav>";
 
-  function ctaModule(headlineHTML) {
-    return (
-      "<section class='cta-module'>" +
-      "<h2>" + headlineHTML + "</h2>" +
-      "<div class='cta-row'>" +
-      BARCODE_SHORT.replace("barcode", "barcode barcode--white barcode--bright") +
-      "<a class='btn btn--primary' href='contact.html'>Start a Conversation</a>" +
-      BARCODE_SHORT.replace("barcode", "barcode barcode--white barcode--bright") +
-      "</div>" +
-      "</section>"
-    );
-  }
-
   var FOOTER_HTML =
     "<footer class='site-footer'>" +
     "<div class='top'>" +
@@ -95,14 +82,6 @@
   document.addEventListener("DOMContentLoaded", function () {
     var navMount = document.getElementById("nav-placeholder");
     if (navMount) navMount.outerHTML = NAV_HTML;
-
-    var ctaMount = document.getElementById("cta-placeholder");
-    if (ctaMount) {
-      var headline =
-        ctaMount.getAttribute("data-headline") ||
-        "Your career deserves<br>a long-term plan.";
-      ctaMount.outerHTML = ctaModule(headline);
-    }
 
     var footMount = document.getElementById("footer-placeholder");
     if (footMount) footMount.outerHTML = FOOTER_HTML;
