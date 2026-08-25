@@ -594,6 +594,7 @@ ul {
 .card-pathway .media {
   position: absolute;
   inset: 0;
+  border: none;
 }
 
 .card-pathway .media img {
