@@ -667,7 +667,6 @@ ul {
 
 .card-pathway:hover .gold-edge { opacity: 1; }
 .card-pathway:hover .content .explore { color: var(--gold-400); }
-.card-pathway:hover { box-shadow: 0 0 30px rgba(198, 165, 103, 0.15); }
 
 /* College card: enlarged photo, shifted left */
 .card-pathway .media img.college-photo {
