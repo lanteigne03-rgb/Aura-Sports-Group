@@ -14,13 +14,25 @@
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;500;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <style>
-    .card-person { display: flex; flex-direction: column; gap: 18px; }
-    .card-person .media-ph { aspect-ratio: 4 / 5; border-radius: 4px; }
+    .card-person {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 14px;
+    }
+    .card-person .media-ph {
+      width: 128px;
+      height: 128px;
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+    }
+    .card-person .media-ph::after { font-size: 8px; letter-spacing: 1.6px; }
     .card-person .name {
       font-family: var(--font-display);
       font-style: italic;
       font-weight: 800;
-      font-size: 22px;
+      font-size: 20px;
       line-height: 1.1;
       text-transform: uppercase;
       color: var(--white-off);
@@ -32,20 +44,22 @@
       text-transform: uppercase;
       color: var(--gold-500);
     }
+    @media (max-width: 520px) {
+      .card-person .media-ph { width: 108px; height: 108px; }
+    }
   </style>
 </head>
 <body class="nav-solid">
   <div id="nav-placeholder"></div>
 
   <!-- Hero -->
-  <section class="page-hero" style="background: var(--ink-850); min-height: 380px;">
+  <section class="page-hero" style="background: var(--ink-850); min-height: 0; padding: 140px var(--pad-x) 48px;">
     <h1>Our Team</h1>
-    <p class="sub" style="color: var(--grey-250); font-size: 17px;">The people behind every decision — decades of combined experience across representation, strategy and athlete care.</p>
   </section>
 
   <!-- Team grid -->
   <section class="section" style="padding-top: 40px; padding-bottom: 40px;">
-    <div class="grid-3 reveal">
+    <div class="grid-4 reveal" style="row-gap: 44px;">
       <div class="card-person">
         <div class="media-ph" data-label="Team Photo">
           <img src="assets/img/team/member-01.jpg" alt="">
