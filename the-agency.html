@@ -10,6 +10,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;500;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <style>
+    /* This page's hero is immediately followed by .credibility (ink-850),
+       not the ink-950 the shared .page-hero--img::before scrim assumes —
+       override it here so the gradient lands on this page's actual
+       background instead of stopping one shade short of it. */
+    .page-hero--img::before {
+      background: linear-gradient(
+        to bottom,
+        rgba(11, 11, 13, 0.55) 0%,
+        rgba(11, 11, 13, 0.65) 60%,
+        var(--ink-850) 100%
+      );
+    }
     .story { background: var(--ink-850); display: flex; gap: 80px; align-items: center; }
     .story .copy { flex: 1 1 0; min-width: 300px; }
     .story .media-ph { flex: none; width: 320px; height: 400px; max-width: 100%; }
