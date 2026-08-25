@@ -240,11 +240,14 @@
       body.home #siteNav .logo-lockup { transition: none; }
     }
 
-    /* Hero scroll indicator — appears after 5s */
+    /* Hero scroll indicator — a vertical read of the site's barcode motif
+       (see .barcode in styles.css, used at the section dividers below).
+       Same bars, rotated 90° so they stack downward, with a gold scan
+       pulse traveling through them to cue "scroll down". Appears after 5s. */
     .scroll-indicator {
       position: absolute;
       left: 50%;
-      bottom: 36px;
+      bottom: 34px;
       z-index: 2;
       opacity: 0;
       transform: translateX(-50%) translateY(8px);
@@ -252,36 +255,55 @@
       animation-delay: 5s;
       pointer-events: none;
     }
-    .scroll-line {
-      display: block;
-      width: 1px;
-      height: 46px;
-      overflow: hidden;
-      background: rgba(255,255,255,0.14);
+    .scroll-barcode {
       position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      width: 15px;
     }
-    .scroll-line::after {
+    .scroll-barcode i {
+      display: block;
+      width: 100%;
+      border-radius: 0.5px;
+      background: rgba(244, 242, 237, 0.22);
+    }
+    /* bar heights + gaps echo the pairs-then-widen rhythm of .barcode,
+       just turned on its side so the strip reads top to bottom */
+    .scroll-barcode i:nth-child(1) { height: 1px; margin-bottom: 7px; }
+    .scroll-barcode i:nth-child(2) { height: 1px; margin-bottom: 7px; }
+    .scroll-barcode i:nth-child(3) { height: 2px; margin-bottom: 4px; }
+    .scroll-barcode i:nth-child(4) { height: 2px; margin-bottom: 8px; }
+    .scroll-barcode i:nth-child(5) { height: 3px; margin-bottom: 5px; }
+    .scroll-barcode i:nth-child(6) { height: 4px; margin-bottom: 0; }
+    .scroll-barcode::after {
       content: '';
       position: absolute;
-      left: 0;
-      top: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(to bottom, transparent, var(--gold-400));
-      animation: scrollLineMove 1.9s ease-in-out infinite;
+      left: -5px;
+      right: -5px;
+      top: -10px;
+      height: 10px;
+      border-radius: 999px;
+      background: radial-gradient(closest-side, var(--gold-400), transparent 72%);
+      filter: blur(1px);
+      opacity: 0;
+      animation: scrollBarcodeScan 2.6s cubic-bezier(.4,0,.3,1) infinite;
       animation-delay: 5.4s;
     }
     @keyframes scrollIndicatorIn {
       from { opacity: 0; transform: translateX(-50%) translateY(8px); }
       to { opacity: 1; transform: translateX(-50%) translateY(0); }
     }
-    @keyframes scrollLineMove {
-      0% { top: -100%; }
-      100% { top: 100%; }
+    @keyframes scrollBarcodeScan {
+      0%   { top: -10px; opacity: 0; }
+      12%  { opacity: 1; }
+      80%  { opacity: 1; }
+      100% { top: 34px; opacity: 0; }
     }
     @media (prefers-reduced-motion: reduce) {
       .scroll-indicator { animation: none; opacity: 1; transform: translateX(-50%); }
-      .scroll-line::after { animation: none; content: none; }
+      .scroll-barcode i { background: rgba(244, 242, 237, 0.32); }
+      .scroll-barcode::after { animation: none; content: none; }
     }
 
     .who { background: var(--ink-850); display: flex; flex-direction: column; gap: 56px; }
@@ -324,7 +346,7 @@
       </div>
     </div>
     <div class="scroll-indicator" aria-hidden="true">
-      <span class="scroll-line"></span>
+      <span class="scroll-barcode"><i></i><i></i><i></i><i></i><i></i><i></i></span>
     </div>
   </header>
 
