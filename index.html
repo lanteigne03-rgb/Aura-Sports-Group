@@ -303,6 +303,12 @@
     .pathways { display: flex; gap: 24px; }
     @media (max-width: 1080px) { .pathways { flex-wrap: wrap; } .card-pathway { flex: 1 1 45%; min-width: 260px; } }
     @media (max-width: 640px) { .card-pathway { flex: 1 1 100%; } }
+    /* Stagger the pathway cards left to right as they reveal, instead of
+       all four fading in at once. */
+    .pathways .card-pathway:nth-child(1) { transition-delay: 0s; }
+    .pathways .card-pathway:nth-child(2) { transition-delay: 0.12s; }
+    .pathways .card-pathway:nth-child(3) { transition-delay: 0.24s; }
+    .pathways .card-pathway:nth-child(4) { transition-delay: 0.36s; }
 
     .intel { background: var(--ink-850); display: flex; gap: 80px; align-items: center; }
     .intel .copy { flex: 1 1 0; min-width: 300px; }
@@ -345,8 +351,8 @@
 
   <!-- 04 · Who We Represent -->
   <section class="section who">
-    <div class="pathways reveal">
-      <a class="card-pathway" href="nfl.html">
+    <div class="pathways">
+      <a class="card-pathway reveal" href="nfl.html">
         <div class="media media-ph" data-label="NFL Action Image">
           <img src="assets/img/nfl-action.jpg" alt="NFL player in action" style="object-position: 55% center;">
         </div>
@@ -356,7 +362,7 @@
         </div>
         <span class="gold-edge"></span>
       </a>
-      <a class="card-pathway" href="college-nil.html">
+      <a class="card-pathway reveal" href="college-nil.html">
         <div class="media media-ph" data-label="College Football Image">
           <img class="college-photo" src="assets/img/college-football.jpg" alt="College football player">
         </div>
@@ -366,7 +372,7 @@
         </div>
         <span class="gold-edge"></span>
       </a>
-      <a class="card-pathway" href="recruits.html">
+      <a class="card-pathway reveal" href="recruits.html">
         <div class="media media-ph" data-label="Recruits Football Image">
           <img src="assets/img/high-school-football.jpg" alt="Recruit football player">
         </div>
@@ -376,7 +382,7 @@
         </div>
         <span class="gold-edge"></span>
       </a>
-      <a class="card-pathway" href="coaches.html">
+      <a class="card-pathway reveal" href="coaches.html">
         <div class="media media-ph" data-label="Coach Image">
           <img src="assets/img/coach.jpg" alt="Football coach">
         </div>
