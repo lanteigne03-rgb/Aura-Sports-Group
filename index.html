@@ -243,7 +243,7 @@
     /* Hero scroll indicator — a vertical read of the site's barcode motif
        (see .barcode in styles.css, used at the section dividers below).
        Same bars, rotated 90° so they stack downward; each bar flares gold
-       in sequence top to bottom to cue "scroll down". Appears after 5s. */
+       in sequence top to bottom to cue "scroll down". Appears after 4s. */
     .scroll-indicator {
       position: absolute;
       left: 50%;
@@ -252,7 +252,7 @@
       opacity: 0;
       transform: translateX(-50%) translateY(8px);
       animation: scrollIndicatorIn 0.9s cubic-bezier(.16,.84,.44,1) forwards;
-      animation-delay: 5s;
+      animation-delay: 4s;
       pointer-events: none;
     }
     .scroll-barcode {
@@ -278,12 +278,12 @@
        rolling down through the strip rather than a single blip. The 2.2s
        cycle keeps the same ~0.5s hold — all bars dim — before it rolls
        again, just with a quicker wave in between. */
-    .scroll-barcode i:nth-child(1) { height: 1px; margin-bottom: 7px; animation-delay: 5.4s; }
-    .scroll-barcode i:nth-child(2) { height: 1px; margin-bottom: 7px; animation-delay: 5.6s; }
-    .scroll-barcode i:nth-child(3) { height: 2px; margin-bottom: 4px; animation-delay: 5.8s; }
-    .scroll-barcode i:nth-child(4) { height: 2px; margin-bottom: 8px; animation-delay: 6.0s; }
-    .scroll-barcode i:nth-child(5) { height: 3px; margin-bottom: 5px; animation-delay: 6.2s; }
-    .scroll-barcode i:nth-child(6) { height: 4px; margin-bottom: 0; animation-delay: 6.4s; }
+    .scroll-barcode i:nth-child(1) { height: 1px; margin-bottom: 7px; animation-delay: 4.4s; }
+    .scroll-barcode i:nth-child(2) { height: 1px; margin-bottom: 7px; animation-delay: 4.6s; }
+    .scroll-barcode i:nth-child(3) { height: 2px; margin-bottom: 4px; animation-delay: 4.8s; }
+    .scroll-barcode i:nth-child(4) { height: 2px; margin-bottom: 8px; animation-delay: 5.0s; }
+    .scroll-barcode i:nth-child(5) { height: 3px; margin-bottom: 5px; animation-delay: 5.2s; }
+    .scroll-barcode i:nth-child(6) { height: 4px; margin-bottom: 0; animation-delay: 5.4s; }
     @keyframes scrollIndicatorIn {
       from { opacity: 0; transform: translateX(-50%) translateY(8px); }
       to { opacity: 1; transform: translateX(-50%) translateY(0); }
