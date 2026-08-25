@@ -90,7 +90,9 @@
   --white-off: #f4f2ed;
   --white-pure: #ffffff;
   --grey-300: #c2c2c8;
+  --grey-250: #cfd0d4; /* slightly lighter than grey-300, for legal-page paragraph text */
   --grey-400: #9c9ca4;
+  --grey-350: #a8a8b0; /* slightly lighter than grey-400, for body paragraph text */
   --grey-500: #6e6e77;
 
   /* gold */
@@ -208,9 +210,9 @@ ul {
   flex: none;
 }
 
-.body-l { font-size: 18px; line-height: 1.65; color: var(--grey-400); }
-.body-m { font-size: 16px; line-height: 1.65; color: var(--grey-400); }
-.body-s { font-size: 14px; line-height: 1.5; color: var(--grey-400); }
+.body-l { font-size: 18px; line-height: 1.65; color: var(--grey-350); }
+.body-m { font-size: 16px; line-height: 1.65; color: var(--grey-350); }
+.body-s { font-size: 14px; line-height: 1.5; color: var(--grey-350); }
 
 /* ---------- Buttons ---------- */
 .btn {
@@ -427,7 +429,7 @@ ul {
   padding: 10px 22px;
   font-size: 12px;
   letter-spacing: 1.8px;
-  color: var(--grey-300);
+  color: var(--grey-250);
   text-transform: uppercase;
   white-space: nowrap;
   transition: color 0.2s ease, text-shadow 0.2s ease, background 0.2s ease;
@@ -633,7 +635,7 @@ ul {
 }
 
 .card-pathway .content .explore {
-  color: var(--grey-400);
+  color: var(--grey-350);
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 1.68px;
@@ -707,7 +709,7 @@ ul {
 .card-service p {
   font-size: 14px;
   line-height: 1.6;
-  color: var(--grey-400);
+  color: var(--grey-350);
 }
 
 /* Article card */
@@ -785,7 +787,7 @@ ul {
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 2px;
-  color: var(--grey-300);
+  color: var(--grey-250);
   text-transform: uppercase;
   white-space: nowrap;
   transition: border-color 0.2s ease, color 0.2s ease;
@@ -882,7 +884,7 @@ ul {
 }
 
 .footer-col a {
-  color: var(--grey-300);
+  color: var(--grey-250);
   font-size: 13px;
   transition: color 0.2s ease;
 }
@@ -902,7 +904,7 @@ ul {
 .site-footer .legal {
   display: flex;
   gap: 24px;
-  color: var(--grey-400);
+  color: var(--grey-350);
 }
 
 .site-footer .legal a:hover { color: var(--gold-400); }
@@ -927,7 +929,7 @@ ul {
 .page-hero .sub {
   margin-top: 28px;
   font-size: 18px;
-  color: var(--grey-400);
+  color: var(--grey-350);
   max-width: 900px;
 }
 
