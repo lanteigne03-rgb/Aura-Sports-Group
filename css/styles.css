@@ -425,7 +425,12 @@ ul {
 }
 
 .nav-drop a {
+  /* shrink-wrapped to the label itself (plus a small click-comfort margin)
+     instead of stretching the full width of the dropdown, so the link is
+     only clickable around the actual page name text */
   display: block;
+  width: fit-content;
+  max-width: 100%;
   padding: 10px 22px;
   font-size: 12px;
   letter-spacing: 1.8px;
