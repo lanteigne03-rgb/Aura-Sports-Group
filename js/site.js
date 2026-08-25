@@ -30,20 +30,20 @@
     "<ul class='nav-links' id='navLinks'>" +
     "<li data-page='about'><a class='nav-link' href='the-agency.html'>About</a>" +
     "<div class='nav-drop'>" +
-    "<a href='the-agency.html'>The Agency</a>" +
-    "<a href='our-team.html'>Our Team</a>" +
+    "<a href='the-agency.html'><span>The Agency</span></a>" +
+    "<a href='our-team.html'><span>Our Team</span></a>" +
     "</div></li>" +
     "<li data-page='representation'><a class='nav-link' href='representation.html'>Representation</a>" +
     "<div class='nav-drop'>" +
-    "<a href='nfl.html'>NFL</a>" +
-    "<a href='college-nil.html'>College</a>" +
-    "<a href='recruits.html'>Recruits</a>" +
-    "<a href='coaches.html'>Coaches</a>" +
+    "<a href='nfl.html'><span>NFL</span></a>" +
+    "<a href='college-nil.html'><span>College</span></a>" +
+    "<a href='recruits.html'><span>Recruits</span></a>" +
+    "<a href='coaches.html'><span>Coaches</span></a>" +
     "</div></li>" +
     "<li data-page='marketing'><a class='nav-link' href='marketing-overview.html'>Marketing</a>" +
     "<div class='nav-drop'>" +
-    "<a href='marketing-overview.html'>Overview</a>" +
-    "<a href='brand-inquiries.html'>Brand Inquiries</a>" +
+    "<a href='marketing-overview.html'><span>Overview</span></a>" +
+    "<a href='brand-inquiries.html'><span>Brand Inquiries</span></a>" +
     "</div></li>" +
     "<li data-page='contact'><a class='nav-link' href='contact.html'>Contact</a></li>" +
     "</ul>" +

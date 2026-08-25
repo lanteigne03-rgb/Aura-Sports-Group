@@ -432,12 +432,17 @@ ul {
   color: var(--grey-250);
   text-transform: uppercase;
   white-space: nowrap;
-  transition: color 0.2s ease, text-shadow 0.2s ease, background 0.2s ease;
 }
 
-.nav-drop a:hover {
+/* the glow is scoped to the text glyphs themselves (an inline span sized to
+   the text, not the full-width <a>), so it only lights up when the pointer
+   is actually over the words — not the padded row around them */
+.nav-drop a span {
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.nav-drop a span:hover {
   color: var(--gold-400);
-  background: rgba(198, 165, 103, 0.06);
   text-shadow: 0 0 8px rgba(198, 165, 103, 0.75), 0 0 18px rgba(198, 165, 103, 0.45);
 }
 
