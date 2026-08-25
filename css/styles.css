@@ -408,7 +408,6 @@ ul {
   left: 50%;
   transform: translateX(-50%) translateY(6px);
   background: rgba(14, 14, 17, 0.97);
-  border: 1px solid var(--ink-700);
   border-radius: 4px;
   padding: 10px 0;
   min-width: 230px;
