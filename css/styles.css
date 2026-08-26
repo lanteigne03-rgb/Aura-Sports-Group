@@ -1072,5 +1072,11 @@ ul {
   .grid-3, .grid-4, .grid-2 { grid-template-columns: 1fr; }
   .section { padding: 48px var(--pad-x); }
   .site-footer { padding: 56px 24px 32px; }
-  .footer-cols { gap: 40px; }
+  .site-footer .top { gap: 40px; }
+  .footer-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    gap: 40px 24px;
+  }
 }
