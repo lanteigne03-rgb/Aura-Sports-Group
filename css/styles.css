@@ -924,6 +924,17 @@ ul {
   max-width: 900px;
 }
 
+/* Keep the heading position consistent across page-hero--img pages
+   regardless of whether a description paragraph follows it — take .sub
+   out of the centered flex flow so it doesn't pull the heading upward. */
+.page-hero--img .sub {
+  position: absolute;
+  left: var(--pad-x);
+  right: var(--pad-x);
+  bottom: 90px;
+  margin-top: 0;
+}
+
 /* hero w/ image background */
 .page-hero--img {
   min-height: 520px;
