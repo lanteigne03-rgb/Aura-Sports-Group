@@ -184,6 +184,8 @@ ul {
 .display--stat { font-size: clamp(56px, 5.8vw, 84px); line-height: 1; }
 
 .gold-text {
+  display: inline-block;
+  padding-right: 0.06em;
   background: var(--metal-gold);
   -webkit-background-clip: text;
   background-clip: text;
