@@ -500,20 +500,6 @@ ul {
 
 .logo-lockup--footer .logo-mark { height: 64px; }
 
-/* Header logo only (not the footer lockup): shift left by half the logo's
-   own rendered width so its visual CENTER lands on the page content's left
-   edge, instead of the logo's left edge sitting flush with it. The nav and
-   interior .section/.page-hero content share the same var(--pad-x) inset,
-   so translateX(-50%) here lines the two up exactly. Scoped to the same
-   901px+ range as the logo's larger (40px) size below 900px, pad-x can
-   shrink smaller than half the logo's width, which would push it off the
-   left edge of the viewport rather than just past the content's edge. */
-@media (min-width: 901px) {
-  .site-nav .logo-lockup {
-    transform: translateX(-50%);
-  }
-}
-
 @media (max-width: 900px) {
   .logo-lockup .logo-mark { height: 32px; }
 }
