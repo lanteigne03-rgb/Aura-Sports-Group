@@ -13,6 +13,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;500;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .split { display: flex; gap: 80px; align-items: center; }
+    .split .copy { flex: 1 1 0; min-width: 300px; }
+    .split .copy p + p { margin-top: 18px; }
+    .split .media-ph { flex: none; width: 320px; height: 400px; max-width: 100%; border: none; }
+    .split.split--reverse { flex-direction: row-reverse; }
+    @media (max-width: 900px) {
+      .split, .split.split--reverse { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
 </head>
 <body>
   <div id="nav-placeholder"></div>
@@ -23,49 +33,40 @@
       <img src="assets/img/high-school-hero.jpg" alt="">
     </div>
     <h1><span class="gold-text">Recruits</span></h1>
-    <p class="sub" style="color: var(--grey-250); font-size: 17px;">Elite athletes, early in the journey — a natural entry point into the College pathway.</p>
   </section>
 
-  <!-- Modules -->
-  <section class="section" style="background: var(--ink-950); padding-top: 100px; padding-bottom: 40px;">
-    <div class="grid-3 reveal">
-      <div class="card-service">
-        <span class="num">01</span>
-        <h3>Career Planning</h3>
-        <p>Placeholder copy — replace with approved language.</p>
+  <!-- Recruiting Approach -->
+  <section class="section split" style="background: var(--ink-950); padding-top: 60px; padding-bottom: 100px;">
+    <div class="copy reveal">
+      <div class="section-header">
+        <h2 class="display display--l">A Clear Path From Recruitment to the Next Level.</h2>
+        <p class="body-m">We work with elite high school athletes and their families to build a clear path from recruitment to the next level.</p>
+        <p class="body-m">Our approach starts with understanding the athlete, their goals, their development, and the opportunities in front of them. We help evaluate programs, relationships, fit, and long-term potential.</p>
       </div>
-      <div class="card-service">
-        <span class="num">02</span>
-        <h3>Opportunity Evaluation</h3>
-        <p>Placeholder copy — replace with approved language.</p>
+    </div>
+    <div class="media-ph reveal" data-label="Recruiting Strategy Image"></div>
+  </section>
+
+  <!-- Guidance + NIL Preparation -->
+  <section class="section split split--reverse reveal" style="background: var(--ink-950); padding-top: 100px; padding-bottom: 100px;">
+    <div class="copy reveal">
+      <div class="section-header">
+        <h2 class="display display--l">Guidance and Clarity at Every Step.</h2>
+        <p class="body-m">Throughout the recruiting process, we provide guidance and perspective to both athletes and their families. Our role is to bring clarity to the process and help our clients make informed decisions with confidence.</p>
+        <p class="body-m">We also prepare athletes for the opportunities that come at the next level. That includes developing an understanding of NIL, building the foundations of a personal brand, and creating the habits and relationships that add value over time.</p>
       </div>
-      <div class="card-service">
-        <span class="num">03</span>
-        <h3>Family Communication</h3>
-        <p>Placeholder copy — replace with approved language.</p>
-      </div>
-      <div class="card-service">
-        <span class="num">04</span>
-        <h3>Recruiting Guidance</h3>
-        <p>Placeholder copy — replace with approved language.</p>
-      </div>
-      <div class="card-service">
-        <span class="num">05</span>
-        <h3>NIL Readiness</h3>
-        <p>Placeholder copy — replace with approved language.</p>
-      </div>
-      <div class="card-service">
-        <span class="num">06</span>
-        <h3>Brand Foundations &amp; Long-Term Development</h3>
-        <p>Placeholder copy — replace with approved language.</p>
-      </div>
+    </div>
+    <div class="media-ph reveal" data-label="Family &amp; NIL Guidance Image"></div>
+  </section>
+
+  <!-- Foundation for What's Next -->
+  <section class="section" style="background: var(--ink-950); padding-top: 100px; padding-bottom: 110px;">
+    <div class="section-header center reveal" style="max-width: 760px;">
+      <h2 class="display display--l" style="text-align:center;">A Foundation for What Comes Next.</h2>
+      <p class="body-l" style="text-align:center;">We help our clients build a foundation for sustained development, future opportunity, and a career that continues to grow.</p>
     </div>
   </section>
 
-  <!-- Editorial note (from design; remove before launch) -->
-  <section class="section" style="background: var(--ink-950); padding-top: 40px; padding-bottom: 60px;">
-    <p class="body-s" style="color: var(--grey-500); font-size: 12px;">All recruits service copy is intentionally high-level placeholder text. No proprietary processes, outcomes, rankings or relationships are claimed. Replace before launch.</p>
-  </section>
 
   <div id="footer-placeholder"></div>
 
