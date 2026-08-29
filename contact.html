@@ -70,6 +70,8 @@
       letter-spacing: 0.5px;
       text-align: center;
     }
+    .form-note--error { color: #e0654f; }
+    .btn--primary[disabled] { opacity: 0.6; cursor: not-allowed; }
   </style>
 </head>
 <body class="nav-solid">
@@ -83,6 +85,10 @@
   <!-- Form -->
   <section class="section" style="padding-top: 80px; padding-bottom: 110px;">
     <form class="contact-form" id="contactForm" novalidate>
+      <input type="hidden" name="access_key" value="4ba98fc8-1334-481c-ae9a-8769641c0b4e">
+      <input type="hidden" name="subject" value="New Contact Form Submission — Aura Sports Group">
+      <input type="hidden" name="from_name" value="Aura Sports Group Website">
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
       <div class="form-row">
         <div class="field">
           <label for="f-name">Name</label>
@@ -125,8 +131,8 @@
         <label for="f-message">Message</label>
         <textarea id="f-message" name="message" placeholder="Tell us about yourself and your goals."></textarea>
       </div>
-      <button class="btn btn--primary" type="submit">Start a Conversation</button>
-      <p class="form-note" id="formNote">Thank you — your message is ready to send. Hook this form to your email service or backend to receive inquiries.</p>
+      <button class="btn btn--primary" type="submit" id="formSubmit">Start a Conversation</button>
+      <p class="form-note" id="formNote"></p>
     </form>
   </section>
 
@@ -136,7 +142,46 @@
   <script>
     document.getElementById("contactForm").addEventListener("submit", function (e) {
       e.preventDefault();
-      document.getElementById("formNote").style.display = "block";
+
+      var form = e.target;
+      var submitBtn = document.getElementById("formSubmit");
+      var note = document.getElementById("formNote");
+
+      note.className = "form-note";
+      note.style.display = "none";
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Sending…";
+
+      var formData = new FormData(form);
+      var payload = Object.fromEntries(formData.entries());
+      payload.botcheck = formData.get("botcheck") === "on";
+
+      fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(payload)
+      })
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+          if (data.success) {
+            form.reset();
+            note.textContent = "Thank you — your message has been sent. We'll be in touch soon.";
+            note.className = "form-note";
+          } else {
+            note.textContent = "Something went wrong. Please try again or email us directly.";
+            note.className = "form-note form-note--error";
+          }
+          note.style.display = "block";
+        })
+        .catch(function () {
+          note.textContent = "Something went wrong. Please try again or email us directly.";
+          note.className = "form-note form-note--error";
+          note.style.display = "block";
+        })
+        .finally(function () {
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Start a Conversation";
+        });
     });
   </script>
 </body>
