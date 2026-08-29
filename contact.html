@@ -78,7 +78,7 @@
   <div id="nav-placeholder"></div>
 
   <!-- Hero -->
-  <section class="page-hero" style="background: var(--ink-850); padding-bottom: 90px;">
+  <section class="page-hero" style="background: var(--ink-850); padding: 140px var(--pad-x) 50px;">
     <h1><span class="gold-text">Contact</span></h1>
   </section>
 
@@ -131,7 +131,7 @@
         <label for="f-message">Message</label>
         <textarea id="f-message" name="message" placeholder="Tell us about yourself and your goals."></textarea>
       </div>
-      <button class="btn btn--primary" type="submit" id="formSubmit">Start a Conversation</button>
+      <button class="btn btn--primary" type="submit" id="formSubmit">Submit</button>
       <p class="form-note" id="formNote"></p>
     </form>
   </section>
@@ -180,7 +180,7 @@
         })
         .finally(function () {
           submitBtn.disabled = false;
-          submitBtn.textContent = "Start a Conversation";
+          submitBtn.textContent = "Submit";
         });
     });
   </script>
