@@ -12,66 +12,77 @@
   src: url("../assets/fonts/DharmaGothicE_ExLight_R.woff2") format("woff2");
   font-weight: 200;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "Dharma Gothic E";
   src: url("../assets/fonts/DharmaGothicE_ExLight_I.woff2") format("woff2");
   font-weight: 200;
   font-style: italic;
+  font-display: swap;
 }
 @font-face {
   font-family: "Dharma Gothic E";
   src: url("../assets/fonts/DharmaGothicE_Light_R.woff2") format("woff2");
   font-weight: 300;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "Dharma Gothic E";
   src: url("../assets/fonts/DharmaGothicE_Light_I.woff2") format("woff2");
   font-weight: 300;
   font-style: italic;
+  font-display: swap;
 }
 @font-face {
   font-family: "Dharma Gothic E";
   src: url("../assets/fonts/DharmaGothicE_Regular_R.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "Dharma Gothic E";
   src: url("../assets/fonts/DharmaGothicE_Regular_I.woff2") format("woff2");
   font-weight: 400;
   font-style: italic;
+  font-display: swap;
 }
 @font-face {
   font-family: "Dharma Gothic E";
   src: url("../assets/fonts/DharmaGothicE_Bold_R.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "Dharma Gothic E";
   src: url("../assets/fonts/DharmaGothicE_ExBold_R.woff2") format("woff2");
   font-weight: 800;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "Dharma Gothic E";
   src: url("../assets/fonts/DharmaGothicE_ExBold_I.woff2") format("woff2");
   font-weight: 800;
   font-style: italic;
+  font-display: swap;
 }
 @font-face {
   font-family: "Dharma Gothic E";
   src: url("../assets/fonts/DharmaGothicE_Heavy_R.woff2") format("woff2");
   font-weight: 900;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "Dharma Gothic E";
   src: url("../assets/fonts/DharmaGothicE_Heavy_I.woff2") format("woff2");
   font-weight: 900;
   font-style: italic;
+  font-display: swap;
 }
 
 :root {

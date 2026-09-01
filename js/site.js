@@ -253,11 +253,13 @@
      Drop a file with the matching name and it appears automatically. */
   function initMediaFallbacks() {
     document.querySelectorAll(".media-ph img").forEach(function (img) {
-      img.hidden = true;
-      img.addEventListener("load", function () { img.hidden = false; });
+      // Images render as soon as they're loaded (the browser's normal
+      // behavior) instead of being hidden-then-revealed, which used to
+      // show the placeholder box on every page load even for images
+      // that exist. Only a genuinely missing/broken image falls back
+      // to the placeholder now.
       img.addEventListener("error", function () { img.hidden = true; });
-      if (img.complete && img.naturalWidth > 0) img.hidden = false;
-      else if (img.src) { var s = img.src; img.src = ""; img.src = s; }
+      if (img.complete && img.naturalWidth === 0) img.hidden = true;
     });
   }
 
