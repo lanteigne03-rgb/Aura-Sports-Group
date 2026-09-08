@@ -233,7 +233,7 @@ ul {
   align-items: center;
   justify-content: center;
   padding: 16px 28px;
-  border-radius: 2px;
+  border-radius: 0;
   font-family: var(--font-body);
   font-size: 12px;
   font-weight: 800;
@@ -419,7 +419,7 @@ ul {
   left: 50%;
   transform: translateX(-50%) translateY(6px);
   background: rgba(14, 14, 17, 0.97);
-  border-radius: 4px;
+  border-radius: 0;
   padding: 10px 0;
   /* shrink-wraps to the widest link's text rather than a fixed width */
   width: max-content;
@@ -603,7 +603,7 @@ ul {
   position: relative;
   flex: 1 1 0;
   height: 440px;
-  border-radius: 4px;
+  border-radius: 0;
   overflow: hidden;
   background: var(--ink-650);
   display: block;
@@ -696,7 +696,7 @@ ul {
 .card-service {
   background: linear-gradient(to bottom, var(--ink-800), var(--ink-900));
   border: 1px solid var(--ink-700);
-  border-radius: 4px;
+  border-radius: 0;
   padding: 36px 32px;
   display: flex;
   flex-direction: column;
@@ -739,7 +739,7 @@ ul {
 .card-article {
   background: var(--ink-750);
   border: 1px solid var(--ink-700);
-  border-radius: 4px;
+  border-radius: 0;
   overflow: hidden;
   flex: 1 1 0;
   display: block;
