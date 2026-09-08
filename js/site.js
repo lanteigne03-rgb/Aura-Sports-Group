@@ -43,7 +43,7 @@
     "<li data-page='marketing'><a class='nav-link' href='marketing-overview.html'>Marketing</a>" +
     "<div class='nav-drop'>" +
     "<a href='marketing-overview.html'><span>Overview</span></a>" +
-    "<a href='brand-inquiries.html'><span>Brand Inquiries</span></a>" +
+    "<a href='https://aurasportsmarketing.com/' target='_blank' rel='noopener'><span>Brand Inquiries</span></a>" +
     "</div></li>" +
     "<li data-page='contact'><a class='nav-link' href='contact.html'>Contact</a></li>" +
     "</ul>" +
@@ -64,7 +64,7 @@
     "<a href='coaches.html'>Coaches</a></div>" +
     "<div class='footer-col'><span class='col-title'>Marketing</span>" +
     "<a href='marketing-overview.html'>Overview</a>" +
-    "<a href='brand-inquiries.html'>Brand Inquiries</a></div>" +
+    "<a href='https://aurasportsmarketing.com/' target='_blank' rel='noopener'>Brand Inquiries</a></div>" +
     "<div class='footer-col'><span class='col-title'>Connect</span>" +
     "<a href='contact.html'>Contact</a>" +
     "<a href='https://www.instagram.com/aurasports/?hl=en' target='_blank' rel='noopener'>Instagram</a>" +
