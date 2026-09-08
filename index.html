@@ -22,6 +22,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon/apple-touch-icon.png">
+  <link rel="preload" as="video" href="assets/video/Hero-Vid-Loop.mp4" type="video/mp4" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="assets/fonts/DharmaGothicE_ExBold_I.woff2" as="font" type="font/woff2" crossorigin>
@@ -362,7 +363,7 @@
   <!-- 01 · Hero -->
   <header class="hero">
     <div class="hero-media">
-      <video autoplay muted loop playsinline preload="auto" poster="assets/img/hero-poster.jpg" onerror="this.remove()">
+      <video autoplay muted loop playsinline preload="auto" fetchpriority="high" poster="assets/img/hero-poster.jpg" onerror="this.remove()">
         <source src="assets/video/Hero-Vid-Loop.mp4" type="video/mp4">
       </video>
     </div>
