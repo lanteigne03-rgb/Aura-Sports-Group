@@ -177,6 +177,23 @@
     // burger
     var burger = document.getElementById("navBurger");
     var heroVideo = document.querySelector(".hero-media video");
+    if (heroVideo) {
+      // Respect Data Saver / slow cellular connections: skip the hero video
+      // entirely and let the poster image stand in. The video is a looping
+      // background element seen at 50% opacity behind a dark scrim, so
+      // there's no meaningful visual cost to dropping it on a constrained
+      // connection, and it avoids burning mobile data or stalling first
+      // paint of the hero on slow networks.
+      var heroConn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+      var heroSlowConn = heroConn && (heroConn.saveData || /2g/.test(heroConn.effectiveType || ""));
+      if (heroSlowConn) {
+        heroVideo.removeAttribute("autoplay");
+        heroVideo.pause();
+        var heroSource = heroVideo.querySelector("source");
+        if (heroSource) heroSource.remove();
+        heroVideo.load();
+      }
+    }
     var setMenuOpen = function (open) {
       links.classList.toggle("open", open);
       burger.setAttribute("aria-expanded", open ? "true" : "false");
