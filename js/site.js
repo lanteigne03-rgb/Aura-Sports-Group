@@ -16,7 +16,7 @@
 
   function logo(cls) {
     return (
-      "<a class='logo-lockup " + (cls || "") + "' href='index.html' aria-label='Aura Sports Group — Home'>" +
+      "<a class='logo-lockup " + (cls || "") + "' href='/' aria-label='Aura Sports Group — Home'>" +
       "<img class='logo-mark' src='assets/img/aura-logo.svg' alt='Aura Sports Group' width='999' height='293'>" +
       "</a>"
     );
@@ -28,24 +28,24 @@
     "<button class='nav-burger' id='navBurger' aria-label='Menu' aria-expanded='false'>" +
     "<span></span><span></span><span></span></button>" +
     "<ul class='nav-links' id='navLinks'>" +
-    "<li data-page='about'><a class='nav-link' href='the-agency.html'>About</a>" +
+    "<li data-page='about'><a class='nav-link' href='the-agency'>About</a>" +
     "<div class='nav-drop'>" +
-    "<a href='the-agency.html'><span>The Agency</span></a>" +
-    "<a href='our-team.html'><span>Our Team</span></a>" +
+    "<a href='the-agency'><span>The Agency</span></a>" +
+    "<a href='our-team'><span>Our Team</span></a>" +
     "</div></li>" +
-    "<li data-page='representation'><a class='nav-link' href='representation.html'>Representation</a>" +
+    "<li data-page='representation'><a class='nav-link' href='representation'>Representation</a>" +
     "<div class='nav-drop'>" +
-    "<a href='nfl.html'><span>NFL</span></a>" +
-    "<a href='college-nil.html'><span>College</span></a>" +
-    "<a href='recruits.html'><span>Recruits</span></a>" +
-    "<a href='coaches.html'><span>Coaches</span></a>" +
+    "<a href='nfl'><span>NFL</span></a>" +
+    "<a href='college-nil'><span>College</span></a>" +
+    "<a href='recruits'><span>Recruits</span></a>" +
+    "<a href='coaches'><span>Coaches</span></a>" +
     "</div></li>" +
-    "<li data-page='marketing'><a class='nav-link' href='marketing-overview.html'>Marketing</a>" +
+    "<li data-page='marketing'><a class='nav-link' href='marketing-overview'>Marketing</a>" +
     "<div class='nav-drop'>" +
-    "<a href='marketing-overview.html'><span>Overview</span></a>" +
+    "<a href='marketing-overview'><span>Overview</span></a>" +
     "<a href='https://aurasportsmarketing.com/' target='_blank' rel='noopener'><span>Inquiries</span></a>" +
     "</div></li>" +
-    "<li data-page='contact'><a class='nav-link' href='contact.html'>Contact</a></li>" +
+    "<li data-page='contact'><a class='nav-link' href='contact'>Contact</a></li>" +
     "</ul>" +
     "</nav>";
 
@@ -55,25 +55,25 @@
     logo("logo-lockup--footer") +
     "<div class='footer-cols'>" +
     "<div class='footer-col'><span class='col-title'>About</span>" +
-    "<a href='the-agency.html'>The Agency</a>" +
-    "<a href='our-team.html'>Our Team</a></div>" +
+    "<a href='the-agency'>The Agency</a>" +
+    "<a href='our-team'>Our Team</a></div>" +
     "<div class='footer-col'><span class='col-title'>Representation</span>" +
-    "<a href='nfl.html'>NFL</a>" +
-    "<a href='college-nil.html'>College</a>" +
-    "<a href='recruits.html'>Recruits</a>" +
-    "<a href='coaches.html'>Coaches</a></div>" +
+    "<a href='nfl'>NFL</a>" +
+    "<a href='college-nil'>College</a>" +
+    "<a href='recruits'>Recruits</a>" +
+    "<a href='coaches'>Coaches</a></div>" +
     "<div class='footer-col'><span class='col-title'>Marketing</span>" +
-    "<a href='marketing-overview.html'>Overview</a>" +
+    "<a href='marketing-overview'>Overview</a>" +
     "<a href='https://aurasportsmarketing.com/' target='_blank' rel='noopener'>Inquiries</a></div>" +
     "<div class='footer-col'><span class='col-title'>Connect</span>" +
-    "<a href='contact.html'>Contact</a>" +
+    "<a href='contact'>Contact</a>" +
     "<a href='https://www.instagram.com/aurasports/?hl=en' target='_blank' rel='noopener'>Instagram</a>" +
     "<a href='https://x.com/aurasportsgroup?lang=en' target='_blank' rel='noopener'>X / Twitter</a>" +
     "<a href='https://www.linkedin.com/company/aura-sports-group/' target='_blank' rel='noopener'>LinkedIn</a></div>" +
     "</div></div>" +
     "<div class='bottom'>" +
     "<p>© 2026 Aura Sports Group. All rights reserved.</p>" +
-    "<div class='legal'><a href='privacy-policy.html'>Privacy Policy</a><a href='terms.html'>Terms</a></div>" +
+    "<div class='legal'><a href='privacy-policy'>Privacy Policy</a><a href='terms'>Terms</a></div>" +
     "</div>" +
     "</footer>";
 
