@@ -80,11 +80,19 @@
   /* ---------- Injection ---------- */
 
   document.addEventListener("DOMContentLoaded", function () {
-    var navMount = document.getElementById("nav-placeholder");
-    if (navMount) navMount.outerHTML = NAV_HTML;
+    // Nav and footer now ship as static markup in every page (so search
+    // and AI crawlers that don't execute JS still see full navigation and
+    // internal links). These only fire as a fallback if a page is missing
+    // that markup — real placeholder divs, or an older cached page.
+    if (!document.getElementById("siteNav")) {
+      var navMount = document.getElementById("nav-placeholder");
+      if (navMount) navMount.outerHTML = NAV_HTML;
+    }
 
-    var footMount = document.getElementById("footer-placeholder");
-    if (footMount) footMount.outerHTML = FOOTER_HTML;
+    if (!document.querySelector(".site-footer")) {
+      var footMount = document.getElementById("footer-placeholder");
+      if (footMount) footMount.outerHTML = FOOTER_HTML;
+    }
 
     initNav();
     initReveal();

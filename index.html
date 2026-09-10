@@ -341,24 +341,82 @@
     }
   </style>
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SportsOrganization",
-    "name": "Aura Sports Group",
-    "url": "https://aurasmg.com/",
-    "logo": "https://aurasmg.com/assets/img/aura-logo-gold.png",
-    "description": "Elite football representation, built for the long game. Aura Sports Group represents premier athletes and coaches at every stage of the game.",
-    "sameAs": [
-      "https://www.instagram.com/aurasports/?hl=en",
-      "https://x.com/aurasportsgroup?lang=en",
-      "https://www.linkedin.com/company/aura-sports-group/"
-    ]
-  }
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SportsOrganization",
+      "@id": "https://aurasmg.com/#organization",
+      "name": "Aura Sports Group",
+      "alternateName": "Aura Sports",
+      "url": "https://aurasmg.com/",
+      "logo": "https://aurasmg.com/assets/img/aura-logo-gold.png",
+      "description": "Elite football representation, built for the long game. Aura Sports Group represents premier athletes and coaches at every stage of the game.",
+      "knowsAbout": [
+        "NFL contract negotiation and representation",
+        "College football NIL representation",
+        "High school football recruiting",
+        "Football coaching representation",
+        "Athlete brand and marketing strategy"
+      ],
+      "sameAs": [
+        "https://www.instagram.com/aurasports/?hl=en",
+        "https://x.com/aurasportsgroup?lang=en",
+        "https://www.linkedin.com/company/aura-sports-group/"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "sales",
+        "url": "https://aurasmg.com/contact"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://aurasmg.com/#website",
+      "url": "https://aurasmg.com/",
+      "name": "Aura Sports Group",
+      "publisher": {
+        "@id": "https://aurasmg.com/#organization"
+      },
+      "inLanguage": "en-US"
+    }
+  ]
+}
   </script>
 </head>
 <body class="home">
   <script src="js/gate.js"></script>
-  <div id="nav-placeholder"></div>
+    <nav class="site-nav" id="siteNav">
+    <a class="logo-lockup" href="/" aria-label="Aura Sports Group — Home">
+      <img class="logo-mark" src="assets/img/aura-logo.svg" alt="Aura Sports Group" width="999" height="293">
+    </a>
+    <button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li data-page="about"><a class="nav-link" href="the-agency">About</a>
+        <div class="nav-drop">
+          <a href="the-agency"><span>The Agency</span></a>
+          <a href="our-team"><span>Our Team</span></a>
+        </div>
+      </li>
+      <li data-page="representation"><a class="nav-link" href="representation">Representation</a>
+        <div class="nav-drop">
+          <a href="nfl"><span>NFL</span></a>
+          <a href="college-nil"><span>College</span></a>
+          <a href="recruits"><span>Recruits</span></a>
+          <a href="coaches"><span>Coaches</span></a>
+        </div>
+      </li>
+      <li data-page="marketing"><a class="nav-link" href="marketing-overview">Marketing</a>
+        <div class="nav-drop">
+          <a href="marketing-overview"><span>Overview</span></a>
+          <a href="https://aurasportsmarketing.com/" target="_blank" rel="noopener"><span>Inquiries</span></a>
+        </div>
+      </li>
+      <li data-page="contact"><a class="nav-link" href="contact">Contact</a></li>
+    </ul>
+  </nav>
 
   <!-- 01 · Hero -->
   <header class="hero">
@@ -380,6 +438,14 @@
       <span class="scroll-barcode"><i></i><i></i><i></i><i></i><i></i><i></i></span>
     </div>
   </header>
+
+  <!-- 02 · Who We Are -->
+  <section class="section who-are-we sr-only">
+    <div class="section-header center reveal">
+      <h2 class="display display--l" style="text-align:center;">Who We Are.</h2>
+      <p class="body-m" style="max-width:720px; margin:0 auto; text-align:center;">Aura Sports Group is a football representation agency. We represent premier athletes and coaches at every stage of the game — from NFL contract strategy and career management, to college NIL representation, high school recruiting, and coaching representation — backed by decades of combined team experience across the NFL Draft, All-Pro, and Pro Bowl levels, plus brand and marketing support that builds value on and off the field.</p>
+    </div>
+  </section>
 
   <!-- 04 · Who We Represent -->
   <section class="section who">
@@ -461,7 +527,39 @@
     </div>
   </section>
 
-  <div id="footer-placeholder"></div>
+    <footer class="site-footer">
+    <div class="top">
+      <a class="logo-lockup logo-lockup--footer" href="/" aria-label="Aura Sports Group — Home">
+        <img class="logo-mark" src="assets/img/aura-logo.svg" alt="Aura Sports Group" width="999" height="293">
+      </a>
+      <div class="footer-cols">
+        <div class="footer-col"><span class="col-title">About</span>
+          <a href="the-agency">The Agency</a>
+          <a href="our-team">Our Team</a>
+        </div>
+        <div class="footer-col"><span class="col-title">Representation</span>
+          <a href="nfl">NFL</a>
+          <a href="college-nil">College</a>
+          <a href="recruits">Recruits</a>
+          <a href="coaches">Coaches</a>
+        </div>
+        <div class="footer-col"><span class="col-title">Marketing</span>
+          <a href="marketing-overview">Overview</a>
+          <a href="https://aurasportsmarketing.com/" target="_blank" rel="noopener">Inquiries</a>
+        </div>
+        <div class="footer-col"><span class="col-title">Connect</span>
+          <a href="contact">Contact</a>
+          <a href="https://www.instagram.com/aurasports/?hl=en" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://x.com/aurasportsgroup?lang=en" target="_blank" rel="noopener">X / Twitter</a>
+          <a href="https://www.linkedin.com/company/aura-sports-group/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+    <div class="bottom">
+      <p>© 2026 Aura Sports Group. All rights reserved.</p>
+      <div class="legal"><a href="privacy-policy">Privacy Policy</a><a href="terms">Terms</a></div>
+    </div>
+  </footer>
 
   <script src="js/site.js"></script>
 </body>
