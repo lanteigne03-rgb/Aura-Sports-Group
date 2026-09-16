@@ -633,7 +633,7 @@ ul {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: filter 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: filter 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: filter;
 }
 
@@ -660,7 +660,7 @@ ul {
   flex-direction: column;
   gap: 10px;
   padding: 0 28px 28px;
-  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card-pathway .content .kicker {
