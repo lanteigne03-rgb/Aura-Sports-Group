@@ -184,7 +184,6 @@
       <input type="hidden" name="access_key" value="4ba98fc8-1334-481c-ae9a-8769641c0b4e">
       <input type="hidden" name="subject" value="New Contact Form Submission — Aura Sports Group">
       <input type="hidden" name="from_name" value="Aura Sports Group Website">
-      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
       <div class="form-row">
         <div class="field">
           <label for="f-name">Name</label>
@@ -227,6 +226,7 @@
         <label for="f-message">Message</label>
         <textarea id="f-message" name="message" placeholder="Tell us about yourself and your goals."></textarea>
       </div>
+      <div class="h-captcha" data-captcha="true"></div>
       <button class="btn btn--primary" type="submit" id="formSubmit">Submit</button>
       <p class="form-note" id="formNote"></p>
     </form>
@@ -266,6 +266,7 @@
     </div>
   </footer>
 
+  <script src="https://web3forms.com/client/script.js" async defer></script>
   <script src="js/site.js"></script>
   <script>
     document.getElementById("contactForm").addEventListener("submit", function (e) {
@@ -275,6 +276,14 @@
       var submitBtn = document.getElementById("formSubmit");
       var note = document.getElementById("formNote");
 
+      var hCaptchaField = form.querySelector('[name="h-captcha-response"]');
+      if (!hCaptchaField || !hCaptchaField.value) {
+        note.textContent = "Please complete the captcha before submitting.";
+        note.className = "form-note form-note--error";
+        note.style.display = "block";
+        return;
+      }
+
       note.className = "form-note";
       note.style.display = "none";
       submitBtn.disabled = true;
@@ -282,7 +291,6 @@
 
       var formData = new FormData(form);
       var payload = Object.fromEntries(formData.entries());
-      payload.botcheck = formData.get("botcheck") === "on";
 
       fetch("https://api.web3forms.com/submit", {
         method: "POST",
