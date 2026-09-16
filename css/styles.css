@@ -426,11 +426,12 @@ ul {
     text-shadow 0.3s ease;
 }
 
-/* dropdown — panel scales/fades in with a springy ease, then each link
-   cascades in behind it top-to-bottom rather than appearing all at once.
-   Closing skips the stagger (see the no-delay transition on the base
-   ".nav-drop a" rule below) so the panel dismisses as one quick fade
-   instead of reversing the cascade. */
+/* dropdown — a single horizontal row of links rather than a stacked list.
+   The panel scales/fades in with a springy ease, then each link cascades
+   in behind it left-to-right rather than appearing all at once. Closing
+   skips the stagger (see the no-delay transition on the base ".nav-drop a"
+   rule below) so the panel dismisses as one quick fade instead of
+   reversing the cascade. */
 .nav-drop {
   position: absolute;
   top: calc(100% + 10px);
@@ -439,15 +440,16 @@ ul {
   transform-origin: top center;
   background: rgba(14, 14, 17, 0.97);
   border-radius: 0;
-  padding: 10px 0;
-  /* shrink-wraps to the widest link's text rather than a fixed width */
+  padding: 6px 4px;
+  /* shrink-wraps to the row's total content width rather than a fixed width */
   width: max-content;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.18s ease, transform 0.18s ease, visibility 0s linear 0.18s;
-  /* centers each shrink-wrapped link within the dropdown's full width */
+  /* lays links out side by side; align-items centers them vertically
+     since they're no longer stacked in a column */
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
 }
 
@@ -466,7 +468,7 @@ ul {
   display: block;
   width: fit-content;
   max-width: 100%;
-  padding: 10px 22px;
+  padding: 10px 18px;
   font-size: 12px;
   letter-spacing: 1.8px;
   color: var(--grey-250);
@@ -475,6 +477,12 @@ ul {
   opacity: 0;
   transform: translateY(-6px);
   transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+/* thin divider between links now that they sit side by side, so
+   adjacent labels don't visually run together */
+.nav-drop a:not(:first-child) {
+  border-left: 1px solid rgba(198, 165, 103, 0.25);
 }
 
 .nav-links li:hover .nav-drop a,
