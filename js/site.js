@@ -99,6 +99,7 @@
     initMediaFallbacks();
     initSmoothScroll();
     initHeroLogoToggle();
+    initPathwayHoverGuard();
   });
 
   /* ---------- Behavior ---------- */
@@ -272,6 +273,26 @@
       { threshold: 0.12 }
     );
     els.forEach(function (el) { io.observe(el); });
+  }
+
+  /* Suppress the pathway-card hover effect (css/styles.css) while the
+     page is mid-scroll, so a card passing under a stationary cursor
+     doesn't blur its neighbors — only actually stopping to hover one
+     does. Re-enabled a beat after scrolling settles. */
+  function initPathwayHoverGuard() {
+    if (!document.querySelector(".pathways")) return;
+    var scrollTimer = null;
+    window.addEventListener(
+      "scroll",
+      function () {
+        document.body.classList.add("is-scrolling");
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(function () {
+          document.body.classList.remove("is-scrolling");
+        }, 120);
+      },
+      { passive: true }
+    );
   }
 
   /* Show the styled placeholder until a real image exists in assets/img.

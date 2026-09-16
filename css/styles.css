@@ -704,7 +704,13 @@ ul {
 .card-pathway:hover .content .explore { color: var(--gold-400); }
 
 /* When hovering one pathway card, blur the sibling cards' photos so
-   attention stays on the hovered card (their text stays legible). */
+   attention stays on the hovered card (their text stays legible). Hover
+   is suppressed while the page is scrolling (see js/site.js) so a card
+   passing under a stationary cursor mid-scroll doesn't trigger this —
+   only a deliberate, stopped-to-hover cursor does. */
+body.is-scrolling .pathways .card-pathway {
+  pointer-events: none;
+}
 .pathways:has(.card-pathway:hover) .card-pathway:not(:hover) .media img {
   filter: blur(8px);
 }
