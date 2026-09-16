@@ -703,13 +703,10 @@ ul {
 .card-pathway:hover .gold-edge { opacity: 1; }
 .card-pathway:hover .content .explore { color: var(--gold-400); }
 
-/* When hovering one pathway card, fade out and blur the sibling cards'
-   text/content so attention stays on the hovered card. */
+/* When hovering one pathway card, blur the sibling cards' photos so
+   attention stays on the hovered card (their text stays legible). */
 .pathways:has(.card-pathway:hover) .card-pathway:not(:hover) .media img {
   filter: blur(8px);
-}
-.pathways:has(.card-pathway:hover) .card-pathway:not(:hover) .content {
-  opacity: 0;
 }
 
 /* College card: enlarged photo, shifted left */
