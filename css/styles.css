@@ -439,8 +439,11 @@ ul {
   transform: translateX(-50%) translateY(6px) scale(0.96);
   transform-origin: top center;
   background: rgba(14, 14, 17, 0.97);
-  border-radius: 0;
-  padding: 6px 4px;
+  /* fully rounded — pairs with the pill-shaped panel's fixed vertical
+     padding below to keep the ends a true semicircle regardless of the
+     row's total width */
+  border-radius: 999px;
+  padding: 6px 10px;
   /* shrink-wraps to the row's total content width rather than a fixed width */
   width: max-content;
   opacity: 0;
