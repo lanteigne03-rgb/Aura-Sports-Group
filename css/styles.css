@@ -1135,6 +1135,16 @@ ul {
     transition: opacity 0.2s ease, transform 0.25s ease;
   }
 
+  /* the divider between items in the desktop horizontal pill (see
+     ".nav-drop a:not(:first-child)" above) doesn't belong in this stacked
+     mobile list — it just reads as a stray vertical line running down the
+     left edge of the submenu. Matches that rule's selector (rather than
+     the plain ".nav-drop a" above) so it wins on specificity, not just
+     source order. */
+  .nav-drop a:not(:first-child) {
+    border-left: none;
+  }
+
   .nav-links.open .nav-drop a {
     opacity: 1;
     transform: translateX(0);
