@@ -426,12 +426,17 @@ ul {
     text-shadow 0.3s ease;
 }
 
-/* dropdown */
+/* dropdown — panel scales/fades in with a springy ease, then each link
+   cascades in behind it top-to-bottom rather than appearing all at once.
+   Closing skips the stagger (see the no-delay transition on the base
+   ".nav-drop a" rule below) so the panel dismisses as one quick fade
+   instead of reversing the cascade. */
 .nav-drop {
   position: absolute;
   top: calc(100% + 10px);
   left: 50%;
-  transform: translateX(-50%) translateY(6px);
+  transform: translateX(-50%) translateY(6px) scale(0.96);
+  transform-origin: top center;
   background: rgba(14, 14, 17, 0.97);
   border-radius: 0;
   padding: 10px 0;
@@ -439,7 +444,7 @@ ul {
   width: max-content;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0s linear 0.18s;
   /* centers each shrink-wrapped link within the dropdown's full width */
   display: flex;
   flex-direction: column;
@@ -450,7 +455,8 @@ ul {
 .nav-links li:focus-within .nav-drop {
   opacity: 1;
   visibility: visible;
-  transform: translateX(-50%) translateY(0);
+  transform: translateX(-50%) translateY(0) scale(1);
+  transition: opacity 0.28s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s linear;
 }
 
 .nav-drop a {
@@ -466,7 +472,26 @@ ul {
   color: var(--grey-250);
   text-transform: uppercase;
   white-space: nowrap;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 0.15s ease, transform 0.15s ease;
 }
+
+.nav-links li:hover .nav-drop a,
+.nav-links li:focus-within .nav-drop a {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-links li:hover .nav-drop a:nth-child(1),
+.nav-links li:focus-within .nav-drop a:nth-child(1) { transition-delay: 0.05s; }
+.nav-links li:hover .nav-drop a:nth-child(2),
+.nav-links li:focus-within .nav-drop a:nth-child(2) { transition-delay: 0.1s; }
+.nav-links li:hover .nav-drop a:nth-child(3),
+.nav-links li:focus-within .nav-drop a:nth-child(3) { transition-delay: 0.15s; }
+.nav-links li:hover .nav-drop a:nth-child(4),
+.nav-links li:focus-within .nav-drop a:nth-child(4) { transition-delay: 0.2s; }
 
 .nav-drop a span {
   transition: color 0.2s ease, text-shadow 0.2s ease;
@@ -774,7 +799,6 @@ ul {
 
 .card-article:hover {
   border-color: var(--gold-600);
-  box-shadow: 0 0 24px rgba(198, 165, 103, 0.1);
 }
 
 .card-article .thumb {
@@ -1085,6 +1109,27 @@ ul {
   }
 
   .nav-links li.open .nav-drop { display: block; }
+
+  /* links slide in from the left as the accordion opens, cascading with
+     the same stagger timing as the desktop hover panel — keyed off .open
+     (set on tap in site.js) rather than :hover/:focus-within, which
+     mobile taps don't reliably trigger */
+  .nav-drop a {
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: opacity 0.2s ease, transform 0.25s ease;
+  }
+
+  .nav-links li.open .nav-drop a {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .nav-links li.open .nav-drop a:nth-child(1) { transition-delay: 0.05s; }
+  .nav-links li.open .nav-drop a:nth-child(2) { transition-delay: 0.1s; }
+  .nav-links li.open .nav-drop a:nth-child(3) { transition-delay: 0.15s; }
+  .nav-links li.open .nav-drop a:nth-child(4) { transition-delay: 0.2s; }
+
   .nav-burger { display: flex; }
 
   /* Belt-and-suspenders for the iOS Safari video-bleed-through bug: the
