@@ -28,27 +28,33 @@
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;500;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <style>
-    /* This page intentionally does NOT reuse the copy+media split from the
-       Representation pages (nfl / college-nil / recruits / coaches). It's
-       built from three different modules instead: a standalone statement
-       line, a numbered pillar grid, and a centered closing line — same
-       typographic system, different rhythm. */
-
-    /* Approach statement */
-    .statement-eyebrow-wrap { max-width: 880px; margin: 0 auto 28px; }
-    .statement-block { display: flex; gap: 32px; align-items: flex-start; max-width: 880px; margin: 0 auto; }
-    .statement-rule { flex: none; width: 3px; align-self: stretch; background: var(--metal-gold); margin-top: 6px; }
-    .statement-text {
-      font-family: var(--font-body);
-      font-weight: 500;
-      font-size: clamp(21px, 2.4vw, 29px);
-      line-height: 1.5;
-      color: var(--white-off);
+    /* One copy+photo split (borrowed from the Representation template, but
+       used a single time rather than repeated 3-4x) for the intro, then a
+       photo-card grid for the three service pillars — a different shape
+       than the Representation pages' repeating alternating rows. */
+    .split { display: flex; gap: 80px; align-items: center; }
+    .split .copy { flex: 1 1 0; min-width: 300px; }
+    .split .copy p + p { margin-top: 18px; }
+    .split .media-ph { flex: none; width: 320px; height: 400px; max-width: 100%; border: none; }
+    @media (max-width: 900px) {
+      .split { flex-direction: column; align-items: flex-start; }
     }
-    @media (max-width: 640px) { .statement-block { gap: 20px; } }
 
-    /* Pillar grid intro */
-    .pillars-intro { max-width: 880px; margin: 0 auto 48px; }
+    .pillars-intro { max-width: 880px; margin: 0 auto 44px; }
+
+    .card-photo {
+      background: linear-gradient(to bottom, var(--ink-800), var(--ink-900));
+      border: 1px solid var(--ink-700);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+    }
+    .card-photo:hover { border-color: var(--gold-600); box-shadow: 0 0 24px rgba(198, 165, 103, 0.12); transform: translateY(-2px); }
+    .card-photo .media-ph { height: 200px; border-radius: 0; border: none; border-bottom: 1px solid var(--ink-700); }
+    .card-photo .body { padding: 28px 28px 32px; display: flex; flex-direction: column; gap: 12px; }
+    .card-photo h3 { font-family: var(--font-display); font-weight: 400; font-size: 24px; line-height: 1.12; text-transform: uppercase; color: var(--white-off); }
+    .card-photo p { font-size: 14px; line-height: 1.6; color: var(--grey-350); }
 
     /* Closing statement — bookends the text hero on the same ink-850 field */
     .closing-statement { background: var(--ink-850); display: flex; flex-direction: column; gap: 32px; align-items: center; }
@@ -152,37 +158,43 @@
     <p class="sub">We build marketing strategies around the individual, creating a clear identity and position that reflects who they are, what they represent, and where they want to go.</p>
   </section>
 
-  <!-- Approach statement -->
-  <section class="section" style="background: var(--ink-950); padding-top: 100px; padding-bottom: 90px;">
-    <div class="statement-eyebrow-wrap reveal">
-      <span class="eyebrow">Our Approach</span>
+  <!-- Approach (single copy + photo split — not repeated) -->
+  <section class="section split reveal" style="background: var(--ink-950); padding-top: 100px; padding-bottom: 100px;">
+    <div class="copy reveal">
+      <div class="section-header">
+        <h2 class="display display--l">An Intentional, Tailored Approach.</h2>
+        <p class="body-m">Our approach is intentional and tailored to each client. We help athletes understand their audience, strengthen their positioning, and pursue off-field opportunities and relationships that align with their goals and long-term value.</p>
+      </div>
     </div>
-    <div class="statement-block reveal">
-      <span class="statement-rule" aria-hidden="true"></span>
-      <p class="statement-text">Our approach is intentional and tailored to each client. We help athletes understand their audience, strengthen their positioning, and pursue off-field opportunities and relationships that align with their goals and long-term value.</p>
-    </div>
+    <div class="media-ph reveal" data-label="Athlete Positioning Image"></div>
   </section>
 
-  <!-- The Strategy (pillar grid) -->
-  <section class="section" style="background: var(--ink-950); padding-top: 20px; padding-bottom: 110px;">
+  <!-- The Strategy (photo-card grid) -->
+  <section class="section" style="background: var(--ink-950); padding-top: 10px; padding-bottom: 110px;">
     <div class="pillars-intro reveal">
       <span class="eyebrow">The Strategy</span>
     </div>
     <div class="grid-3 reveal">
-      <div class="card-service">
-        <span class="num">01</span>
-        <h3>Content &amp; Social Media</h3>
-        <p>Content and social media are an important part of that strategy. We provide creative direction, content support, platform guidance, and engagement strategy designed to build a strong and authentic presence across the channels that matter most.</p>
+      <div class="card-photo">
+        <div class="media-ph" data-label="Content &amp; Social Image"></div>
+        <div class="body">
+          <h3>Content &amp; Social Media</h3>
+          <p>Content and social media are an important part of that strategy. We provide creative direction, content support, platform guidance, and engagement strategy designed to build a strong and authentic presence across the channels that matter most.</p>
+        </div>
       </div>
-      <div class="card-service">
-        <span class="num">02</span>
-        <h3>Public Relations</h3>
-        <p>We also help manage how our clients are positioned publicly. Through thoughtful media strategy, public relations, and reputation management, we work to ensure that every interaction contributes to the larger brand.</p>
+      <div class="card-photo">
+        <div class="media-ph" data-label="Media &amp; PR Image"></div>
+        <div class="body">
+          <h3>Public Relations</h3>
+          <p>We also help manage how our clients are positioned publicly. Through thoughtful media strategy, public relations, and reputation management, we work to ensure that every interaction contributes to the larger brand.</p>
+        </div>
       </div>
-      <div class="card-service">
-        <span class="num">03</span>
-        <h3>Analytics</h3>
-        <p>Behind the creative is a data-driven approach. We use audience insights, content performance, and meaningful analytics to understand what is working, identify opportunities for growth, and continually refine the strategy.</p>
+      <div class="card-photo">
+        <div class="media-ph" data-label="Analytics &amp; Insights Image"></div>
+        <div class="body">
+          <h3>Analytics</h3>
+          <p>Behind the creative is a data-driven approach. We use audience insights, content performance, and meaningful analytics to understand what is working, identify opportunities for growth, and continually refine the strategy.</p>
+        </div>
       </div>
     </div>
   </section>
