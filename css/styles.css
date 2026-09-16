@@ -621,6 +621,7 @@ ul {
   overflow: hidden;
   background: var(--ink-650);
   display: block;
+  transition: filter 0.3s ease;
 }
 
 .card-pathway .media {
@@ -658,6 +659,7 @@ ul {
   flex-direction: column;
   gap: 10px;
   padding: 0 28px 28px;
+  transition: opacity 0.25s ease;
 }
 
 .card-pathway .content .kicker {
@@ -699,6 +701,15 @@ ul {
 
 .card-pathway:hover .gold-edge { opacity: 1; }
 .card-pathway:hover .content .explore { color: var(--gold-400); }
+
+/* When hovering one pathway card, fade out and blur the sibling cards'
+   text/content so attention stays on the hovered card. */
+.pathways:hover .card-pathway:not(:hover) {
+  filter: blur(8px);
+}
+.pathways:hover .card-pathway:not(:hover) .content {
+  opacity: 0;
+}
 
 /* College card: enlarged photo, shifted left */
 .card-pathway .media img.college-photo {
