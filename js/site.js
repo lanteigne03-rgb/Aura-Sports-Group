@@ -230,26 +230,16 @@
       document.addEventListener("keydown", function (e) {
         if (e.key === "Escape" && links.classList.contains("open")) setMenuOpen(false);
       });
-      // close whenever a real navigation happens from inside the menu
-      // (leaf links only — parent items with a dropdown are handled below)
+      // close the mobile menu whenever a real navigation happens from
+      // inside it. Parent items (About, Representation, Marketing) now
+      // link straight to their own page on tap, same as any other link —
+      // their submenu is already shown alongside them on mobile, so there
+      // is no separate "expand" tap to intercept first.
       links.querySelectorAll("a.nav-link").forEach(function (a) {
-        var li = a.closest("li");
-        if (li && li.querySelector(".nav-drop")) return;
         a.addEventListener("click", function () { setMenuOpen(false); });
       });
       links.querySelectorAll(".nav-drop a").forEach(function (a) {
         a.addEventListener("click", function () { setMenuOpen(false); });
-      });
-      // mobile: tap a parent item toggles its dropdown
-      links.querySelectorAll("li").forEach(function (li) {
-        var drop = li.querySelector(".nav-drop");
-        if (!drop) return;
-        li.querySelector("a.nav-link").addEventListener("click", function (e) {
-          if (window.innerWidth <= 900 && !li.classList.contains("open")) {
-            e.preventDefault();
-            li.classList.add("open");
-          }
-        });
       });
     }
   }

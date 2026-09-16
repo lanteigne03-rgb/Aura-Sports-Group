@@ -1113,30 +1113,30 @@ ul {
     border: none;
     background: none;
     padding: 0 0 0 16px;
-    display: none;
+    /* always shown — every submenu sits open beneath its parent link so
+       reaching a page never takes more than one tap */
+    display: block;
   }
 
-  .nav-links li.open .nav-drop { display: block; }
-
-  /* links slide in from the left as the accordion opens, cascading with
-     the same stagger timing as the desktop hover panel — keyed off .open
-     (set on tap in site.js) rather than :hover/:focus-within, which
-     mobile taps don't reliably trigger */
+  /* links slide in from the left as the full-screen menu opens, cascading
+     with the same stagger timing as the desktop hover panel — keyed off
+     .nav-links.open (set on burger tap in site.js), since every submenu
+     is already expanded rather than gated behind its own tap */
   .nav-drop a {
     opacity: 0;
     transform: translateX(-10px);
     transition: opacity 0.2s ease, transform 0.25s ease;
   }
 
-  .nav-links li.open .nav-drop a {
+  .nav-links.open .nav-drop a {
     opacity: 1;
     transform: translateX(0);
   }
 
-  .nav-links li.open .nav-drop a:nth-child(1) { transition-delay: 0.05s; }
-  .nav-links li.open .nav-drop a:nth-child(2) { transition-delay: 0.1s; }
-  .nav-links li.open .nav-drop a:nth-child(3) { transition-delay: 0.15s; }
-  .nav-links li.open .nav-drop a:nth-child(4) { transition-delay: 0.2s; }
+  .nav-links.open .nav-drop a:nth-child(1) { transition-delay: 0.05s; }
+  .nav-links.open .nav-drop a:nth-child(2) { transition-delay: 0.1s; }
+  .nav-links.open .nav-drop a:nth-child(3) { transition-delay: 0.15s; }
+  .nav-links.open .nav-drop a:nth-child(4) { transition-delay: 0.2s; }
 
   .nav-burger { display: flex; }
 
