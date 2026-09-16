@@ -242,6 +242,40 @@
         a.addEventListener("click", function () { setMenuOpen(false); });
       });
     }
+
+    // Equalize each dropdown's link widths so every item has the same
+    // clickable area regardless of label length — e.g. "NFL" gets padded
+    // out to match "Recruits" instead of having a noticeably tighter hit
+    // box. Measured per dropdown (not globally), since About/Marketing/
+    // Representation each have their own widest label.
+    var equalizeDropdownWidths = function () {
+      nav.querySelectorAll(".nav-drop").forEach(function (drop) {
+        var items = drop.querySelectorAll("a");
+        if (!items.length) return;
+        items.forEach(function (a) { a.style.width = ""; });
+        var max = 0;
+        items.forEach(function (a) {
+          max = Math.max(max, a.getBoundingClientRect().width);
+        });
+        items.forEach(function (a) { a.style.width = max + "px"; });
+      });
+    };
+    equalizeDropdownWidths();
+    if (document.fonts && document.fonts.ready) {
+      // the first pass above runs with whatever font is active at that
+      // moment; if the webfont swaps in afterward, re-measure so the
+      // equalized widths reflect its (usually wider) metrics
+      document.fonts.ready.then(equalizeDropdownWidths);
+    }
+    var dropWidthResizeTimer = null;
+    window.addEventListener(
+      "resize",
+      function () {
+        clearTimeout(dropWidthResizeTimer);
+        dropWidthResizeTimer = setTimeout(equalizeDropdownWidths, 150);
+      },
+      { passive: true }
+    );
   }
 
   function initReveal() {
