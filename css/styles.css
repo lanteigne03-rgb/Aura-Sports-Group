@@ -633,8 +633,14 @@ ul {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  /* Desaturated by default; color returns only on hover of this card. */
+  filter: grayscale(1);
   transition: filter 0.18s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: filter;
+}
+
+.card-pathway:hover .media img {
+  filter: grayscale(0);
 }
 
 .card-pathway::after {
@@ -705,18 +711,6 @@ ul {
 .card-pathway:hover .gold-edge { opacity: 1; }
 .card-pathway:hover .content h3 { transform: scale(1.08); }
 .card-pathway:hover .content .explore { color: var(--gold-400); }
-
-/* When hovering one pathway card, blur the sibling cards' photos so
-   attention stays on the hovered card (their text stays legible). Hover
-   is suppressed while the page is scrolling (see js/site.js) so a card
-   passing under a stationary cursor mid-scroll doesn't trigger this —
-   only a deliberate, stopped-to-hover cursor does. */
-body.is-scrolling .pathways .card-pathway {
-  pointer-events: none;
-}
-.pathways:has(.card-pathway:hover) .card-pathway:not(:hover) .media img {
-  filter: blur(4px);
-}
 
 /* College card: enlarged photo, shifted left */
 .card-pathway .media img.college-photo {
