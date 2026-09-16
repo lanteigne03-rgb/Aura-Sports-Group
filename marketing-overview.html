@@ -4,19 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aura Sports Group - Marketing &amp; Brand</title>
-  <meta name="description" content="Build something bigger than the game. Every client is a football player and a brand. Aura builds both.">
+  <meta name="description" content="Marketing built around the individual — identity, positioning, content and social strategy, public relations, and data-driven growth for every Aura client.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://aurasmg.com/marketing-overview">
   <link rel="canonical" href="https://aurasmg.com/marketing-overview">
   <meta property="og:title" content="Marketing &amp; Brand — Aura Sports Group">
-  <meta property="og:description" content="Build something bigger than the game. Every client is a football player and a brand. Aura builds both.">
+  <meta property="og:description" content="Marketing built around the individual — identity, positioning, content and social strategy, public relations, and data-driven growth for every Aura client.">
   <meta property="og:image" content="https://aurasmg.com/assets/img/aura-og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="Aura Sports Group">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Marketing &amp; Brand — Aura Sports Group">
-  <meta name="twitter:description" content="Build something bigger than the game. Every client is a football player and a brand. Aura builds both.">
+  <meta name="twitter:description" content="Marketing built around the individual — identity, positioning, content and social strategy, public relations, and data-driven growth for every Aura client.">
   <meta name="twitter:image" content="https://aurasmg.com/assets/img/aura-og-image.jpg">
   <link rel="icon" href="assets/img/favicon/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/favicon-32x32.png">
@@ -28,15 +28,29 @@
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;500;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <style>
-    .logo-wall { display: flex; gap: 24px; flex-wrap: wrap; }
-    .logo-slot {
-      width: 180px; height: 72px;
-      border: 1px dashed var(--ink-600);
-      border-radius: 4px;
-      display: flex; align-items: center; justify-content: center;
-      color: var(--grey-500);
-      font-size: 10px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase;
+    /* Same alternating copy/media split used on the Representation pages
+       (nfl / college-nil / recruits / coaches), reused here so Marketing
+       reads as part of the same family. */
+    .split { display: flex; gap: 80px; align-items: center; }
+    .split .copy { flex: 1 1 0; min-width: 300px; }
+    .split .copy p + p { margin-top: 18px; }
+    .split .media-ph { flex: none; width: 320px; height: 400px; max-width: 100%; border: none; }
+    .split.split--reverse { flex-direction: row-reverse; }
+    @media (max-width: 900px) {
+      .split, .split.split--reverse { flex-direction: column; align-items: flex-start; }
     }
+
+    /* Closing statement — unique to this page, bookends the text hero by
+       returning to the ink-850 field instead of another split. */
+    .closing-statement {
+      background: var(--ink-850);
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      align-items: center;
+    }
+    .closing-statement .section-header { max-width: 760px; }
+    .closing-statement .section-header p { max-width: 640px; margin: 0 auto; }
   </style>
   <script type="application/ld+json">
 {
@@ -60,7 +74,7 @@
       "@id": "https://aurasmg.com/marketing-overview#webpage",
       "url": "https://aurasmg.com/marketing-overview",
       "name": "Aura Sports Group - Marketing &amp; Brand",
-      "description": "Build something bigger than the game. Every client is a football player and a brand. Aura builds both.",
+      "description": "Marketing built around the individual — identity, positioning, content and social strategy, public relations, and data-driven growth for every Aura client.",
       "isPartOf": {
         "@id": "https://aurasmg.com/#website"
       },
@@ -131,55 +145,61 @@
 
   <!-- Hero -->
   <section class="page-hero" style="background: var(--ink-850); padding-bottom: 90px;">
-    <h1>Build Something<br><span class="gold-text">Bigger Than the Game.</span></h1>
-    <p class="sub">Every client is a football player and a brand. Aura builds both.</p>
+    <h1>Built Around<br><span class="gold-text">Who You Are.</span></h1>
+    <p class="sub">We build marketing strategies around the individual, creating a clear identity and position that reflects who they are, what they represent, and where they want to go.</p>
   </section>
 
-  <!-- Services -->
-  <section class="section" style="padding-top: 80px; padding-bottom: 110px;">
-    <div class="grid-3 reveal">
-      <div class="card-service">
-        <span class="num">01</span>
-        <h3>Brand Strategy</h3>
-        <p>A customized plan developed around the individual — identity, positioning, audience.</p>
-      </div>
-      <div class="card-service">
-        <span class="num">02</span>
-        <h3>Marketing</h3>
-        <p>Positioning athletes for relevant off-field opportunities and relationships.</p>
-      </div>
-      <div class="card-service">
-        <span class="num">03</span>
-        <h3>Content</h3>
-        <p>Creative strategy and content creation support.</p>
-      </div>
-      <div class="card-service">
-        <span class="num">04</span>
-        <h3>Social Media</h3>
-        <p>Engagement growth strategy and platform guidance.</p>
-      </div>
-      <div class="card-service">
-        <span class="num">05</span>
-        <h3>Public Relations</h3>
-        <p>Reputation management and media positioning.</p>
-      </div>
-      <div class="card-service">
-        <span class="num">06</span>
-        <h3>Analytics</h3>
-        <p>Meaningful reporting on audience and content performance.</p>
+  <!-- Approach -->
+  <section class="section split" style="background: var(--ink-950); padding-top: 60px; padding-bottom: 90px;">
+    <div class="copy reveal">
+      <div class="section-header">
+        <h2 class="display display--l">An Intentional, Tailored Approach.</h2>
+        <p class="body-m">Our approach is intentional and tailored to each client. We help athletes understand their audience, strengthen their positioning, and pursue off-field opportunities and relationships that align with their goals and long-term value.</p>
       </div>
     </div>
+    <div class="media-ph reveal" data-label="Athlete Positioning Image"></div>
   </section>
 
-  <!-- Partner logos (placeholder wall) -->
-  <section class="section" style="padding-top: 0; padding-bottom: 100px;">
-    <div class="logo-wall reveal">
-      <div class="logo-slot">Partner Logo</div>
-      <div class="logo-slot">Partner Logo</div>
-      <div class="logo-slot">Partner Logo</div>
-      <div class="logo-slot">Partner Logo</div>
-      <div class="logo-slot">Partner Logo</div>
+  <!-- Content + Social -->
+  <section class="section split split--reverse reveal" style="background: var(--ink-950); padding-top: 90px; padding-bottom: 90px;">
+    <div class="copy reveal">
+      <div class="section-header">
+        <h2 class="display display--l">Content &amp; Social Media.</h2>
+        <p class="body-m">Content and social media are an important part of that strategy. We provide creative direction, content support, platform guidance, and engagement strategy designed to build a strong and authentic presence across the channels that matter most.</p>
+      </div>
     </div>
+    <div class="media-ph reveal" data-label="Content &amp; Social Image"></div>
+  </section>
+
+  <!-- Public Positioning + PR -->
+  <section class="section split reveal" style="background: var(--ink-950); padding-top: 90px; padding-bottom: 90px;">
+    <div class="copy reveal">
+      <div class="section-header">
+        <h2 class="display display--l">Public Positioning &amp; Reputation.</h2>
+        <p class="body-m">We also help manage how our clients are positioned publicly. Through thoughtful media strategy, public relations, and reputation management, we work to ensure that every interaction contributes to the larger brand.</p>
+      </div>
+    </div>
+    <div class="media-ph reveal" data-label="Media &amp; PR Image"></div>
+  </section>
+
+  <!-- Data-Driven Strategy -->
+  <section class="section split split--reverse reveal" style="background: var(--ink-950); padding-top: 90px; padding-bottom: 110px;">
+    <div class="copy reveal">
+      <div class="section-header">
+        <h2 class="display display--l">A Data-Driven Strategy.</h2>
+        <p class="body-m">Behind the creative is a data-driven approach. We use audience insights, content performance, and meaningful analytics to understand what is working, identify opportunities for growth, and continually refine the strategy.</p>
+      </div>
+    </div>
+    <div class="media-ph reveal" data-label="Analytics &amp; Insights Image"></div>
+  </section>
+
+  <!-- Closing Statement -->
+  <section class="section closing-statement">
+    <div class="section-header center reveal">
+      <h2 class="display display--xl" style="text-align:center;">More Than <span class="gold-text">Visibility.</span></h2>
+      <p class="body-m" style="text-align:center;">The goal is to build more than visibility. We create brands with lasting value, stronger relationships, and opportunities that extend beyond the field.</p>
+    </div>
+    <span class="barcode barcode--dim reveal" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
   </section>
 
     <footer class="site-footer">
