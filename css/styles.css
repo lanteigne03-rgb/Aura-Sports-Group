@@ -678,6 +678,8 @@ ul {
   line-height: 1;
   color: var(--white-off);
   text-transform: uppercase;
+  transform-origin: left bottom;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card-pathway .content .explore {
@@ -701,6 +703,7 @@ ul {
 }
 
 .card-pathway:hover .gold-edge { opacity: 1; }
+.card-pathway:hover .content h3 { transform: scale(1.08); }
 .card-pathway:hover .content .explore { color: var(--gold-400); }
 
 /* When hovering one pathway card, blur the sibling cards' photos so
@@ -712,7 +715,7 @@ body.is-scrolling .pathways .card-pathway {
   pointer-events: none;
 }
 .pathways:has(.card-pathway:hover) .card-pathway:not(:hover) .media img {
-  filter: blur(8px);
+  filter: blur(4px);
 }
 
 /* College card: enlarged photo, shifted left */
