@@ -4,12 +4,10 @@
 
   /* ---------- Shared markup ---------- */
 
-  var BARCODE_SHORT =
-    "<span class='barcode' aria-hidden='true'>" +
-    new Array(10 + 1).join("<i></i>") +
-    "</span>";
-
-  var BARCODE_LONG =
+  // BARCODE_SHORT and BARCODE_LONG render identical markup today; both
+  // names are kept on window.AURA below in case a future caller wants
+  // to give them distinct bar counts.
+  var BARCODE_MARKUP =
     "<span class='barcode' aria-hidden='true'>" +
     new Array(10 + 1).join("<i></i>") +
     "</span>";
@@ -410,5 +408,5 @@
   }
 
   /* expose barcode helpers for inline use */
-  window.AURA = { BARCODE_SHORT: BARCODE_SHORT, BARCODE_LONG: BARCODE_LONG };
+  window.AURA = { BARCODE_SHORT: BARCODE_MARKUP, BARCODE_LONG: BARCODE_MARKUP };
 })();

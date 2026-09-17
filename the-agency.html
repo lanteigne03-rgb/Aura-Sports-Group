@@ -61,6 +61,12 @@
       letter-spacing: 2.4px;
       text-transform: uppercase;
     }
+
+    /* Extra breathing room above the hero's barcode motif on this page */
+    .hero-barcode { margin-top: 28px; }
+    /* This hero is shorter than the shared .page-hero--img default —
+       the "Story" section follows close behind rather than a tall gap */
+    .hero--agency { padding-bottom: 65px; }
   </style>
   <script type="application/ld+json">
 {
@@ -120,7 +126,7 @@
   </script>
 </head>
 <body>
-    <nav class="site-nav" id="siteNav">
+  <nav class="site-nav" id="siteNav">
     <a class="logo-lockup" href="/" aria-label="Aura Sports Group — Home">
       <img class="logo-mark" src="assets/img/aura-logo.svg" alt="Aura Sports Group" width="999" height="293">
     </a>
@@ -153,12 +159,12 @@
   </nav>
 
   <!-- Hero -->
-  <section class="page-hero page-hero--img" style="padding-bottom: 65px;">
+  <section class="page-hero page-hero--img hero--agency">
     <div class="hero-bg">
-      <img src="assets/img/about/about-header.jpg" alt="Aura Sports Group represented players" style="object-position: center top;">
+      <img class="photo-top" src="assets/img/about/about-header.jpg" alt="Aura Sports Group represented players">
     </div>
     <h1>The Agency</h1>
-    <div style="display:flex; justify-content:flex-end; margin-top: 28px;">
+    <div class="barcode-row hero-barcode">
       <span class="barcode barcode--dim" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
     </div>
   </section>
@@ -182,7 +188,7 @@
   <!-- Credibility -->
   <section class="section credibility">
     <div class="section-header center reveal">
-      <h2 class="display display--l" style="text-align:center;">More Than Representation.</h2>
+      <h2 class="display display--l text-center">More Than Representation.</h2>
     </div>
     <div class="stats-strip reveal">
       <div class="stat-item">
@@ -205,7 +211,7 @@
     <span class="barcode" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
   </section>
 
-    <footer class="site-footer">
+  <footer class="site-footer">
     <div class="top">
       <a class="logo-lockup logo-lockup--footer" href="/" aria-label="Aura Sports Group — Home">
         <img class="logo-mark" src="assets/img/aura-logo.svg" alt="Aura Sports Group" width="999" height="293">

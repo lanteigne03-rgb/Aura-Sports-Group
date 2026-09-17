@@ -339,6 +339,11 @@
       .articles { flex-direction: column; }
       .card-article { flex: 1 1 auto; }
     }
+
+    /* "Who We Are" intro paragraph: capped width, centered under its heading */
+    .who-copy { max-width: 720px; margin: 0 auto; }
+    /* Crops the Kenneth Walker news thumbnail a little higher in the frame */
+    .thumb--top { object-position: center 15%; }
   </style>
   <script type="application/ld+json">
 {
@@ -388,7 +393,7 @@
   </script>
 </head>
 <body class="home">
-    <nav class="site-nav" id="siteNav">
+  <nav class="site-nav" id="siteNav">
     <a class="logo-lockup" href="/" aria-label="Aura Sports Group — Home">
       <img class="logo-mark" src="assets/img/aura-logo.svg" alt="Aura Sports Group" width="999" height="293">
     </a>
@@ -420,7 +425,7 @@
     </ul>
   </nav>
 
-  <!-- 01 · Hero -->
+  <!-- Hero -->
   <header class="hero">
     <div class="hero-media">
       <video autoplay muted loop playsinline preload="auto" fetchpriority="high" poster="assets/img/hero-poster.jpg" onerror="this.remove()">
@@ -441,20 +446,20 @@
     </div>
   </header>
 
-  <!-- 02 · Who We Are -->
+  <!-- Who We Are -->
   <section class="section who-are-we sr-only">
     <div class="section-header center reveal">
-      <h2 class="display display--l" style="text-align:center;">Who We Are.</h2>
-      <p class="body-m" style="max-width:720px; margin:0 auto; text-align:center;">Aura Sports Group is a football representation agency. We represent premier athletes and coaches at every stage of the game — from NFL contract strategy and career management, to college NIL representation, high school recruiting, and coaching representation — backed by decades of combined team experience across the NFL Draft, All-Pro, and Pro Bowl levels, plus brand and marketing support that builds value on and off the field.</p>
+      <h2 class="display display--l text-center">Who We Are.</h2>
+      <p class="body-m text-center who-copy">Aura Sports Group is a football representation agency. We represent premier athletes and coaches at every stage of the game — from NFL contract strategy and career management, to college NIL representation, high school recruiting, and coaching representation — backed by decades of combined team experience across the NFL Draft, All-Pro, and Pro Bowl levels, plus brand and marketing support that builds value on and off the field.</p>
     </div>
   </section>
 
-  <!-- 04 · Who We Represent -->
+  <!-- Who We Represent -->
   <section class="section who">
     <div class="pathways">
       <a class="card-pathway reveal" href="nfl">
         <div class="media media-ph" data-label="NFL Action Image">
-          <img src="assets/img/nfl-action.jpg" alt="NFL player in action" style="object-position: 55% center;" loading="lazy">
+          <img class="nfl-photo" src="assets/img/nfl-action.jpg" alt="NFL player in action" loading="lazy">
         </div>
         <div class="content">
           <h3>NFL</h3>
@@ -493,11 +498,12 @@
         <span class="gold-edge"></span>
       </a>
     </div>
-    <div style="display:flex; justify-content:flex-end;">
+    <div class="barcode-row">
       <span class="barcode barcode--dim barcode--white" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
     </div>
   </section>
-  <!-- 07 · Aura In The News -->
+
+  <!-- Aura In The News -->
   <section class="section news-home">
     <div class="header-row">
       <div class="section-header">
@@ -506,7 +512,7 @@
     </div>
     <div class="articles">
       <a class="card-article" href="https://www.sportsbusinessjournal.com/Articles/2026/02/16/kenneth-walkers-super-bowl-mvp-gives-aura-sports-group-a-breakthrough-moment/" target="_blank" rel="noopener">
-        <div class="thumb"><img src="assets/img/news/sportsbusinessjournal.avif" alt="Kenneth Walker III" loading="lazy" style="object-position: center 15%;"></div>
+        <div class="thumb"><img class="thumb--top" src="assets/img/news/sportsbusinessjournal.avif" alt="Kenneth Walker III" loading="lazy"></div>
         <div class="body">
           <span class="pub">SPORTS BUSINESS JOURNAL</span>
           <h3>Kenneth Walker's Super Bowl MVP Gives Aura Sports Group a Breakthrough Moment</h3>
@@ -529,7 +535,7 @@
     </div>
   </section>
 
-    <footer class="site-footer">
+  <footer class="site-footer">
     <div class="top">
       <a class="logo-lockup logo-lockup--footer" href="/" aria-label="Aura Sports Group — Home">
         <img class="logo-mark" src="assets/img/aura-logo.svg" alt="Aura Sports Group" width="999" height="293">

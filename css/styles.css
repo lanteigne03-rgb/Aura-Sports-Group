@@ -227,6 +227,8 @@ ul {
 .body-m { font-size: 16px; line-height: 1.65; color: var(--grey-350); }
 .body-s { font-size: 14px; line-height: 1.5; color: var(--grey-350); }
 
+.text-center { text-align: center; }
+
 /* ---------- Buttons ---------- */
 .btn {
   display: inline-flex;
@@ -587,6 +589,18 @@ ul {
 .barcode--dim { opacity: 0.35; }
 .barcode--bright { opacity: 0.85; }
 
+/* Right-aligned wrapper for a barcode motif that closes out a section
+   (pathway grid, agency hero). */
+.barcode-row {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Image crop shared by a couple of one-off hero/card photos. */
+.photo-top {
+  object-position: center top;
+}
+
 /* bar widths + gaps measured from updated reference (2026-08), scaled to 70% */
 .barcode i:nth-child(1)  { width: 1.4px;  margin-right: 9.8px; }
 .barcode i:nth-child(2)  { width: 1.4px;  margin-right: 8.9px; }
@@ -611,6 +625,66 @@ ul {
   align-items: center;
   text-align: center;
   margin: 0 auto;
+}
+
+/* ---------- Split rows (copy + photo) ---------- */
+/* Alternating copy/photo layout shared by the representation subpages
+   (coaches, college-nil, nfl, recruits) and, in its non-reversed form,
+   by the single intro row on marketing-overview. */
+.split {
+  display: flex;
+  gap: 80px;
+  align-items: center;
+}
+
+.split .copy {
+  flex: 1 1 0;
+  min-width: 300px;
+}
+
+.split .copy p + p {
+  margin-top: 18px;
+}
+
+.split .media-ph {
+  flex: none;
+  width: 320px;
+  height: 400px;
+  max-width: 100%;
+  border: none;
+}
+
+.split.split--reverse {
+  flex-direction: row-reverse;
+}
+
+@media (max-width: 900px) {
+  .split,
+  .split.split--reverse {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Vertical rhythm for a page's sequence of .section.split rows: the first
+   row sits closest to the hero, an optional middle row is evenly padded,
+   and the last row opens up a little more before the footer. */
+.section--row-first {
+  background: var(--ink-950);
+  padding-top: 60px;
+  padding-bottom: 100px;
+}
+
+.section--row-mid {
+  background: var(--ink-950);
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.section--row-last {
+  background: var(--ink-950);
+  padding-top: 100px;
+  padding-bottom: 110px;
 }
 
 /* ---------- Media placeholder ---------- */
@@ -755,6 +829,11 @@ ul {
 /* College card: enlarged photo, shifted left */
 .card-pathway .media img.college-photo {
   transform: scale(1.25) translateY(10%);
+  object-position: 55% center;
+}
+
+/* NFL card: re-centered on the ball carrier */
+.card-pathway .media img.nfl-photo {
   object-position: 55% center;
 }
 
@@ -1035,6 +1114,19 @@ ul {
     rgba(8, 8, 10, 0.65) 60%,
     var(--ink-950) 100%
   );
+}
+
+/* ---------- Legal pages ---------- */
+/* Modifiers on .page-hero / .section, so they must come after those base
+   rules to win the cascade at equal specificity. */
+.section--legal-hero {
+  background: var(--ink-850);
+  padding-bottom: 60px;
+  min-height: 320px;
+}
+
+.section--legal-body {
+  padding-top: 40px;
 }
 
 /* ---------- Grids ---------- */

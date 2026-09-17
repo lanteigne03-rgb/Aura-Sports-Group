@@ -76,7 +76,9 @@
     }
     .field:focus-within label { color: var(--gold-500); }
     .field textarea { min-height: 120px; resize: vertical; }
-    .field--message { max-width: 420px; align-self: center; }
+    .field--message { width: 100%; max-width: 420px; align-self: center; }
+    .contact-hero { background: var(--ink-850); padding: 140px var(--pad-x) 50px; }
+    .form-section { padding-top: 80px; padding-bottom: 110px; }
     .form-note {
       display: none;
       color: var(--gold-400);
@@ -140,7 +142,7 @@
   </script>
 </head>
 <body class="nav-solid">
-    <nav class="site-nav" id="siteNav">
+  <nav class="site-nav" id="siteNav">
     <a class="logo-lockup" href="/" aria-label="Aura Sports Group — Home">
       <img class="logo-mark" src="assets/img/aura-logo.svg" alt="Aura Sports Group" width="999" height="293">
     </a>
@@ -173,12 +175,12 @@
   </nav>
 
   <!-- Hero -->
-  <section class="page-hero" style="background: var(--ink-850); padding: 140px var(--pad-x) 50px;">
+  <section class="page-hero contact-hero">
     <h1><span class="gold-text">Contact</span><span class="sr-only"> — Aura Sports Group</span></h1>
   </section>
 
   <!-- Form -->
-  <section class="section" style="padding-top: 80px; padding-bottom: 110px;">
+  <section class="section form-section">
     <form class="contact-form" id="contactForm" novalidate>
       <input type="hidden" name="access_key" value="4ba98fc8-1334-481c-ae9a-8769641c0b4e">
       <input type="hidden" name="subject" value="New Contact Form Submission — Aura Sports Group">
@@ -221,7 +223,7 @@
           <input id="f-position" name="position" type="text" placeholder="Your position or role">
         </div>
       </div>
-      <div class="field field--message" style="width:100%;">
+      <div class="field field--message">
         <label for="f-message">Message</label>
         <textarea id="f-message" name="message" placeholder="Tell us about yourself and your goals."></textarea>
       </div>
@@ -231,7 +233,7 @@
     </form>
   </section>
 
-    <footer class="site-footer">
+  <footer class="site-footer">
     <div class="top">
       <a class="logo-lockup logo-lockup--footer" href="/" aria-label="Aura Sports Group — Home">
         <img class="logo-mark" src="assets/img/aura-logo.svg" alt="Aura Sports Group" width="999" height="293">

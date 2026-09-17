@@ -61,6 +61,10 @@
     @media (max-width: 520px) {
       .card-person .media-ph { width: 108px; height: 108px; }
     }
+
+    .team-hero { background: var(--ink-850); min-height: 0; padding: 140px var(--pad-x) 48px; }
+    .team-grid-section { padding-top: 40px; padding-bottom: 40px; }
+    .team-grid { row-gap: 44px; }
   </style>
   <script type="application/ld+json">
 {
@@ -120,7 +124,7 @@
   </script>
 </head>
 <body class="nav-solid">
-    <nav class="site-nav" id="siteNav">
+  <nav class="site-nav" id="siteNav">
     <a class="logo-lockup" href="/" aria-label="Aura Sports Group — Home">
       <img class="logo-mark" src="assets/img/aura-logo.svg" alt="Aura Sports Group" width="999" height="293">
     </a>
@@ -153,13 +157,13 @@
   </nav>
 
   <!-- Hero -->
-  <section class="page-hero" style="background: var(--ink-850); min-height: 0; padding: 140px var(--pad-x) 48px;">
+  <section class="page-hero team-hero">
     <h1>Our Team</h1>
   </section>
 
   <!-- Team grid -->
-  <section class="section" style="padding-top: 40px; padding-bottom: 40px;">
-    <div class="grid-4 reveal" style="row-gap: 44px;">
+  <section class="section team-grid-section">
+    <div class="grid-4 reveal team-grid">
       <div class="card-person">
         <div class="media-ph" data-label="Team Photo">
           <img src="assets/img/team/canter-headshot.jpg" alt="David Canter">
@@ -205,7 +209,7 @@
     </div>
   </section>
 
-    <footer class="site-footer">
+  <footer class="site-footer">
     <div class="top">
       <a class="logo-lockup logo-lockup--footer" href="/" aria-label="Aura Sports Group — Home">
         <img class="logo-mark" src="assets/img/aura-logo.svg" alt="Aura Sports Group" width="999" height="293">

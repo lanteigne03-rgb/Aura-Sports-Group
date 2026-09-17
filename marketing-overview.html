@@ -28,17 +28,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;500;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <style>
-    /* One copy+photo split (borrowed from the Representation template, but
-       used a single time rather than repeated 3-4x) for the intro, then a
-       photo-card grid for the three service pillars — a different shape
-       than the Representation pages' repeating alternating rows. */
-    .split { display: flex; gap: 80px; align-items: center; }
-    .split .copy { flex: 1 1 0; min-width: 300px; }
-    .split .copy p + p { margin-top: 18px; }
-    .split .media-ph { flex: none; width: 320px; height: 400px; max-width: 100%; border: none; }
-    @media (max-width: 900px) {
-      .split { flex-direction: column; align-items: flex-start; }
-    }
+    /* The intro uses the shared .split copy+photo layout (see styles.css) a
+       single time rather than repeated 3-4x, then a photo-card grid for the
+       three service pillars — a different shape than the Representation
+       pages' repeating alternating rows. */
+    .marketing-hero { background: var(--ink-850); padding-bottom: 90px; }
+    .strategy-section { background: var(--ink-950); padding-top: 60px; padding-bottom: 110px; }
 
     .card-photo {
       background: linear-gradient(to bottom, var(--ink-800), var(--ink-900));
@@ -114,7 +109,7 @@
   </script>
 </head>
 <body class="nav-solid">
-    <nav class="site-nav" id="siteNav">
+  <nav class="site-nav" id="siteNav">
     <a class="logo-lockup" href="/" aria-label="Aura Sports Group — Home">
       <img class="logo-mark" src="assets/img/aura-logo.svg" alt="Aura Sports Group" width="999" height="293">
     </a>
@@ -147,13 +142,13 @@
   </nav>
 
   <!-- Hero -->
-  <section class="page-hero" style="background: var(--ink-850); padding-bottom: 90px;">
+  <section class="page-hero marketing-hero">
     <h1>Built Around<br><span class="gold-text">Who You Are.</span></h1>
     <p class="sub">We build marketing strategies around the individual, creating a clear identity and position that reflects who they are, what they represent, and where they want to go.</p>
   </section>
 
   <!-- Approach (single copy + photo split — not repeated) -->
-  <section class="section split reveal" style="background: var(--ink-950); padding-top: 100px; padding-bottom: 100px;">
+  <section class="section split reveal section--row-mid">
     <div class="copy reveal">
       <div class="section-header">
         <h2 class="display display--l">An Intentional, Tailored Approach.</h2>
@@ -164,7 +159,7 @@
   </section>
 
   <!-- The Strategy (photo-card grid) -->
-  <section class="section" style="background: var(--ink-950); padding-top: 60px; padding-bottom: 110px;">
+  <section class="section strategy-section">
     <div class="grid-3 reveal">
       <div class="card-photo">
         <div class="media-ph" data-label="Content &amp; Social Image"><img src="assets/img/content-social.jpg" alt="Content and social media strategy for Aura Sports Group clients" loading="lazy"></div>
@@ -181,7 +176,7 @@
         </div>
       </div>
       <div class="card-photo">
-        <div class="media-ph" data-label="Analytics &amp; Insights Image"><img src="assets/img/analytics-insights.jpg" alt="NFL player represented by Aura Sports Group" style="object-position: center top;" loading="lazy"></div>
+        <div class="media-ph" data-label="Analytics &amp; Insights Image"><img class="photo-top" src="assets/img/analytics-insights.jpg" alt="NFL player represented by Aura Sports Group" loading="lazy"></div>
         <div class="body">
           <h3>Analytics</h3>
           <p>Behind the creative is a data-driven approach. We use audience insights, content performance, and meaningful analytics to understand what is working, identify opportunities for growth, and continually refine the strategy.</p>
@@ -193,13 +188,13 @@
   <!-- Closing statement -->
   <section class="section closing-statement">
     <div class="section-header center reveal">
-      <h2 class="display display--xl" style="text-align:center;">More Than <span class="gold-text">Visibility.</span></h2>
-      <p class="body-m" style="text-align:center;">The goal is to build more than visibility. We create brands with lasting value, stronger relationships, and opportunities that extend beyond the field.</p>
+      <h2 class="display display--xl text-center">More Than <span class="gold-text">Visibility.</span></h2>
+      <p class="body-m text-center">The goal is to build more than visibility. We create brands with lasting value, stronger relationships, and opportunities that extend beyond the field.</p>
     </div>
     <span class="barcode barcode--dim reveal" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
   </section>
 
-    <footer class="site-footer">
+  <footer class="site-footer">
     <div class="top">
       <a class="logo-lockup logo-lockup--footer" href="/" aria-label="Aura Sports Group — Home">
         <img class="logo-mark" src="assets/img/aura-logo.svg" alt="Aura Sports Group" width="999" height="293">

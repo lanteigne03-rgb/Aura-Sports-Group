@@ -27,16 +27,6 @@
   <link rel="preload" href="assets/fonts/DharmaGothicE_ExBold_I.woff2" as="font" type="font/woff2" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;500;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
-  <style>
-    .split { display: flex; gap: 80px; align-items: center; }
-    .split .copy { flex: 1 1 0; min-width: 300px; }
-    .split .copy p + p { margin-top: 18px; }
-    .split .media-ph { flex: none; width: 320px; height: 400px; max-width: 100%; border: none; }
-    .split.split--reverse { flex-direction: row-reverse; }
-    @media (max-width: 900px) {
-      .split, .split.split--reverse { flex-direction: column; align-items: flex-start; }
-    }
-  </style>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -96,7 +86,7 @@
   </script>
 </head>
 <body>
-    <nav class="site-nav" id="siteNav">
+  <nav class="site-nav" id="siteNav">
     <a class="logo-lockup" href="/" aria-label="Aura Sports Group — Home">
       <img class="logo-mark" src="assets/img/aura-logo.svg" alt="Aura Sports Group" width="999" height="293">
     </a>
@@ -137,7 +127,7 @@
   </section>
 
   <!-- Built Around the Draft -->
-  <section class="section split" style="background: var(--ink-950); padding-top: 60px; padding-bottom: 100px;">
+  <section class="section split section--row-first">
     <div class="copy reveal">
       <div class="section-header">
         <h2 class="display display--l">Every Decision Counts.</h2>
@@ -148,7 +138,7 @@
   </section>
 
   <!-- Value + Brand -->
-  <section class="section split split--reverse reveal" style="background: var(--ink-950); padding-top: 100px; padding-bottom: 100px;">
+  <section class="section split split--reverse reveal section--row-mid">
     <div class="copy reveal">
       <div class="section-header">
         <h2 class="display display--l">Maximizing Value, Building Your Brand.</h2>
@@ -160,7 +150,7 @@
   </section>
 
   <!-- Protection + Purpose -->
-  <section class="section split reveal" style="background: var(--ink-950); padding-top: 100px; padding-bottom: 110px;">
+  <section class="section split reveal section--row-last">
     <div class="copy reveal">
       <div class="section-header">
         <h2 class="display display--l">Protected at Every Step.</h2>
@@ -171,8 +161,7 @@
     <div class="media-ph reveal" data-label="Protected at Every Step Image"><img src="assets/img/college-protected.jpg" alt="College football player walking off the field" loading="lazy"></div>
   </section>
 
-
-    <footer class="site-footer">
+  <footer class="site-footer">
     <div class="top">
       <a class="logo-lockup logo-lockup--footer" href="/" aria-label="Aura Sports Group — Home">
         <img class="logo-mark" src="assets/img/aura-logo.svg" alt="Aura Sports Group" width="999" height="293">
