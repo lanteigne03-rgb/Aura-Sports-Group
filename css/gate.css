@@ -268,11 +268,10 @@ html.gate-locked body > *:not(.site-gate) {
   border-radius: 2px;
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
-  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  transition: border-color 0.25s ease;
 }
 .gate-field:focus-within {
   border-color: var(--gold-500, #c6a567);
-  box-shadow: 0 0 18px rgba(198, 165, 103, 0.28);
 }
 
 .gate-input {
