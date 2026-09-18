@@ -346,6 +346,8 @@
     .news-home .header-row {
       display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap;
     }
+    /* "All News" button: keep the hover tint, drop the glow */
+    .news-home .btn--ghost:hover { box-shadow: none; }
     .articles { display: flex; gap: 24px; }
     @media (max-width: 900px) {
       .articles { flex-direction: column; }

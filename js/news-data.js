@@ -24,6 +24,15 @@
    ============================================================ */
 window.AURA_NEWS = [
   {
+    title: "Kenneth Walker named AFC offensive player of the week",
+    publication: "NBC Sports",
+    url: "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/kenneth-walker-named-afc-offensive-player-of-the-week",
+    date: "2026-09-16",
+    image: "assets/img/news/nbcsports-pft.avif",
+    alt: "Kenneth Walker III running the ball for the Kansas City Chiefs",
+    imagePosition: "center 15%"
+  },
+  {
     title: "Kenneth Walker's Super Bowl MVP Gives Aura Sports Group a Breakthrough Moment",
     publication: "Sports Business Journal",
     url: "https://www.sportsbusinessjournal.com/Articles/2026/02/16/kenneth-walkers-super-bowl-mvp-gives-aura-sports-group-a-breakthrough-moment/",
