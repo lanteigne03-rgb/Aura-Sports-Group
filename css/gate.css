@@ -228,7 +228,9 @@ html.gate-locked body > *:not(.site-gate) {
   width: 44px;
   height: 44px;
   margin-left: -22px;
-  color: #fff;
+  /* Matches the "Contact us" footnote below the field so the two muted
+     secondary cues read at the same weight. */
+  color: rgba(244, 242, 237, 0.42);
   opacity: 0;
   transform: translateY(14px);
   animation: gateSocialIn 0.9s cubic-bezier(.16, .84, .44, 1) forwards;
