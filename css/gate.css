@@ -1,0 +1,358 @@
+/* ============================================================
+   AURA SPORTS GROUP — Password gate
+   ------------------------------------------------------------
+   A full-screen overlay that reproduces the homepage hero
+   (background video + glitch-emerge logo) with a password field
+   beneath the logo. Injected by js/gate.js on every page.
+
+   The keyframes below are deliberately DUPLICATED from the
+   home-only <style> block in index.html rather than shared: the
+   gate has to render identically on all 14 pages, and only
+   index.html carries those hero keyframes.
+
+   The logo sits at the exact same point as the real hero logo —
+   .gate-inner holds only .gate-logo-wrap in flow, and the form is
+   absolutely positioned below it — so that when the gate fades
+   out on the homepage the logo underneath is already in place and
+   the two frames line up.
+   ============================================================ */
+
+/* While locked, the real page is out of flow entirely (no scroll,
+   no lazy-loaded work, nothing behind the overlay). Removing
+   .gate-locked from <html> is what reveals the site. */
+html.gate-locked,
+html.gate-locked body {
+  overflow: hidden;
+  height: 100%;
+}
+html.gate-locked body > *:not(.site-gate) {
+  display: none !important;
+}
+
+.site-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--ink-900, #0e0e11);
+  transition: opacity 0.7s ease;
+}
+
+/* ---------- Hero media (mirrors .hero-media / .hero-scrim) ---------- */
+.gate-media {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(120% 90% at 50% 10%, rgba(198, 165, 103, 0.10), transparent 55%),
+    radial-gradient(80% 60% at 80% 80%, rgba(46, 46, 54, 0.6), transparent 60%),
+    var(--ink-900, #0e0e11);
+}
+.gate-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.5;
+}
+.gate-scrim {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 45%;
+  background: linear-gradient(to bottom,
+    rgba(11, 11, 13, 0) 0%,
+    rgba(11, 11, 13, 0.55) 50%,
+    var(--ink-850, #0b0b0d) 100%);
+}
+
+/* ---------- Centre column (mirrors .hero-inner) ---------- */
+.gate-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 24px;
+}
+
+.gate-logo-wrap {
+  position: relative;
+  width: min(520px, 56vw);
+}
+@media (max-width: 720px) {
+  .gate-logo-wrap { width: min(520px, 66vw); }
+}
+
+.gate-logo-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.10) 0px,
+    rgba(255, 255, 255, 0.10) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  mix-blend-mode: overlay;
+  opacity: 0;
+  pointer-events: none;
+  animation: gateLogoScanlines 2s steps(1, end) forwards;
+  animation-delay: 2s;
+}
+
+.gate-logo {
+  position: relative;
+  display: block;
+  width: 100%;
+  opacity: 0;
+  filter: blur(20px);
+  transform: scale(0.82) translate(0, 0);
+  clip-path: inset(0 0 0 0);
+  animation: gateLogoGlitchMain 2s steps(1, end) forwards;
+  animation-delay: 2s;
+}
+
+.gate-logo-glitch {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  opacity: 0;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+.gate-logo-glitch--r {
+  filter: sepia(1) saturate(8) hue-rotate(-50deg) brightness(1.15);
+  animation: gateLogoGlitchR 2s steps(1, end) forwards;
+  animation-delay: 2s;
+}
+.gate-logo-glitch--b {
+  filter: sepia(1) saturate(8) hue-rotate(150deg) brightness(1.15);
+  animation: gateLogoGlitchB 2s steps(1, end) forwards;
+  animation-delay: 2s;
+}
+
+@keyframes gateLogoGlitchMain {
+  0%   { opacity: 0;   filter: blur(20px); transform: scale(.82) translate(0,0); clip-path: inset(0 0 0 0); }
+  4%   { opacity: .9;  filter: blur(6px);  transform: scale(.9) translate(-8px,0); clip-path: inset(12% 0 58% 0); }
+  8%   { opacity: 0;   filter: blur(6px);  transform: scale(.9) translate(6px,0); clip-path: inset(42% 0 18% 0); }
+  12%  { opacity: 1;   filter: blur(3px);  transform: scale(.94) translate(-4px,0); clip-path: inset(0 0 70% 0); }
+  16%  { opacity: .85; filter: blur(3px);  transform: scale(.94) translate(6px,0); clip-path: inset(55% 0 0 0); }
+  20%  { opacity: 1;   filter: blur(2px);  transform: scale(.97) translate(0,0); clip-path: inset(0 0 0 0); }
+  26%  { opacity: .2;  filter: blur(0);    transform: scale(1) translate(-10px,0); clip-path: inset(22% 0 34% 0); }
+  30%  { opacity: 1;   filter: blur(0);    transform: scale(1) translate(0,0); clip-path: inset(0 0 0 0); }
+  38%  { opacity: 1;   filter: blur(0);    transform: scale(1) translate(4px,0); clip-path: inset(64% 0 6% 0); }
+  42%  { opacity: 1;   filter: blur(0);    transform: scale(1) translate(0,0); clip-path: inset(0 0 0 0); }
+  55%  { opacity: .4;  transform: translate(-3px,0); }
+  58%  { opacity: 1;   transform: translate(0,0); }
+  100% { opacity: 1;   filter: blur(0);    transform: scale(1) translate(0,0); clip-path: inset(0 0 0 0); }
+}
+@keyframes gateLogoGlitchR {
+  0%   { opacity: 0; transform: translate(0,0); clip-path: inset(0 0 0 0); }
+  4%   { opacity: .7; transform: translate(-12px,2px); clip-path: inset(16% 0 54% 0); }
+  8%   { opacity: 0; }
+  12%  { opacity: .6; transform: translate(-7px,0); clip-path: inset(0 0 60% 0); }
+  16%  { opacity: .5; transform: translate(8px,-2px); clip-path: inset(50% 0 0 0); }
+  20%  { opacity: 0; }
+  26%  { opacity: .55; transform: translate(-12px,0); clip-path: inset(24% 0 30% 0); }
+  30%  { opacity: 0; }
+  38%  { opacity: .45; transform: translate(5px,0); clip-path: inset(62% 0 8% 0); }
+  42%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+@keyframes gateLogoGlitchB {
+  0%   { opacity: 0; transform: translate(0,0); clip-path: inset(0 0 0 0); }
+  4%   { opacity: .7; transform: translate(12px,-2px); clip-path: inset(16% 0 54% 0); }
+  8%   { opacity: 0; }
+  12%  { opacity: .6; transform: translate(7px,0); clip-path: inset(0 0 60% 0); }
+  16%  { opacity: .5; transform: translate(-8px,2px); clip-path: inset(50% 0 0 0); }
+  20%  { opacity: 0; }
+  26%  { opacity: .55; transform: translate(12px,0); clip-path: inset(24% 0 30% 0); }
+  30%  { opacity: 0; }
+  38%  { opacity: .45; transform: translate(-5px,0); clip-path: inset(62% 0 8% 0); }
+  42%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+@keyframes gateLogoScanlines {
+  0%   { opacity: 0; }
+  4%   { opacity: .5; }
+  8%   { opacity: 0; }
+  12%  { opacity: .4; }
+  20%  { opacity: 0; }
+  26%  { opacity: .3; }
+  42%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* ---------- Password field ----------
+   Absolutely positioned off the bottom of .gate-inner (whose only
+   in-flow child is the logo) so adding the field does not shift the
+   logo off the hero's centre line.
+   Timing: the logo's glitch resolves at 42% of its 2s run (2.84s)
+   with a last flicker at 58% (3.16s), so the field rises at 3.4s —
+   immediately after the logo settles. */
+.gate-form {
+  position: absolute;
+  top: calc(100% + 42px);
+  left: 50%;
+  width: min(340px, 72vw);
+  opacity: 0;
+  transform: translateX(-50%) translateY(14px);
+  animation: gateFormIn 0.9s cubic-bezier(.16, .84, .44, 1) forwards;
+  animation-delay: 3.4s;
+}
+@keyframes gateFormIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(14px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+.gate-field {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  /* Opaque enough to stay legible over the brightest frames of the loop
+     (the lime jersey), while still reading as glass over the video. */
+  background: rgba(11, 11, 13, 0.62);
+  border: 1px solid rgba(217, 190, 133, 0.30);
+  border-radius: 2px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.gate-field:focus-within {
+  border-color: var(--gold-500, #c6a567);
+  box-shadow: 0 0 18px rgba(198, 165, 103, 0.28);
+}
+
+.gate-input {
+  flex: 1 1 auto;
+  min-width: 0;
+  background: transparent;
+  border: none;
+  padding: 15px 14px 15px 18px;
+  color: var(--white-off, #f4f2ed);
+  font-family: var(--font-body, 'Montserrat', sans-serif);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 2.4px;
+  text-transform: uppercase;
+}
+.gate-input::placeholder {
+  color: rgba(244, 242, 237, 0.46);
+  letter-spacing: 2.4px;
+  text-transform: uppercase;
+}
+.gate-input:focus { outline: none; }
+/* Chrome's autofill repaint would otherwise drop a white block on the video */
+.gate-input:-webkit-autofill,
+.gate-input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--white-off, #f4f2ed);
+  -webkit-box-shadow: 0 0 0 1000px rgba(11, 11, 13, 0.92) inset;
+  caret-color: var(--white-off, #f4f2ed);
+}
+
+.gate-submit {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  background: transparent;
+  border: none;
+  border-left: 1px solid rgba(217, 190, 133, 0.22);
+  color: var(--gold-400, #d9be85);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.gate-submit:hover { background: rgba(198, 165, 103, 0.10); color: var(--gold-300, #e9d8ac); }
+.gate-submit:focus-visible { outline: 1px solid var(--gold-500, #c6a567); outline-offset: 2px; }
+.gate-submit svg { width: 17px; height: 17px; display: block; }
+
+.gate-error {
+  margin-top: 12px;
+  min-height: 16px;
+  color: #e0654f;
+  font-family: var(--font-body, 'Montserrat', sans-serif);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.site-gate.is-error .gate-error { opacity: 1; }
+.site-gate.is-error .gate-field {
+  border-color: rgba(224, 101, 79, 0.65);
+  animation: gateShake 0.4s cubic-bezier(.36, .07, .19, .97);
+}
+@keyframes gateShake {
+  10%, 90% { transform: translateX(-2px); }
+  20%, 80% { transform: translateX(4px); }
+  30%, 50%, 70% { transform: translateX(-6px); }
+  40%, 60% { transform: translateX(6px); }
+}
+
+/* ---------- Unlock ----------
+   Two beats: the field drops out first, then the whole overlay
+   cross-fades into the real page underneath. */
+.site-gate.is-unlocking .gate-form {
+  animation: none;
+  opacity: 0;
+  transform: translateX(-50%) translateY(-6px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+}
+.site-gate.is-gone {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* On the homepage the hero underneath must already be settled when the
+   overlay fades, or the logo would re-run its 2s glitch and read as a
+   flicker. gate.js adds .gate-revealed to <body> for the rest of the
+   page's life. */
+body.gate-revealed .hero-logo-wrap .hero-logo {
+  animation: none;
+  opacity: 1;
+  filter: none;
+  transform: none;
+  clip-path: none;
+}
+body.gate-revealed .hero-logo-wrap::after,
+body.gate-revealed .hero-logo-glitch { display: none; }
+body.gate-revealed .hero-line { animation: none; opacity: 1; transform: none; }
+/* The indicator normally waits 4s from load; after an unlock that clock
+   has long since started, so bring it in just behind the cross-fade. */
+body.gate-revealed .scroll-indicator { animation-delay: 1.1s; }
+
+.gate-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gate-logo {
+    animation: none;
+    opacity: 1;
+    filter: none;
+    transform: none;
+    clip-path: none;
+  }
+  .gate-logo-wrap::after,
+  .gate-logo-glitch { display: none; }
+  .gate-form { animation-duration: 0.01s; animation-delay: 0.3s; }
+  .site-gate { transition-duration: 0.01s; }
+  .site-gate.is-error .gate-field { animation: none; }
+}
