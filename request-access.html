@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-T2KD9DGSP4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-T2KD9DGSP4');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aura Sports Group - Request Access</title>
+  <meta name="description" content="Request the password for aurasmg.com. Tell us who you are and we'll be in touch.">
+  <!-- Utility page: the one door left open while the site is private.
+       Kept out of search results so it never outranks the real pages. -->
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" href="assets/img/favicon/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;500;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- No password gate on this page, and no nav or footer: it exists only
+       so someone who hits the gate can ask for the password. The form posts
+       to the same Web3Forms endpoint as the contact page. -->
+  <style>
+    body {
+      background: var(--ink-850);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 56px 24px;
+    }
+    .access-card {
+      width: 100%;
+      max-width: 560px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .access-logo {
+      width: min(300px, 62vw);
+      height: auto;
+      display: block;
+    }
+    .access-intro {
+      margin: 28px 0 40px;
+      max-width: 420px;
+      color: var(--grey-350);
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 1.7;
+      letter-spacing: 0.4px;
+    }
+
+    /* Fields: same treatment as the contact page, in a single column so the
+       card stays narrow enough to read as a dialog rather than a page. */
+    .access-form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      width: 100%;
+    }
+    @media (max-width: 560px) { .form-row { grid-template-columns: 1fr; } }
+    .field { display: flex; flex-direction: column; gap: 10px; width: 100%; text-align: left; }
+    .field label {
+      color: var(--grey-350);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 1.98px;
+      text-transform: uppercase;
+      transition: color 0.2s ease;
+    }
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      background: var(--ink-750);
+      border: 1px solid var(--ink-600);
+      border-radius: 2px;
+      padding: 14px 16px;
+      color: var(--white-off);
+      font-family: var(--font-body);
+      font-size: 14px;
+      transition: border-color 0.2s ease;
+    }
+    .field input::placeholder,
+    .field textarea::placeholder { color: var(--grey-500); }
+    .field select:invalid { color: var(--grey-500); }
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      outline: none;
+      border-color: var(--gold-500);
+    }
+    .field:focus-within label { color: var(--gold-500); }
+    .field textarea { min-height: 110px; resize: vertical; }
+
+    .access-form .btn--primary { margin-top: 4px; }
+    .btn--primary[disabled] { opacity: 0.6; cursor: not-allowed; }
+    .form-note {
+      display: none;
+      color: var(--gold-400);
+      font-size: 13px;
+      letter-spacing: 0.5px;
+      text-align: center;
+    }
+    .form-note--error { color: #e0654f; }
+
+    .access-back {
+      margin-top: 34px;
+      color: rgba(244, 242, 237, 0.42);
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .access-back:hover { color: var(--gold-400); }
+    .access-back:focus-visible { outline: 1px solid var(--gold-500); outline-offset: 3px; }
+  </style>
+</head>
+<body>
+  <main class="access-card">
+    <img class="access-logo" src="assets/img/aura-logo-gold.png" alt="Aura Sports Group" width="1000" height="293">
+    <h1 class="sr-only">Request access to Aura Sports Group</h1>
+
+    <p class="access-intro">
+      This site is private. Tell us who you are and
+      we'll send the password over.
+    </p>
+
+    <form class="access-form" id="accessForm" novalidate>
+      <input type="hidden" name="access_key" value="4ba98fc8-1334-481c-ae9a-8769641c0b4e">
+      <input type="hidden" name="subject" value="Password Request — Aura Sports Group">
+      <input type="hidden" name="from_name" value="Aura Sports Group Website">
+      <div class="form-row">
+        <div class="field">
+          <label for="f-name">Name</label>
+          <input id="f-name" name="name" type="text" placeholder="Your name" required>
+        </div>
+        <div class="field">
+          <label for="f-email">Email</label>
+          <input id="f-email" name="email" type="email" placeholder="you@example.com" required>
+        </div>
+      </div>
+      <div class="field">
+        <label for="f-role">I am a…</label>
+        <select id="f-role" name="role" required>
+          <option value="" disabled selected>Select…</option>
+          <option>NFL Player</option>
+          <option>College Player</option>
+          <option>Recruit</option>
+          <option>Parent / Family</option>
+          <option>Coach</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="f-message">Message</label>
+        <textarea id="f-message" name="message" placeholder="A line about why you're looking for access."></textarea>
+      </div>
+      <div class="h-captcha" data-captcha="true"></div>
+      <button class="btn btn--primary" type="submit" id="formSubmit">Request Password</button>
+      <p class="form-note" id="formNote"></p>
+    </form>
+
+    <a class="access-back" href="/">Back to the site</a>
+  </main>
+
+  <script src="https://web3forms.com/client/script.js" async defer></script>
+  <script>
+    document.getElementById("accessForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      var form = e.target;
+      var submitBtn = document.getElementById("formSubmit");
+      var note = document.getElementById("formNote");
+
+      var hCaptchaField = form.querySelector('[name="h-captcha-response"]');
+      if (!hCaptchaField || !hCaptchaField.value) {
+        note.textContent = "Please complete the captcha before submitting.";
+        note.className = "form-note form-note--error";
+        note.style.display = "block";
+        return;
+      }
+
+      note.className = "form-note";
+      note.style.display = "none";
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Sending…";
+
+      var formData = new FormData(form);
+      var payload = Object.fromEntries(formData.entries());
+
+      fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(payload)
+      })
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+          if (data.success) {
+            form.reset();
+            note.textContent = "Thank you — we've got your request and will be in touch shortly.";
+            note.className = "form-note";
+          } else {
+            note.textContent = "Something went wrong. Please try again or email us directly.";
+            note.className = "form-note form-note--error";
+          }
+          note.style.display = "block";
+        })
+        .catch(function () {
+          note.textContent = "Something went wrong. Please try again or email us directly.";
+          note.className = "form-note form-note--error";
+          note.style.display = "block";
+        })
+        .finally(function () {
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Request Password";
+        });
+    });
+  </script>
+</body>
+</html>

@@ -35,9 +35,9 @@
   var POSTER_SRC = BASE + "assets/img/hero-poster.jpg";
   var LOGO_SRC = BASE + "assets/img/aura-logo-gold.png";
   var INSTAGRAM_URL = "https://www.instagram.com/aurasports/?hl=en";
-  /* The contact page is deliberately left ungated so anyone who needs the
-     password has a way to ask for it. */
-  var CONTACT_URL = BASE + "contact";
+  /* request-access.html is the only ungated page: logo, form, nothing else.
+     The rest of the site — the contact page included — stays behind the gate. */
+  var CONTACT_URL = BASE + "request-access";
 
   /* ---------- Locked? ---------- */
 
