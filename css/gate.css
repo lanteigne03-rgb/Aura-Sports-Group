@@ -228,7 +228,7 @@ html.gate-locked body > *:not(.site-gate) {
   width: 44px;
   height: 44px;
   margin-left: -22px;
-  color: var(--gold-400, #d9be85);
+  color: #fff;
   opacity: 0;
   transform: translateY(14px);
   animation: gateSocialIn 0.9s cubic-bezier(.16, .84, .44, 1) forwards;
@@ -241,10 +241,10 @@ html.gate-locked body > *:not(.site-gate) {
 }
 .gate-social svg { width: 22px; height: 22px; display: block; }
 .gate-social:hover {
-  color: var(--gold-300, #e9d8ac);
-  filter: drop-shadow(0 0 8px rgba(198, 165, 103, 0.45));
+  color: #fff;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.55));
 }
-.gate-social:focus-visible { outline: 1px solid var(--gold-500, #c6a567); outline-offset: 2px; }
+.gate-social:focus-visible { outline: 1px solid #fff; outline-offset: 2px; }
 /* Short viewports (landscape phones, small laptop windows): the field's
    bottom edge would run into a centred icon, so tuck the icon into the
    bottom-right corner instead. */
