@@ -4,12 +4,22 @@ Static site built from the Figma design (`Aura Sports Group — Website`). No bu
 
 ## Pages
 
-`index.html` (Home) · `the-agency.html` · `our-team.html` · `representation.html` · `nfl.html` · `college-nil.html` · `recruits.html` · `coaches.html` · `draft-prep.html` · `marketing-overview.html` · `brand-inquiries.html` · `contact.html`
+`index.html` (Home) · `the-agency.html` · `our-team.html` · `representation.html` · `nfl.html` · `college-nil.html` · `recruits.html` · `coaches.html` · `draft-prep.html` · `marketing-overview.html` · `brand-inquiries.html` · `news.html` · `contact.html`
 
 ## Structure
 
 - `css/styles.css` — design tokens (colors, type, spacing from the Figma design system) + shared components
+- `js/news-data.js` / `js/news.js` — the news article list, and the script that renders it (home page tiles, News page, pagination)
 - `js/site.js` — injects the shared nav / CTA module / footer, handles scroll nav, mobile menu, reveal animations, and image fallbacks
+
+## Adding a news article
+
+News lives in one file: `js/news-data.js`. The home page "Headlines" section shows the 3 most recent articles; `news.html` shows all of them, 12 per page, with page links (`/news?page=2`, …) appearing automatically once there are more than 12.
+
+1. Put the thumbnail in `assets/img/news/`.
+2. Copy an entry in `js/news-data.js`, paste it anywhere in the list, and fill in `title`, `publication`, `url`, `date` (`YYYY-MM-DD`), `image` and `alt`. Order in the file doesn't matter — articles are sorted newest first by `date`.
+
+The field reference is at the top of that file.
 
 ## Dropping in real photos
 

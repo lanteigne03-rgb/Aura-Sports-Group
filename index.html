@@ -354,8 +354,6 @@
 
     /* "Who We Are" intro paragraph: capped width, centered under its heading */
     .who-copy { max-width: 720px; margin: 0 auto; }
-    /* Crops the Kenneth Walker news thumbnail a little higher in the frame */
-    .thumb--top { object-position: center 15%; }
   </style>
   <script type="application/ld+json">
 {
@@ -521,30 +519,9 @@
       <div class="section-header">
         <h2 class="display display--l">Headlines</h2>
       </div>
+      <a class="btn btn--ghost" href="news">All News</a>
     </div>
-    <div class="articles">
-      <a class="card-article" href="https://www.sportsbusinessjournal.com/Articles/2026/02/16/kenneth-walkers-super-bowl-mvp-gives-aura-sports-group-a-breakthrough-moment/" target="_blank" rel="noopener">
-        <div class="thumb"><img class="thumb--top" src="assets/img/news/sportsbusinessjournal.avif" alt="Kenneth Walker III" loading="lazy"></div>
-        <div class="body">
-          <span class="pub">SPORTS BUSINESS JOURNAL</span>
-          <h3>Kenneth Walker's Super Bowl MVP Gives Aura Sports Group a Breakthrough Moment</h3>
-        </div>
-      </a>
-      <a class="card-article" href="https://abcnews.com/Sports/top-nfl-agent-talks-balancing-jewish-faith-traditions/story?id=102996400" target="_blank" rel="noopener">
-        <div class="thumb"><img src="assets/img/news/abcnews.avif" alt="Ness Mugrabi" loading="lazy"></div>
-        <div class="body">
-          <span class="pub">ABC NEWS</span>
-          <h3>Top NFL Agent Talks Balancing Jewish Faith, Traditions with High-Octane Career</h3>
-        </div>
-      </a>
-      <a class="card-article" href="https://sportsagentblog.com/2019/05/09/the-key-to-david-canters-success-his-ac-roots/" target="_blank" rel="noopener">
-        <div class="thumb"><img src="assets/img/news/sportsagentblog.jpeg" alt="David Canter" loading="lazy"></div>
-        <div class="body">
-          <span class="pub">SPORTS AGENT BLOG</span>
-          <h3>The Key to David Canter's Success: His AC-Roots</h3>
-        </div>
-      </a>
-    </div>
+    <div class="articles" data-news-list data-limit="3"></div>
   </section>
 
   <footer class="site-footer">
@@ -581,6 +558,8 @@
     </div>
   </footer>
 
+  <script src="js/news-data.js"></script>
+  <script src="js/news.js"></script>
   <script src="js/site.js"></script>
 </body>
 </html>
