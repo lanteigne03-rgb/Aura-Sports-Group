@@ -211,6 +211,52 @@ html.gate-locked body > *:not(.site-gate) {
   to   { opacity: 1; transform: translateX(-50%) translateY(0); }
 }
 
+/* ---------- Instagram link ----------
+   Pinned to the bottom edge of the screen and revealed on the same
+   clock as the password field (3.4s delay, 0.9s, same easing) so the
+   two arrive together. Its own transform is a plain translateY — the
+   field's translateX(-50%) is only needed because it is positioned
+   with left: 50%; here flex centring does that job instead. */
+.gate-social {
+  position: absolute;
+  left: 50%;
+  bottom: calc(28px + env(safe-area-inset-bottom, 0px));
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-left: -22px;
+  color: var(--gold-400, #d9be85);
+  opacity: 0;
+  transform: translateY(14px);
+  animation: gateSocialIn 0.9s cubic-bezier(.16, .84, .44, 1) forwards;
+  animation-delay: 3.4s;
+  transition: color 0.2s ease, filter 0.2s ease;
+}
+@keyframes gateSocialIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.gate-social svg { width: 22px; height: 22px; display: block; }
+.gate-social:hover {
+  color: var(--gold-300, #e9d8ac);
+  filter: drop-shadow(0 0 8px rgba(198, 165, 103, 0.45));
+}
+.gate-social:focus-visible { outline: 1px solid var(--gold-500, #c6a567); outline-offset: 2px; }
+/* Short viewports (landscape phones, small laptop windows): the field's
+   bottom edge would run into a centred icon, so tuck the icon into the
+   bottom-right corner instead. */
+@media (max-height: 600px) {
+  .gate-social {
+    left: auto;
+    margin-left: 0;
+    right: max(24px, env(safe-area-inset-right, 0px));
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  }
+}
+
 .gate-field {
   position: relative;
   display: flex;
@@ -307,6 +353,13 @@ html.gate-locked body > *:not(.site-gate) {
   transition: opacity 0.25s ease, transform 0.25s ease;
   pointer-events: none;
 }
+.site-gate.is-unlocking .gate-social {
+  animation: none;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+}
 .site-gate.is-gone {
   opacity: 0;
   pointer-events: none;
@@ -352,7 +405,8 @@ body.gate-revealed .scroll-indicator { animation-delay: 1.1s; }
   }
   .gate-logo-wrap::after,
   .gate-logo-glitch { display: none; }
-  .gate-form { animation-duration: 0.01s; animation-delay: 0.3s; }
+  .gate-form,
+  .gate-social { animation-duration: 0.01s; animation-delay: 0.3s; }
   .site-gate { transition-duration: 0.01s; }
   .site-gate.is-error .gate-field { animation: none; }
 }

@@ -34,6 +34,7 @@
   var VIDEO_SRC = BASE + "assets/video/Hero-Vid-Loop.mp4";
   var POSTER_SRC = BASE + "assets/img/hero-poster.jpg";
   var LOGO_SRC = BASE + "assets/img/aura-logo-gold.png";
+  var INSTAGRAM_URL = "https://www.instagram.com/aurasports/?hl=en";
 
   /* ---------- Locked? ---------- */
 
@@ -126,6 +127,24 @@
     gate.appendChild(media);
     gate.appendChild(scrim);
     gate.appendChild(inner);
+
+    /* Instagram link pinned to the bottom of the screen. It shares the
+       password field's fade-in timing (see .gate-social in gate.css). */
+    var social = document.createElement("a");
+    social.className = "gate-social";
+    social.href = INSTAGRAM_URL;
+    social.target = "_blank";
+    social.rel = "noopener";
+    social.setAttribute("aria-label", "Aura Sports Group on Instagram");
+    social.innerHTML =
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" ' +
+        'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+        '<rect x="3" y="3" width="18" height="18" rx="5"/>' +
+        '<circle cx="12" cy="12" r="4"/>' +
+        '<circle cx="17.4" cy="6.6" r="0.7" fill="currentColor" stroke="none"/>' +
+      '</svg>';
+    gate.appendChild(social);
+
     document.body.appendChild(gate);
 
     var play = video.play();
