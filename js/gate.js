@@ -35,6 +35,9 @@
   var POSTER_SRC = BASE + "assets/img/hero-poster.jpg";
   var LOGO_SRC = BASE + "assets/img/aura-logo-gold.png";
   var INSTAGRAM_URL = "https://www.instagram.com/aurasports/?hl=en";
+  /* The contact page is deliberately left ungated so anyone who needs the
+     password has a way to ask for it. */
+  var CONTACT_URL = BASE + "contact";
 
   /* ---------- Locked? ---------- */
 
@@ -122,6 +125,10 @@
           '</button>' +
         '</div>' +
         '<p class="gate-error" role="alert">Incorrect password</p>' +
+        // Inside the form so it rides the same fade-in and drops out with
+        // the field on unlock; .gate-error above reserves its own height,
+        // so the link does not move when an attempt fails.
+        '<a class="gate-contact" href="' + CONTACT_URL + '">Contact us</a>' +
       '</form>';
 
     gate.appendChild(media);

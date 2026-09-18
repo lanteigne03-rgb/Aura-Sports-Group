@@ -264,14 +264,13 @@ html.gate-locked body > *:not(.site-gate) {
   /* Opaque enough to stay legible over the brightest frames of the loop
      (the lime jersey), while still reading as glass over the video. */
   background: rgba(11, 11, 13, 0.62);
-  border: 1px solid rgba(217, 190, 133, 0.30);
-  border-radius: 2px;
+  /* Transparent rather than removed so the field keeps its exact size and
+     the error state below can still flash a red edge. */
+  border: 1px solid transparent;
+  border-radius: 999px;
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   transition: border-color 0.25s ease;
-}
-.gate-field:focus-within {
-  border-color: var(--gold-500, #c6a567);
 }
 
 .gate-input {
@@ -279,7 +278,8 @@ html.gate-locked body > *:not(.site-gate) {
   min-width: 0;
   background: transparent;
   border: none;
-  padding: 15px 14px 15px 18px;
+  padding: 15px 14px 15px 26px;
+  border-radius: 999px 0 0 999px;
   color: var(--white-off, #f4f2ed);
   font-family: var(--font-body, 'Montserrat', sans-serif);
   font-size: 12px;
@@ -310,6 +310,7 @@ html.gate-locked body > *:not(.site-gate) {
   background: transparent;
   border: none;
   border-left: 1px solid rgba(217, 190, 133, 0.22);
+  border-radius: 0 999px 999px 0;
   color: var(--gold-400, #d9be85);
   cursor: pointer;
   transition: background 0.2s ease, color 0.2s ease;
@@ -331,6 +332,34 @@ html.gate-locked body > *:not(.site-gate) {
   transition: opacity 0.2s ease;
 }
 .site-gate.is-error .gate-error { opacity: 1; }
+/* ---------- Contact link ----------
+   Sits under the field for anyone who needs to ask for the password.
+   The contact page is the one page left ungated. Muted well below the
+   field so it reads as a footnote, not a second action; it gains
+   weight on hover. */
+.gate-contact {
+  display: inline-block;
+  margin-top: 2px;
+  color: rgba(244, 242, 237, 0.42);
+  font-family: var(--font-body, 'Montserrat', sans-serif);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(244, 242, 237, 0.16);
+  padding-bottom: 2px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.gate-contact:hover {
+  color: var(--gold-400, #d9be85);
+  border-bottom-color: rgba(217, 190, 133, 0.5);
+}
+.gate-contact:focus-visible {
+  outline: 1px solid var(--gold-500, #c6a567);
+  outline-offset: 3px;
+}
+
 .site-gate.is-error .gate-field {
   border-color: rgba(224, 101, 79, 0.65);
   animation: gateShake 0.4s cubic-bezier(.36, .07, .19, .97);
