@@ -50,20 +50,12 @@
       height: auto;
       display: block;
     }
-    .access-intro {
-      margin: 28px 0 40px;
-      max-width: 420px;
-      color: var(--grey-350);
-      font-family: var(--font-body);
-      font-size: 13px;
-      font-weight: 400;
-      line-height: 1.7;
-      letter-spacing: 0.4px;
-    }
 
     /* Fields: same treatment as the contact page, in a single column so the
        card stays narrow enough to read as a dialog rather than a page. */
     .access-form {
+      /* Carries the space the intro copy used to hold under the logo. */
+      margin-top: 40px;
       width: 100%;
       display: flex;
       flex-direction: column;
@@ -141,11 +133,6 @@
   <main class="access-card">
     <img class="access-logo" src="assets/img/aura-logo-gold.png" alt="Aura Sports Group" width="1000" height="293">
     <h1 class="sr-only">Request access to Aura Sports Group</h1>
-
-    <p class="access-intro">
-      This site is private. Tell us who you are and
-      we'll send the password over.
-    </p>
 
     <form class="access-form" id="accessForm" novalidate>
       <input type="hidden" name="access_key" value="4ba98fc8-1334-481c-ae9a-8769641c0b4e">
