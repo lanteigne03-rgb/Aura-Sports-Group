@@ -33,6 +33,15 @@ window.AURA_NEWS = [
     imagePosition: "center 15%"
   },
   {
+    title: "Tuli Tuipulotu Makes Debut on NFL's Top 100 List at No. 86",
+    publication: "Chargers.com",
+    url: "https://www.chargers.com/news/tuli-tuipulotu-nfl-top-100-contract",
+    date: "2026-07-01",
+    image: "assets/img/news/chargers-tuipulotu.avif",
+    alt: "Tuli Tuipulotu celebrating for the Los Angeles Chargers",
+    imagePosition: "center 20%"
+  },
+  {
     title: "Kenneth Walker's Super Bowl MVP Gives Aura Sports Group a Breakthrough Moment",
     publication: "Sports Business Journal",
     url: "https://www.sportsbusinessjournal.com/Articles/2026/02/16/kenneth-walkers-super-bowl-mvp-gives-aura-sports-group-a-breakthrough-moment/",
