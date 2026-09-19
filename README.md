@@ -33,7 +33,7 @@ Every photo slot renders a styled placeholder until the matching file exists in 
 | `coach.jpg` | Home pathway card, Representation stage |
 | `nfl-hero.jpg` | NFL page hero (wide) |
 | `college-hero.jpg` / `college-lens.jpg` | College page |
-| `high-school-hero.jpg` | Recruits page hero (wide) |
+| `high-school-hero.jpg` | High School page hero (wide) |
 | `coach-hero.jpg` | Coaches page hero (wide) |
 | `draft-performance.jpg` / `draft-environment.jpg` / `draft-interviews.jpg` / `draft-intel.jpg` | Draft Prep parts |
 | `about-story.jpg` | The Agency page |
@@ -46,7 +46,7 @@ The design uses **Dharma Gothic E ExBold Italic** (commercial). The site falls b
 
 ## Before launch
 
-- Replace placeholder service copy on the Recruits and Coaches pages (flagged in the design).
+- Replace placeholder service copy on the High School and Coaches pages (flagged in the design).
 - Replace the `[ Name ]` / title placeholders and photos on the Our Team page with real profiles.
 - Build out the Brand Inquiries page (currently a placeholder shell) — flagged in the design.
 - Replace `[ PUBLICATION ] / [ Headline ]` article placeholders on Home with real coverage.

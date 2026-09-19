@@ -35,7 +35,7 @@
     "<div class='nav-drop'>" +
     "<a href='nfl'><span>NFL</span></a>" +
     "<a href='college-nil'><span>College</span></a>" +
-    "<a href='recruits'><span>Recruits</span></a>" +
+    "<a href='recruits'><span>High School</span></a>" +
     "<a href='coaches'><span>Coaches</span></a>" +
     "</div></li>" +
     "<li data-page='marketing'><a class='nav-link' href='marketing-overview'>Marketing</a>" +
@@ -58,7 +58,7 @@
     "<div class='footer-col'><span class='col-title'>Representation</span>" +
     "<a href='nfl'>NFL</a>" +
     "<a href='college-nil'>College</a>" +
-    "<a href='recruits'>Recruits</a>" +
+    "<a href='recruits'>High School</a>" +
     "<a href='coaches'>Coaches</a></div>" +
     "<div class='footer-col'><span class='col-title'>Marketing</span>" +
     "<a href='marketing-overview'>Overview</a>" +
@@ -243,7 +243,7 @@
 
     // Equalize each dropdown's link widths so every item has the same
     // clickable area regardless of label length — e.g. "NFL" gets padded
-    // out to match "Recruits" instead of having a noticeably tighter hit
+    // out to match "High School" instead of having a noticeably tighter hit
     // box. Measured per dropdown (not globally), since About/Marketing/
     // Representation each have their own widest label.
     var equalizeDropdownWidths = function () {

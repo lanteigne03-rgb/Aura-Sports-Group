@@ -470,7 +470,7 @@ ul {
   /* base size is shrink-wrapped to the label itself (plus a small
      click-comfort margin); site.js then widens every link in a given
      dropdown to match its widest sibling, so e.g. "NFL" gets as much
-     clickable width as "Recruits" instead of a visibly tighter hit box.
+     clickable width as "High School" instead of a visibly tighter hit box.
      text-align centers the (usually shorter) label within that widened
      box once JS sets an explicit width. */
   display: block;
