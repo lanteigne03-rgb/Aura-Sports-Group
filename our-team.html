@@ -47,13 +47,6 @@
       text-align: center;
       gap: 14px;
     }
-    .card-person .media-ph {
-      width: 128px;
-      height: 128px;
-      aspect-ratio: 1 / 1;
-      border-radius: 50%;
-    }
-    .card-person .media-ph::after { font-size: 8px; letter-spacing: 1.6px; }
     .card-person .name {
       font-family: var(--font-display);
       font-style: italic;
@@ -70,13 +63,12 @@
       text-transform: uppercase;
       color: var(--gold-500);
     }
-    @media (max-width: 520px) {
-      .card-person .media-ph { width: 108px; height: 108px; }
-    }
 
     .team-hero { background: var(--ink-850); min-height: 0; padding: 140px var(--pad-x) 48px; }
     .team-grid-section { padding-top: 40px; padding-bottom: 40px; }
-    .team-grid { row-gap: 44px; }
+    .team-grid { display: flex; flex-direction: column; gap: 44px; }
+    .team-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 44px 24px; }
+    .team-row .card-person { flex: 0 1 280px; }
   </style>
   <script type="application/ld+json">
 {
@@ -175,48 +167,36 @@
 
   <!-- Team grid -->
   <section class="section team-grid-section">
-    <div class="grid-4 reveal team-grid">
-      <div class="card-person">
-        <div class="media-ph" data-label="Team Photo">
-          <img src="assets/img/team/canter-headshot.jpg" alt="David Canter">
+    <div class="team-grid reveal">
+      <div class="team-row">
+        <div class="card-person">
+          <div class="name">David Canter</div>
+          <span class="role">CEO &amp; NFLPA Certified Agent</span>
         </div>
-        <div class="name">David Canter</div>
-        <span class="role">CEO &amp; NFLPA Certified Agent</span>
+        <div class="card-person">
+          <div class="name">Ness Mugrabi</div>
+          <span class="role">President &amp; NFLPA Certified Agent</span>
+        </div>
       </div>
-      <div class="card-person">
-        <div class="media-ph" data-label="Team Photo">
-          <img src="assets/img/team/mugrabi-headshot.jpg" alt="Ness Mugrabi">
+      <div class="team-row">
+        <div class="card-person">
+          <div class="name">Brian McIntyre</div>
+          <span class="role">Head of Football Analytics</span>
         </div>
-        <div class="name">Ness Mugrabi</div>
-        <span class="role">President &amp; NFLPA Certified Agent</span>
       </div>
-      <div class="card-person">
-        <div class="media-ph" data-label="Team Photo">
-          <img src="assets/img/team/mcintyre-headshot.jpg" alt="Brian McIntyre">
+      <div class="team-row">
+        <div class="card-person">
+          <div class="name">Quinn Daly</div>
+          <span class="role">Director of NIL</span>
         </div>
-        <div class="name">Brian McIntyre</div>
-        <span class="role">Head of Football Analytics</span>
-      </div>
-      <div class="card-person">
-        <div class="media-ph" data-label="Team Photo">
-          <img src="assets/img/team/daly-headshot.jpg" alt="Quinn Daly">
+        <div class="card-person">
+          <div class="name">Gabriel Kadoori</div>
+          <span class="role">VP, Co-Head of Marketing</span>
         </div>
-        <div class="name">Quinn Daly</div>
-        <span class="role">Director of NIL</span>
-      </div>
-      <div class="card-person">
-        <div class="media-ph" data-label="Team Photo">
-          <img src="assets/img/team/kadoori-headshot.jpg" alt="Gabriel Kadoori">
+        <div class="card-person">
+          <div class="name">Ethan Kirschner</div>
+          <span class="role">VP, Co-Head of Marketing</span>
         </div>
-        <div class="name">Gabriel Kadoori</div>
-        <span class="role">VP, Co-Head of Marketing</span>
-      </div>
-      <div class="card-person">
-        <div class="media-ph" data-label="Team Photo">
-          <img src="assets/img/team/kirschner-headshot.jpg" alt="Ethan Kirschner">
-        </div>
-        <div class="name">Ethan Kirschner</div>
-        <span class="role">VP, Co-Head of Marketing</span>
       </div>
     </div>
   </section>
