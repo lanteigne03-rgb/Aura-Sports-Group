@@ -29,7 +29,7 @@ Every photo slot renders a styled placeholder until the matching file exists in 
 |---|---|
 | `nfl-action.jpg` | Home pathway card, Representation stage |
 | `college-football.jpg` | Home pathway card, Representation stage |
-| `high-school-football.jpg` | Home pathway card, Representation stage |
+| `high-school-cover.jpg` | High School pathway card (Home + Representation) |
 | `coach.jpg` | Home pathway card, Representation stage |
 | `nfl-hero.jpg` | NFL page hero (wide) |
 | `college-hero.jpg` / `college-lens.jpg` | College page |
